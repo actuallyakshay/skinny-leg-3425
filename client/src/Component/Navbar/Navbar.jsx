@@ -2,6 +2,7 @@ import { Box, Flex, Image, Input, Text, useDisclosure } from "@chakra-ui/react";
 import { FiChevronDown } from "react-icons/fi";
 import { IoPersonOutline, IoSearchOutline } from "react-icons/io5";
 import { CiDiscount1 } from "react-icons/ci";
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { BsCart } from "react-icons/bs";
 import "./navbar.css";
 import logo from "./logo.png";
@@ -21,12 +22,23 @@ export const Navbar = () => {
         borderBottom={"1px solid #D7DFE5"}
       >
         <Flex
-          borderRight={"1px solid #D7DFE5"}
-          px={["20px", "20px", "20px", "80px"]}
+          align={"center"}
+          borderRight={["none", "none", "1px solid #D7DFE5"]}
+          px={["0", "0", "0", "80px"]}
+          gap={{ base: "3", md: "5" }}
         >
+          <Box
+            fontSize={"24px"}
+            display={["block", "block", "block", "block", "none", "none"]}
+          >
+            <AiOutlineMenuUnfold />
+          </Box>
           <Image w={"40px"} src={logo}></Image>
         </Flex>
-        <Box px={"20px"}>
+        <Box
+          px={"20px"}
+          display={["none", "none", "none", "none", "block", "block"]}
+        >
           <Text display={"flex"} color="gray" fontSize="12px">
             <Image src="https://assets.pharmeasy.in/apothecary/images/ic_express%20delivery.svg?dim=16x0"></Image>
             Express delivery to
@@ -43,10 +55,11 @@ export const Navbar = () => {
         </Box>
         <Flex
           align={"center"}
-          w={{ lg: "35%", md: "40%" }}
+          w={{ lg: "35%", md: "50%" }}
           px={"20px"}
           h="full"
           color={"gray"}
+          display={["none", "none", "flex", "flex", "flex", "flex"]}
         >
           <Flex
             align={"center"}
@@ -109,16 +122,21 @@ export const Navbar = () => {
             gap="1"
             display={["none", "none", "none", "none", "flex", "flex"]}
           >
-            <IoPersonOutline />
+            <IoPersonOutline fontSize="20px" />
             Hello,Log In
           </Flex>
           <Flex align={"center"} gap="1">
-            <CiDiscount1 />
-            Offers
+            <CiDiscount1 fontSize="20px" />
+            <Text display={["none", "none", "flex", "flex", "flex", "flex"]}>
+              {" "}
+              Offers
+            </Text>
           </Flex>
           <Flex align={"center"} gap="1">
-            <BsCart />
-            Cart
+            <BsCart fontSize="20px" />
+            <Text display={["none", "none", "flex", "flex", "flex", "flex"]}>
+              Cart
+            </Text>
           </Flex>
         </Flex>
       </Flex>
