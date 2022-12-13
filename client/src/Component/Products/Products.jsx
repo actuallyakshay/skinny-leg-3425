@@ -3,15 +3,19 @@ import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 import styled from "styled-components";
 import Filter from '../filter/Filter';
 import { Box, Text , Select} from "@chakra-ui/react"
+import Filterbutton from '../filter/Filterbutton';
 
 const Products = () => {
 
   return (
    <>
-   
     <WrapperBreadcrumb>
      <Breadcrumbs step1 step2 step3 />
      </WrapperBreadcrumb>
+
+     <ButtonFilterWrapper>
+    <Filterbutton />
+    </ButtonFilterWrapper>
 
   <div className='product-main-container'>
      
@@ -50,6 +54,13 @@ const Products = () => {
 }
 
 export default Products
+
+const ButtonFilterWrapper = styled.div`
+
+width: 70%;
+margin: auto;
+margin-bottom: 30px
+`
 
 const WrapperBreadcrumb = styled.div`
 width: 100%;
