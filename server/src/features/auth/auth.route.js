@@ -18,19 +18,19 @@ app.post("/login", async (req, res) => {
   const { email, password, phoneNumber } = req.body;
   try {
     if (phoneNumber) {
-      let user = await User.findOne({ phoneNumber });
+      let user = await User.findOne({ phoneNumber: phoneNumber });
       if (user) {
-        let token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
+        const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
         return res.send({ token });
       } else {
         let temp = await User.create({
-          ...req.body,
+          phoneNumber,
           role: "Guest",
         });
-        let token = jwt.sign({ _id: temp._id }, process.env.SECRET_KEY);
-        return res.send({ token });
+        const token1 = jwt.sign({ _id: temp._id }, process.env.SECRET_KEY);
+        return res.send({ token: token1 });
       }
-    } else {
+    } else if (email) {
       let user = await User.findOne({ email });
       if (!user) {
         return res.status(404).send("Please Signup first");
