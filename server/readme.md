@@ -54,3 +54,9 @@ url = axios.get(`${process.env.REACT_APP_URL}/product?category=${category}&q=${q
 - please change the query in the dispatch function from frontend,
 
 ### URL, POST, SECRET_KEY
+
+
+## categories
+
+
+@Masai Ujjwal  "category":"healthPackages", @Masai Ujjwal   "category": "labtest",   "category": "ayurvedic",    "category": "babycare",     "category": "diabetes",      "category": "disinfactents",    "category": "healthcareDevices",      "category": "healthFood",         "category": "immunity",        "category": "medicine",       "category": "sale",  @Masai Saroj  this is sale cat.  ,    "category": "mens",       "category": "skincare",        "category": "stomach",
