@@ -1,4 +1,5 @@
 const express = require("express");
+const { db } = require("./product.model");
 const Product = require("./product.model");
 
 const app = express.Router();
@@ -66,18 +67,18 @@ app.get("", async (req, res) => {
       }
     } else if (category) {
       let products = await Product.find({ category: category })
-        .limit((page - 1) * limit)
-        .skip(20);
+        .skip((page - 1) * limit)
+        .limit(20);
       return res.send(products);
     } else {
       let products = await Product.find()
-        .limit((page - 1) * limit)
-        .skip(20);
+        .skip((page - 1) * limit)
+        .limit(20);
       return res.send(products);
     }
     let products = await Product.find()
-      .limit((page - 1) * limit)
-      .skip(20);
+      .skip((page - 1) * limit)
+      .limit(20);
     return res.send(products);
   } catch (e) {
     return res.send(e.mesasge);
