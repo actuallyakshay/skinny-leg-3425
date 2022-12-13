@@ -59,4 +59,40 @@ url = axios.get(`${process.env.REACT_APP_URL}/product?category=${category}&q=${q
 ## categories
 
 
-@Masai Ujjwal  "category":"healthPackages", @Masai Ujjwal   "category": "labtest",   "category": "ayurvedic",    "category": "babycare",     "category": "diabetes",      "category": "disinfactents",    "category": "healthcareDevices",      "category": "healthFood",         "category": "immunity",        "category": "medicine",       "category": "sale",  @Masai Saroj  this is sale cat.  ,    "category": "mens",       "category": "skincare",        "category": "stomach",
+"category": "ayurvedic",    "category": "babycare",     "category": "diabetes",      "category": "disinfactents",    "category": "healthcareDevices",      "category": "healthFood",         "category": "immunity",        "category": "medicine",       "category": "sale",    ,    "category": "mens",       "category": "skincare",        "category": "stomach",
+
+
+
+1) Sale                                         LH- price
+                                                HL
+                                                DIs - HL
+                                                LH
+2) ayurvedic
+3) babycare
+3) diabetes
+3) disinfactents
+3) healthcareDevices
+3) healthFood
+3) immunity
+3) medicine
+3) mens
+3) stomach
+3) skincare
+
+ ## % discount  ( 0 to 5%)  - like
+
+- 0 to 10
+- 10 to 15
+- 15 to 40
+- more thn 40
+
+1 to 200
+200 - 800
+800 - 1600
+1600 - 3000
+more thn 3000
+
+
+
+
+pegination  => 
