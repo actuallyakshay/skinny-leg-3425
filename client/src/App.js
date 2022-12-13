@@ -1,11 +1,10 @@
-import Products from "./Component/Products/Products";
+import { Navbar } from "./Component/Navbar/Navbar";
 
 function App() {
   return (
-    <div>
-      <h1></h1>
-      <Products />
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 }
 
