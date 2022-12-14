@@ -1,9 +1,9 @@
-import { Navbar } from "./Component/Navbar/Navbar";
+import {LabTest} from "./Pages/LabTest"
 
 function App() {
   return (
     <>
-      <Navbar />
+      <LabTest/>
     </>
   );
 }
