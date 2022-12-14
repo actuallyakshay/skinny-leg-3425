@@ -46,7 +46,6 @@ app.get("", async (req, res) => {
   }
 });
 
-
 app.post("", async (req, res) => {
   try {
     let dbProduct = await Product.findOne({ _id: req.body.product });
@@ -124,9 +123,14 @@ app.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     let cartItem = await Cart.findById({ _id: id });
-     
-      
-      
+    await Product.findByIdAndUpdate(
+      { _id: cartItem.product },
+      {
+        $inc: { quantity: cartItem.quantity },
+      }
+    );
+    await Cart.findByIdAndDelete({ _id: id });
+    res.send("Deleted Successfully");
   } catch (e) {
     res.send(e.message);
   }

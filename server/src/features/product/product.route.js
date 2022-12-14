@@ -1,5 +1,7 @@
 const express = require("express");
 const Product = require("./product.model");
+const jwt = require("jsonwebtoken");
+const User = require("../auth/auth.model");
 
 const app = express.Router();
 
@@ -91,6 +93,58 @@ app.get("/:id", async (req, res) => {
     res.send(product);
   } catch (e) {
     res.send(e.message);
+  }
+});
+
+app.patch("/:id", async (req, res) => {
+  let token = req.headers.token;
+  const { title, stars, type } = req.body;
+  console.log({ stars });
+  const { id } = req.params;
+  try {
+    let decode = jwt.decode(token, process.env.SECRET_KEY);
+    if (!decode) {
+      return res.send("Invalid token");
+    } else {
+      let user = await User.findById({ _id: decode._id });
+      if (!user) {
+        return res.send("User not found");
+      } else {
+        if (!type) {
+          return res.send("type is missing");
+        } else if (type == "rating") {
+          let product = await Product.findByIdAndUpdate(
+            { _id: id },
+            {
+              $push: {
+                ratings: {
+                  user_name: user?.name,
+                  user_image: user?.user_image,
+                  stars: stars,
+                },
+              },
+            }
+          );
+          return res.send(product);
+        } else if (type == "review") {
+          let product = await Product.findByIdAndUpdate(
+            { _id: id },
+            {
+              $push: {
+                reviews: {
+                  user_name: user?.name,
+                  user_image: user?.user_image,
+                  title: title,
+                },
+              },
+            }
+          );
+          return res.send(product);
+        }
+      }
+    }
+  } catch (e) {
+    return res.send(e.message);
   }
 });
 

@@ -2,7 +2,6 @@ const express = require("express");
 const User = require("./auth.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { findOne } = require("./auth.model");
 const app = express.Router();
 
 app.get("", async (req, res) => {
@@ -75,6 +74,51 @@ app.post("/signup", async (req, res) => {
     }
   } catch (e) {
     res.status(400).send(e.message);
+  }
+});
+
+app.patch("", async (req, res) => {
+  const {
+    name,
+    email,
+    pincode,
+    password,
+    address,
+    phoneNumber,
+    age,
+    gender,
+    user_image,
+  } = req.body;
+  const token = req.headers.token;
+  try {
+    if (!token) {
+      return res.send("Missing token");
+    } else {
+      const decode = jwt.decode(token, process.env.SECRET_KEY);
+      if (!decode) {
+        return res.send("Wrong token");
+      } else {
+        let user = await User.findByIdAndUpdate(
+          { _id: decode._id },
+          {
+            $set: {
+              name,
+              email,
+              pincode,
+              password,
+              phoneNumber,
+              age,
+              gender,
+              user_image,
+            },
+            $push: { address: address },
+          }
+        );
+        return res.send(user);
+      }
+    }
+  } catch (e) {
+    req.send(e.message);
   }
 });
 
