@@ -19,7 +19,8 @@ export const Home = () => {
                 <BsCardList /> Order with prescription.{" "}
                 <Flex
                   align={"center"}
-                  color={"teal"}
+                  color={"#10847E"}
+                  _hover={{ color: "#0A534F" }}
                   cursor="pointer"
                   fontWeight={"semibold"}
                   gap="2px"
@@ -109,6 +110,7 @@ export const Home = () => {
               />
             </Flex>
           </Box>
+          <Box></Box>
         </Box>
       </Box>
     </Box>

@@ -24,6 +24,7 @@ import { useRef } from "react";
 import { Login } from "../Login/Login";
 import { Location } from "./Location";
 import { SearchBox } from "./SearchBox";
+import { RouteLinks } from "./RouteLinks";
 export const Navbar = ({ name, avatar, pin }) => {
   const {
     isOpen: issidebarOpen,
@@ -168,6 +169,18 @@ export const Navbar = ({ name, avatar, pin }) => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
+      <Box w="full" h="40px" borderBottom={"1px solid #D7DFE5"}>
+        <Flex h="full" justify={"center"} align="center">
+          <RouteLinks mx="-4px" title={"Medicine"} />
+          <RouteLinks mx="-4px" title={"Lab Test"} />
+          <RouteLinks mx="-4px" title={"Healthcare"} />
+          <RouteLinks mx="-4px" title={"Surgeries"} />
+          <RouteLinks mx="4px" title={"Health Blogs"} />
+          <RouteLinks mx={"-20px"} title={"PLUS"} />
+          <RouteLinks mx={"-20px"} title={"Offers"} />
+          <RouteLinks title={"Value Store"} />
+        </Flex>
+      </Box>
     </Box>
   );
 };

@@ -23,7 +23,7 @@ export const SearchBox = () => {
     >
       <Flex
         align={"center"}
-        border="1px solid #8897A2"
+        border="1px solid #D7DFE5"
         borderRadius={"2xl"}
         py="2px"
         pl="10px"
@@ -61,7 +61,7 @@ export const SearchBox = () => {
 
         <Box
           bg={"#10847E"}
-          _hover={{ background: "#0E746E" }}
+          _hover={{ background: "#0A534F" }}
           px="14px"
           py="8px"
           borderRadius={"2xl"}
