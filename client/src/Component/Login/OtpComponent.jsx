@@ -45,10 +45,16 @@ export const OtpComponent = ({ number, setOtp, setNumber }) => {
               )}
             </Field>
             <Flex justify={"space-between"} py="4" fontSize={"14px"}>
-              <Text color={"teal"} onClick={() => setNumber(null)}>
+              <Text
+                cursor={"pointer"}
+                color={"teal"}
+                onClick={() => setNumber(null)}
+              >
                 Change Number
               </Text>
-              <Text color={"teal"}>Resend OTP</Text>
+              <Text cursor={"pointer"} color={"teal"}>
+                Resend OTP
+              </Text>
             </Flex>
             <Button
               colorScheme="teal"

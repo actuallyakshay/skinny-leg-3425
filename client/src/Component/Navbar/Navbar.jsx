@@ -9,12 +9,11 @@ import {
   DrawerOverlay,
   Flex,
   Image,
-  Input,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { FiChevronDown } from "react-icons/fi";
-import { IoPersonOutline, IoSearchOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
 import { CiDiscount1 } from "react-icons/ci";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { BsCart } from "react-icons/bs";
@@ -24,12 +23,8 @@ import { Sidebar } from "./Sidebar";
 import { useRef } from "react";
 import { Login } from "../Login/Login";
 import { Location } from "./Location";
-export const Navbar = ({ name, avatar }) => {
-  const {
-    isOpen: isSearch,
-    onOpen: onSearch,
-    onClose: onCloseSearch,
-  } = useDisclosure();
+import { SearchBox } from "./SearchBox";
+export const Navbar = ({ name, avatar, pin }) => {
   const {
     isOpen: issidebarOpen,
     onOpen: onsidebarOpen,
@@ -48,10 +43,7 @@ export const Navbar = ({ name, avatar }) => {
     onClose: onLoginClose,
   } = useDisclosure();
   const logRef = useRef();
-  const focusText = () => {
-    document.getElementById("myText").focus();
-    onSearch();
-  };
+
   return (
     <Box>
       <Flex
@@ -64,7 +56,8 @@ export const Navbar = ({ name, avatar }) => {
         <Flex
           align={"center"}
           borderRight={["none", "none", "1px solid #D7DFE5"]}
-          px={["0", "0", "0", "40px", "80px"]}
+          pr={["0", "0", "0", "20px", "40px"]}
+          pl={["0", "0", "0", "10px", "20px"]}
           gap={{ base: "3", md: "5" }}
         >
           <Button
@@ -76,7 +69,7 @@ export const Navbar = ({ name, avatar }) => {
           >
             <AiOutlineMenuUnfold />
           </Button>
-          <Image w={"40px"} src={logo}></Image>
+          <Image w="150px" src={logo}></Image>
         </Flex>
         <Box
           px={"20px"}
@@ -95,72 +88,13 @@ export const Navbar = ({ name, avatar }) => {
             onClick={onLocOpen}
             cursor="pointer"
           >
-            Select Pincode <FiChevronDown />
+            <Text>{pin ? pin : "Select Pincode"}</Text>
+            <FiChevronDown />
           </Flex>
         </Box>
-        <Flex
-          align={"center"}
-          w={{ lg: "35%", md: "50%" }}
-          px={"20px"}
-          h="full"
-          color={"gray"}
-          display={["none", "none", "flex", "flex", "flex", "flex"]}
-        >
-          <Flex
-            align={"center"}
-            border="1px solid #8897A2"
-            borderRadius={"14px"}
-            py="2px"
-            pl="10px"
-            justify={"space-between"}
-            h="75%"
-            w="full"
-          >
-            <Flex
-              align={"center"}
-              w="full"
-              onClick={focusText}
-              onBlur={onCloseSearch}
-            >
-              <IoSearchOutline />
-              <Flex ml={"5px"} w="full" position="relative" fontSize={"15px"}>
-                <Input
-                  id="myText"
-                  variant={"unstyled"}
-                  onBlur={onCloseSearch}
-                  border="none"
-                  w="full"
-                  placeholder="Search for"
-                ></Input>
-                <Box
-                  className="animated-text"
-                  display={isSearch ? "none" : "block"}
-                >
-                  <div className="line">Medicine</div>
-                  <div className="line">Shampoo</div>
-                  <div className="line">Health Drinks</div>
-                  <div className="line">Home Care</div>
-                </Box>
-              </Flex>
-            </Flex>
-
-            <Box
-              bg={"#10847E"}
-              _hover={{ background: "#0E746E" }}
-              px="14px"
-              py="8px"
-              borderRadius={"15px"}
-              cursor="pointer"
-              transition={"all"}
-              transitionDuration="500ms"
-              color={"white"}
-              mr="5px"
-              fontWeight={"semibold"}
-            >
-              Search
-            </Box>
-          </Flex>
-        </Flex>
+        <Box w={{ md: "35%", lg: "45%" }}>
+          <SearchBox />
+        </Box>
         <Flex mr="30px" gap={"20px"} w="20%">
           <Flex
             align={"center"}
@@ -230,7 +164,7 @@ export const Navbar = ({ name, avatar }) => {
           <DrawerCloseButton />
 
           <DrawerBody>
-            <Location />
+            <Location onLogin={onLoginOpen} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
