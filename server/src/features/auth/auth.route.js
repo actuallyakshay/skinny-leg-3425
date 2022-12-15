@@ -118,7 +118,7 @@ app.patch("", async (req, res) => {
       }
     }
   } catch (e) {
-    req.send(e.message);
+    req.status(404).Usersend(e.message);
   }
 });
 
