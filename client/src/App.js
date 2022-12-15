@@ -7,15 +7,13 @@ import { Router } from "./Component/Router/Router";
 function App() {
   return (
     <>
-<<<<<<< HEAD
-     <LabTest/>
-=======
-      <Navbar />
+     
 
-      <Products />
+      <Navbar />
+      <LabTest/>
+      <Products />  
       <Router />
 
->>>>>>> main
     </>
   );
 }
