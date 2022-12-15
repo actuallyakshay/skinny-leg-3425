@@ -1,10 +1,22 @@
+import {LabTest} from "./Pages/LabTest"
+
+import Products from "./Component/Products/Products";
+import { Router } from "./Component/Router/Router";
 
 
 function App() {
   return (
-    <div>
-      <h1>Hello !</h1>
-    </div>
+    <>
+<<<<<<< HEAD
+     <LabTest/>
+=======
+      <Navbar />
+
+      <Products />
+      <Router />
+
+>>>>>>> main
+    </>
   );
 }
 
