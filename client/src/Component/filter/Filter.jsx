@@ -30,7 +30,7 @@ const Filter = () => {
     <hr />
 
     <Box mt={8} mb={8}>
-        <Text color="#4F585E" fontSize="18px" fontWeight="700"> Brand</Text>
+        <Text color="#4F585E" fontSize="18px" fontWeight="700"> Filter By</Text>
     </Box>
 
     <Box position="relative" alignItems="center" >
@@ -40,7 +40,7 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>&me</Text>
+            <Text>Ayurdevic</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
@@ -50,7 +50,7 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>2baconil</Text>
+            <Text>Medicine</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
@@ -60,7 +60,7 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>3 Ply</Text>
+            <Text>Babycare</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
@@ -70,7 +70,7 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>3m Avagard</Text>
+            <Text>Diabetes</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
@@ -80,7 +80,57 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>A2 Lite</Text>
+            <Text>Health Food</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Immunity</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Mens</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Skin Care</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Dis-Infactants</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Healthcare Devices</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
@@ -100,13 +150,75 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>100 - 199</Text>
+            <Text>0 - 100</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(3)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>100 - 200</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
              <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
         </Box>
     </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>200 - 400</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(2)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+ 
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>400 - 800</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(6)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>800 - 1600</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(3)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>1600 - 3000</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(7)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>3000 and above</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(2)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
 
     </>
   )

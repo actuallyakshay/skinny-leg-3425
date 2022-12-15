@@ -1,14 +1,19 @@
 import axios from "axios";
 import { PRODUCT_FAILURE, PRODUCT_LOADING, PRODUCT_SUCCESS } from "./productActionTypes";
 
-export const getData = (page,limit) => async(dispatch) => {
-    dispatch({ type: PRODUCT_LOADING});
+let URL = process.env.REACT_APP_URL;
+
+export const getData = (category, q, sort, arr, off, offSet, firstLetter, page, limit) => async (dispatch) => {
+    dispatch({ type: PRODUCT_LOADING });
     try {
-    let response = await axios.get(`${process.env.REACT_APP_URL}/product?page=${page}&limit=${limit}`);
-    dispatch({ type:PRODUCT_SUCCESS , payload : response.data });
-    return response.data;
+        // let response = await axios.get(`${URL}/product?category=${category}&q=${q}&sort=${sort}&arr=${arr}&off=${off}&offSet=${offSet}&firstLetter=${firstLetter}&page=${page}&limit=${limit}`);
+        let response = await axios.get(`${URL}/product?category=${category}`)
+        dispatch({ type: PRODUCT_SUCCESS, payload: response.data });
+        console.log(response.data)
+        // return response.data;
     } catch (error) {
-     dispatch({ type: PRODUCT_FAILURE , payload: error.message })
+        console.log(error.message)
+        dispatch({ type: PRODUCT_FAILURE, payload: error.message })
     }
-    
+
 }
