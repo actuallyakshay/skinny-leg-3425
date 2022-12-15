@@ -1,4 +1,4 @@
-import { Navbar } from "./Component/Navbar/Navbar";
+import {LabTest} from "./Pages/LabTest"
 
 import Products from "./Component/Products/Products";
 import { Router } from "./Component/Router/Router";
@@ -7,11 +7,15 @@ import { Router } from "./Component/Router/Router";
 function App() {
   return (
     <>
+<<<<<<< HEAD
+     <LabTest/>
+=======
       <Navbar />
 
       <Products />
       <Router />
 
+>>>>>>> main
     </>
   );
 }

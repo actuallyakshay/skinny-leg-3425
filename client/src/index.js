@@ -8,12 +8,22 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+<<<<<<< HEAD
+  <React.StrictMode>
+  <BrowserRouter>
+    <ChakraProvider>
+      <App />
+     </ChakraProvider>
+  </BrowserRouter>
+</React.StrictMode>
+=======
   <BrowserRouter>
     <ChakraProvider>
       <App />
     </ChakraProvider>
   </BrowserRouter>
 
+>>>>>>> main
 );
 
 // If you want to start measuring performance in your app, pass a function
