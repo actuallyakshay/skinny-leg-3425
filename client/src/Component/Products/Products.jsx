@@ -99,6 +99,7 @@ if(isError){
               alt={data.alt}
               name={data.name}
               price={data.price}
+              price1={data.price1}
               />
             ))
            }
