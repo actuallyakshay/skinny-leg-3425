@@ -7,6 +7,7 @@ const connect = require("./config/db");
 const PORT = process.env.PORT;
 const userRoute = require("./features/auth/auth.route");
 const productRoute = require("./features/product/product.route");
+const cartRoute = require("./features/cart/cart.route");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/user", userRoute);
 app.use("/product", productRoute);
+app.use("/cart", cartRoute);
 
 httpServer.listen(PORT, async (req, res) => {
   try {

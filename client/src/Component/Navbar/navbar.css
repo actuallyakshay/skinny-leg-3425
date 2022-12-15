@@ -1,0 +1,62 @@
+.animated-text {
+  height: 40px;
+  overflow: hidden;
+  padding-left: 8px;
+  position: absolute;
+  top: -8px;
+  left: 68px;
+}
+.line {
+  font-size: 15px;
+  line-height: 40px;
+}
+.line:first-child {
+  animation: animate 12s infinite;
+}
+#myText:focus::placeholder {
+  color: transparent;
+}
+@keyframes animate {
+  0% {
+    margin-top: 0px;
+  }
+  16% {
+    margin-top: -40px;
+  }
+  33% {
+    margin-top: -80px;
+  }
+  50% {
+    margin-top: -120px;
+  }
+  66% {
+    margin-top: -80px;
+  }
+  82% {
+    margin-top: -40px;
+  }
+  100% {
+    margin-top: 0px;
+  }
+}
+.sidebar {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.sidebar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.homepage_topsection {
+  background-image: radial-gradient(
+      150px 150px at 95% 0%,
+      rgba(253, 186, 43, 0.3) 0%,
+      rgba(253, 186, 43, 0) 100%
+    ),
+    radial-gradient(
+      150px 150px at 5% 0%,
+      rgba(120, 213, 242, 0.3) 0%,
+      rgba(253, 186, 43, 0) 100%
+    );
+}
