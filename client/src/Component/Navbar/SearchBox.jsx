@@ -13,14 +13,7 @@ export const SearchBox = () => {
     onSearch();
   };
   return (
-    <Flex
-      align={"center"}
-      w="full"
-      px={"20px"}
-      h="full"
-      color={"gray"}
-      display={["none", "none", "flex", "flex", "flex", "flex"]}
-    >
+    <Flex align={"center"} w="full" px={"20px"} h="full" color={"gray"}>
       <Flex
         align={"center"}
         border="1px solid #D7DFE5"

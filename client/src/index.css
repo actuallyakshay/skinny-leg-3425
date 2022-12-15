@@ -1,13 +1,74 @@
+:root {
+  --colors-primaryA100: #d7faf8;
+  --colors-primaryA200: #5eebe4;
+  --colors-primaryA400: #15aca5;
+  --colors-primaryA600: #10847e;
+  --colors-primaryA800: #0e746e;
+  --colors-primaryA1000: #0a534f;
+  --colors-primaryB: #f4c324;
+  --colors-feedbackSuccess100: #f2fff8;
+  --colors-feedbackSuccess200: #bfeddd;
+  --colors-feedbackSuccess400: #81dcba;
+  --colors-feedbackSuccess600: #62bf9f;
+  --colors-feedbackSuccess800: #45a081;
+  --colors-feedbackSuccess1000: #38544a;
+  --colors-feedbackError100: #fff5f5;
+  --colors-feedbackError200: #fcc0c2;
+  --colors-feedbackError400: #fe9395;
+  --colors-feedbackError600: #f47779;
+  --colors-feedbackError800: #cc4c4e;
+  --colors-feedbackError1000: #583536;
+  --colors-feedbackWarning100: #fff2e8;
+  --colors-feedbackWarning200: #ffc9a0;
+  --colors-feedbackWarning400: #ffae71;
+  --colors-feedbackWarning600: #ff9341;
+  --colors-feedbackWarning800: #cf7530;
+  --colors-feedbackWarning1000: #38544a;
+  --colors-feedbackAssist600: #3e415b;
+  --colors-neutralDark100: #d7dfe5;
+  --colors-neutralDark200: #8897a2;
+  --colors-neutralDark400: #6e787e;
+  --colors-neutralDark600: #4f585e;
+  --colors-neutralDark800: #30363c;
+  --colors-neutralLight0: #ffffff;
+  --colors-neutralLight10: #eef4ff;
+  --colors-neutralLight20: #edf2f9;
+  --colors-neutralLight40: #e6ebf4;
+  --colors-neutralLight60: #dce4f1;
+  --colors-neutralLight80: #b4c0d3;
+  --colors-diagnosticPrimary100: #ebf2ff;
+  --colors-diagnosticPrimary200: #b5cdf7;
+  --colors-diagnosticPrimary400: #7ea7f2;
+  --colors-diagnosticPrimary600: #3b7aef;
+  --colors-diagnosticPrimary800: #3661b0;
+  --colors-diagnosticPrimary1000: #2f446b;
+  --colors-diagnosticIllustration100: #cef8ff;
+  --colors-diagnosticIllustration200: #a6effc;
+  --colors-diagnosticIllustration400: #70dff3;
+  --colors-diagnosticIllustration600: #3dcde6;
+  --colors-diagnosticIllustration800: #1fa4bb;
+  --colors-diagnosticIllustration1000: #187484;
+  --colors-diagnosticSecondary100: #ffeff3;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.highText {
+  color: #10847e;
+  font-weight: bold;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+.highText:hover {
+  color: #0a534f;
 }

@@ -1,21 +1,11 @@
-import {LabTest} from "./Pages/LabTest"
-
-import Products from "./Component/Products/Products";
+import { Navbar } from "./Component/Navbar/Navbar";
 import { Router } from "./Component/Router/Router";
-
 
 function App() {
   return (
     <>
-<<<<<<< HEAD
-     <LabTest/>
-=======
       <Navbar />
-
-      <Products />
       <Router />
-
->>>>>>> main
     </>
   );
 }
