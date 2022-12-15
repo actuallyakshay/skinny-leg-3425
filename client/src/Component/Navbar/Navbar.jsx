@@ -20,7 +20,7 @@ import { BsCart } from "react-icons/bs";
 import "./navbar.css";
 import logo from "./logo.png";
 import { Sidebar } from "./Sidebar";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Login } from "../Login/Login";
 import { Location } from "./Location";
 import { SearchBox } from "./SearchBox";
@@ -44,9 +44,19 @@ export const Navbar = ({ name, avatar, pin }) => {
     onClose: onLoginClose,
   } = useDisclosure();
   const logRef = useRef();
-
+  const [active, setActive] = useState(" ");
+  useEffect(() => {
+    window.addEventListener("scroll", stickNavbar);
+    return () => window.removeEventListener("scroll", stickNavbar);
+  }, []);
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 40 ? setActive("navbar") : setActive("");
+    }
+  };
   return (
-    <Box>
+    <Box className={`${active} nav`} bg="white">
       <Flex
         h={"64px"}
         align="center"
@@ -93,7 +103,10 @@ export const Navbar = ({ name, avatar, pin }) => {
             <FiChevronDown />
           </Flex>
         </Box>
-        <Box w={{ md: "35%", lg: "45%" }}>
+        <Box
+          w={{ md: "50%", lg: "40%" }}
+          display={["none", "none", "flex", "flex", "flex", "flex"]}
+        >
           <SearchBox />
         </Box>
         <Flex mr="30px" gap={"20px"} w="20%">
@@ -170,16 +183,44 @@ export const Navbar = ({ name, avatar, pin }) => {
         </DrawerContent>
       </Drawer>
       <Box w="full" h="40px" borderBottom={"1px solid #D7DFE5"}>
-        <Flex h="full" justify={"center"} align="center">
-          <RouteLinks mx="-4px" title={"Medicine"} />
-          <RouteLinks mx="-4px" title={"Lab Test"} />
-          <RouteLinks mx="-4px" title={"Healthcare"} />
-          <RouteLinks mx="-4px" title={"Surgeries"} />
-          <RouteLinks mx="4px" title={"Health Blogs"} />
-          <RouteLinks mx={"-20px"} title={"PLUS"} />
-          <RouteLinks mx={"-20px"} title={"Offers"} />
-          <RouteLinks title={"Value Store"} />
-        </Flex>
+        <Box
+          display={["none", "none", "none", "block", "block", "block"]}
+          h="full"
+        >
+          <Flex h="full" justify={"center"} align="center">
+            <RouteLinks mx="-4px" title={"Medicine"} />
+            <RouteLinks mx="-4px" title={"Lab Test"} />
+            <RouteLinks mx="-4px" title={"Healthcare"} />
+            <RouteLinks mx="-4px" title={"Surgeries"} />
+            <RouteLinks mx="4px" title={"Health Blogs"} />
+            <RouteLinks mx={"-20px"} title={"PLUS"} />
+            <RouteLinks mx={"-20px"} title={"Offers"} />
+            <RouteLinks title={"Value Store"} />
+          </Flex>
+        </Box>
+        <Box
+          h="full"
+          px={"20px"}
+          display={["block", "block", "block", "none", "none", "none"]}
+        >
+          <Flex
+            gap={1}
+            align="center"
+            justify={"center"}
+            h="full"
+            fontWeight={"semibold"}
+            fontSize="15px"
+            onClick={onLocOpen}
+            cursor="pointer"
+          >
+            <Image src="https://assets.pharmeasy.in/apothecary/images/ic_express%20delivery.svg?dim=16x0"></Image>
+            <Text display={"flex"} color="gray" fontSize="12px">
+              Express delivery to
+            </Text>
+            <Text>{pin ? pin : "Select Pincode"}</Text>
+            <FiChevronDown />
+          </Flex>
+        </Box>
       </Box>
     </Box>
   );
