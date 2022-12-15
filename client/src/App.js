@@ -9,8 +9,8 @@ function App() {
     <>
      
 
-      <Products />
-      
+     <Navbar />
+      <Router />
 
     </>
   );

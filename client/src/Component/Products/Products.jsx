@@ -8,14 +8,30 @@ import { useSelector,useDispatch } from "react-redux";
 import { getData } from "../../Redux/products/productAction";
 import {Loading} from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
+import { useLocation , useSearchParams } from "react-router-dom";
+import { useParams} from "react-router-dom"
 
 const Products = () => {
+const [searchParams] = useSearchParams();  
+const location = useLocation();
 const {data, isError, isLoading} = useSelector((store) => store.product);
 const dispatch = useDispatch();
+const {category} = useParams()
 
 React.useEffect(() => {
-  dispatch(getData("medicine"))
-}, []);
+  if(location || data.length === 0){
+     const category = searchParams.getAll("category");
+    const queryParams = {
+      params : {
+        category : category
+      }
+    }
+    dispatch(getData(queryParams))
+    
+  }
+  //dispatch(getData(category))
+  
+}, [dispatch]);
 
 if(isError){
   return <h1>Something Went Wrong!!!</h1>

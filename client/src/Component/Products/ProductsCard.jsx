@@ -1,6 +1,6 @@
 import style from "./ProductCard.module.css";
 
-const ProductsCard = ({src,alt,name,price}) => {
+const ProductsCard = ({src,alt,name,price,price1}) => {
   
   const imageStyle = {
    borderRadius: "30px"
@@ -19,6 +19,7 @@ const ProductsCard = ({src,alt,name,price}) => {
         <div style={textStyle}>
           <div>{name}</div>
           <div>₹{price}</div>
+          <div>₹{price1}</div>
         </div>
     </div>
   )

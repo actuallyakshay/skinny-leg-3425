@@ -3,14 +3,14 @@ import { PRODUCT_FAILURE, PRODUCT_LOADING, PRODUCT_SUCCESS } from "./productActi
 
 let URL = process.env.REACT_APP_URL;
 
-export const getData = (category, q, sort, arr, off, offSet, firstLetter, page, limit) => async (dispatch) => {
+export const getData = (queryParams) => async (dispatch) => {
     dispatch({ type: PRODUCT_LOADING });
     try {
         // let response = await axios.get(`${URL}/product?category=${category}&q=${q}&sort=${sort}&arr=${arr}&off=${off}&offSet=${offSet}&firstLetter=${firstLetter}&page=${page}&limit=${limit}`);
-        let response = await axios.get(`${URL}/product?category=${category}`)
+        let response = await axios.get(`${URL}/product` , queryParams)
         dispatch({ type: PRODUCT_SUCCESS, payload: response.data });
         console.log(response.data)
-        // return response.data;
+         return response.data;
     } catch (error) {
         console.log(error.message)
         dispatch({ type: PRODUCT_FAILURE, payload: error.message })
