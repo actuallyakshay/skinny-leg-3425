@@ -32,11 +32,32 @@
     cursor: pointer;
     text-decoration: none;
   }
+    
+  .allboxess {
+    border: 1px solid #4f585e;
+    height: 5rem;
+    width: 15rem;
+    margin-left: 2.2rem;
+    border-radius: 50px;
+    margin-top: 1rem;
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+
   .allboxes img {
     height: 2rem;
     margin-left: 1.9rem;
     margin-top: 1.3rem;
   }
+
+  .allboxess img {
+    height: 2rem;
+    margin-left: 1.9rem;
+    margin-top: 1.3rem;
+  }
+
   .allboxes p {
     height: 2rem;
     margin-left: 1rem;
@@ -45,6 +66,16 @@
     font-weight: 600;
     color: #4f585e;
   }
+   
+  .allboxess p {
+    height: 2rem;
+    margin-left: 1rem;
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4f585e;
+  }
+     
   .saveperdiv {
     margin-top: 1rem;
   }

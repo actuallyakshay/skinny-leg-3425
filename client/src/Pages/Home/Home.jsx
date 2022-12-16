@@ -1,11 +1,12 @@
-import { Box, Button, Flex, Image, Text, VStack } from "@chakra-ui/react";
-import { AiOutlinePaperClip } from "react-icons/ai";
+import { Box, Button, Flex, Grid, Image, Text, VStack } from "@chakra-ui/react";
+import { AiOutlineClockCircle, AiOutlinePaperClip } from "react-icons/ai";
 import { BsCardList } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import { SearchBox } from "../../Component/Navbar/SearchBox";
 import { Carousel1 } from "./Components/Carousels/Carousel1";
 import {
   cardconfig,
+  cardconfig2,
   cataconfig,
   cataconfig2,
   offerconfig,
@@ -17,8 +18,14 @@ import { OfferCard2 } from "./Components/OfferCard2";
 import offer2data from "./Data/Offer2.json";
 import cata2data from "./Data/Cata2.json";
 import ShopByCata from "./Data/ShopbyCata.json";
+import ShopByConcern from "./Data/ShopbyConcern.json";
 import { Cata3 } from "./Components/Cata3";
 import { ProductCard } from "./Components/ProductCard";
+import { ProductCard2 } from "./Components/ProductCard2";
+import labtextdata from "./Data/Labtext.json";
+import { LabtextCard } from "./Components/LabtextCard";
+import { ProductCard3 } from "./Components/ProductCard3";
+import featuredbranddata from "./Data/FeaturedBrand.json";
 export const Home = () => {
   return (
     <Box mt={"104px"}>
@@ -366,9 +373,169 @@ export const Home = () => {
           </Box>
         </Box>
       </Box>
-      <Flex>
-        <Box></Box>
+      <Flex
+        className="plus_memberbox"
+        color={"white"}
+        my="20px"
+        py={{ base: "20px", lg: "0" }}
+        flexDir={{ base: "column", lg: "row" }}
+      >
+        <Box
+          px={{ base: "20px", lg: "40px" }}
+          py={{ base: "0", lg: "40px" }}
+          w={{ base: "full", lg: "30%" }}
+        >
+          <Flex fontSize={"24px"} gap="5px" whiteSpace={"nowrap"}>
+            Become a
+            <Text fontWeight={"bold"} color="#ff9341">
+              PLUS
+            </Text>
+            member
+          </Flex>
+          <Text>And enjoy extra bachat on every order</Text>
+          <Box
+            mt="20px"
+            h="2px"
+            bgGradient="linear(90deg, #ff9341 -1.35%, transparent 97.57%)"
+          ></Box>
+        </Box>
+        <Box px={{ base: "20px", lg: "40px" }} py={{ base: "0", lg: "40px" }}>
+          <Text>
+            Save 5% on allopathic medicines, 50% on lab tests & get FREE
+            delivery with PLUS membership Know more {`>`}
+          </Text>
+          <Button mt="20px" colorScheme={"yellow"}>
+            Explore Now
+          </Button>
+        </Box>
+        <Flex
+          px={{ base: "20px", lg: "40px" }}
+          h="210px"
+          w="max-content"
+          display={{ base: "none", lg: "block" }}
+        >
+          <Flex h="full" align={"flex-end"} justify="flex-end">
+            <Image
+              w="100%"
+              src="https://assets.pharmeasy.in/apothecary/_next/static/media/PlusFamily.22677720.png?dim=1440x0"
+            ></Image>
+          </Flex>
+        </Flex>
       </Flex>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }}>
+        <Box>
+          <Text fontSize={"26px"} fontWeight="semibold">
+            Shop by Concern
+          </Text>
+          <Text color="gray.900">Products are handpicked by experts</Text>
+        </Box>
+        <Flex w={"100%"} m="auto" py="20px" gap="5" flexWrap={"wrap"}>
+          {ShopByConcern.map((item) => (
+            <ProductCard2 src={item.src} title={item.title} key={item.title} />
+          ))}
+        </Flex>
+      </Box>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }}>
+        <Flex justify={"space-between"} align="center" w="98%">
+          <Text fontSize={{ base: "20px", lg: "26px" }} fontWeight="semibold">
+            Frequently Booked Lab Tests
+          </Text>
+          <Text className="highText">View All</Text>
+        </Flex>
+        <Grid
+          templateRows={{ base: "repeat(2, 1fr)", lg: "repeat(1, 1fr)" }}
+          templateColumns={{ base: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }}
+          gap={4}
+          py="20px"
+          px={{ base: "0", lg: "20px" }}
+        >
+          {labtextdata.map((item, i) => (
+            <LabtextCard
+              src={item.src}
+              title={item.title}
+              des={item.des}
+              mrp={item.mrp}
+              cmrp={item.cmrp}
+              off={item.off}
+              i={i}
+            />
+          ))}
+        </Grid>
+      </Box>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }}>
+        <Box>
+          <Text fontSize={{ base: "20px", lg: "26px" }} fontWeight="semibold">
+            Wellness Essentials of the Week
+          </Text>
+          <Text color="gray.900">Super charge your immunity with us</Text>
+          <Box>
+            <Carousel1 setting={cardconfig2}>
+              {ShopByCata.map((item) => (
+                <ProductCard3
+                  src={item.src}
+                  title={item.title}
+                  key={item.title}
+                />
+              ))}
+            </Carousel1>
+          </Box>
+        </Box>
+      </Box>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }} py="20px">
+        <Box>
+          <Text fontSize={"26px"} fontWeight="semibold">
+            Featured Brands
+          </Text>
+          <Text color="gray.900">Pick from our favourite brands</Text>
+          <Box>
+            <Carousel1 setting={cataconfig2}>
+              {featuredbranddata.map((item) => (
+                <Cata3
+                  src={item.src}
+                  title={item.title}
+                  key={item.title}
+                  p="1px"
+                />
+              ))}
+            </Carousel1>
+          </Box>
+        </Box>
+      </Box>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }}>
+        <Box>
+          <Flex justify={"space-between"} align="center" w="98%">
+            <Flex flexDir={{ base: "column", lg: "row" }} gap="10px">
+              <Text fontSize={"26px"} fontWeight="semibold">
+                Deals of the Day
+              </Text>
+              <Flex
+                align={"center"}
+                gap="5px"
+                bg="#ffae71"
+                px="8px"
+                py="2px"
+                borderRadius={"md"}
+                color="white"
+              >
+                <AiOutlineClockCircle />
+                <Text>19:57 MINS LEFT, HURRY!</Text>
+              </Flex>
+            </Flex>
+            <Text className="highText">View All</Text>
+          </Flex>
+          <Box>
+            <Carousel1 setting={cardconfig}>
+              {ShopByCata.map((item) => (
+                <ProductCard
+                  src={item.src}
+                  title={item.title}
+                  key={item.title}
+                />
+              ))}
+            </Carousel1>
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 };
