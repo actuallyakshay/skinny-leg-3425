@@ -139,26 +139,26 @@ export const LabTest = () => {
       </Box>
       <Box className="main_div">
         <Box className="all_things">
-          <Link to={""} className="allboxes">
+          <Link to={"/all-tests"} className="allboxes">
             <img
               src="https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg"
               alt="all test"
             />
             <p>All Tests</p>
           </Link>
-          <Link to={""} className="allboxes">
+          <Link to={"/Healthpackages"} className="allboxess">
             <img
               src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
               alt=""
             />
-            <p>Health packages</p>
+            <p>Health <br/>packages</p>
           </Link>
-          <Link to={""} className="allboxes">
+          <Link to={""} className="allboxess">
             <img
               src="https://assets.pharmeasy.in/web-assets/dist/d4d62fbf.svg"
               alt="upload Precription"
             />
-            <p>Upload Precription</p>
+            <p>Upload <br/> Precription</p>
           </Link>
           <Link to={""} className="allboxes">
             <img
