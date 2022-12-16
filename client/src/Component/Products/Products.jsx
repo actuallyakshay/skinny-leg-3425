@@ -4,28 +4,55 @@ import styled from "styled-components";
 import Filter from "../filter/Filter";
 import { Box, Text, Select } from "@chakra-ui/react";
 import Filterbutton from "../filter/Filterbutton";
+import { useSelector,useDispatch } from "react-redux";
+import { getData } from "../../Redux/products/productAction";
+import {Loading} from "../Loading/Loading";
+import ProductsCard from "./ProductsCard";
+import { useLocation , useSearchParams } from "react-router-dom";
+import { useParams} from "react-router-dom"
 
 const Products = () => {
+const [searchParams] = useSearchParams();  
+const location = useLocation();
+const {data, isError, isLoading} = useSelector((store) => store.product);
+const dispatch = useDispatch();
+const {category} = useParams()
+
+React.useEffect(() => {
+  if(location || data.length === 0){
+     const category = searchParams.getAll("category");
+    const queryParams = {
+      params : {
+        category : category
+      }
+    }
+    dispatch(getData(queryParams))
+    
+  }
+  //dispatch(getData(category))
+  
+}, [dispatch]);
+
+if(isError){
+  return <h1>Something Went Wrong!!!</h1>
+}else if(isLoading){
+  return <Loading />
+}else
+
   return (
     <>
       <WrapperBreadcrumb>
-        <Breadcrumbs step1 step2 step3 />
+        <Breadcrumbs  />
       </WrapperBreadcrumb>
 
       <ButtonFilterWrapper>
         <Filterbutton />
       </ButtonFilterWrapper>
 
-      <div className="product-main-container">
-        <Wrapper>
-          <WrapperFilter>
-            <Filter />
-          </WrapperFilter>
-
-          <WrapperProducts>
-            <Box width={800} display="flex" justifyContent="space-between">
-              <Box width={400}>
-                <Text fontSize="27px" fontWeight="490" color="#4F585E">
+      
+      <Box width={800}  display="flex" justifyContent="space-between" mb={-10}  ml={400}>
+              <Box width={300}>
+                <Text fontSize="27px" fontWeight="490" color="#4F585E" >
                   Mega Clearance Sale
                 </Text>
               </Box>
@@ -41,21 +68,47 @@ const Products = () => {
                 </Text>
 
                 <Select
-                  placeholder="Popularity"
+                  placeholder="Sort By"
                   width={250}
                   borderColor="#4F585E"
                 >
-                  <option value="Relevance">Relevance</option>
-                  <option value="Price low to high">Price low to high</option>
-                  <option value="Price high to low">Price high to low</option>
+                  <option value="PrcLtoH">Price low to high</option>
+                  <option value="PrcHtoL">Price high to low</option>
+                  <option value="DiscLtoH">Discount low to high</option>
+                  <option value="DiscHtoL">Discount high to low</option>
                 </Select>
               </Box>
             </Box>
+
+      <div>
+        <Wrapper>
+          <WrapperFilter>
+            <Filter />
+          </WrapperFilter>
+
+           
+
+          <WrapperProducts>
+           
+           
+           {
+            data?.map((data) => (
+              <ProductsCard
+              key={data.id}
+              src={data.image}
+              alt={data.alt}
+              name={data.name}
+              price={data.price}
+              price1={data.price1}
+              />
+            ))
+           }
+           
           </WrapperProducts>
         </Wrapper>
       </div>
     </>
-  );
+  )
 };
 
 export default Products;
@@ -87,9 +140,10 @@ const WrapperFilter = styled.div`
 
 const WrapperProducts = styled.div`
   width: 100%;
+  margin-top:50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
   justify-content: center;
-  grid-gap: 10px;
+  grid-gap: 15px;
   font-size: 15px;
 `;

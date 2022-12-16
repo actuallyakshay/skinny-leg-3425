@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    background-color: #10847e;
+    box-sizing: border-box;
+    padding: 16px 16px;
+    gap: 6%;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .container > div:nth-child(1) {
+    flex: 1;
+  }
+  
+  .container > div:nth-child(2) {
+    flex: 6;
+  }
+  
+  .tabContainer {
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 17px;
+  }
+  
+  .tabContainer > div {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .tabContainer > div:nth-child(1) a:hover {
+    text-decoration: underline;
+  }
+  

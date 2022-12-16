@@ -1,0 +1,58 @@
+.container {
+    background-color: #f4f7fb;
+    box-sizing: border-box;
+    padding: 20px 10px;
+  }
+  
+  .columns_container {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 5px;
+    margin-bottom: 30px;
+  }
+  
+  .columns_container > div > div {
+    font-size: 17px;
+    margin: 10px 0px;
+  }
+  
+  .columns_container > div > div > div {
+    margin: 10px 0px;
+  }
+  
+  .columns_container a {
+    text-decoration: none;
+    color: #4f585e;
+  }
+  
+  .social_media {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .social_media img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .payment_partners_container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .payment_partners {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .payment_partners img {
+    height: 30px;
+  }
+  
+  .container h4 {
+    color: #4f585e;
+    font-size: 17px;
+    margin: 16px 0px;
+  }
+  
