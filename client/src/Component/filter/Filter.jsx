@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text , Box , Input, Radio, Stack, RadioGroup, Icon, Checkbox, filter } from "@chakra-ui/react";
+import { Text , Box , Input, Radio, Stack, RadioGroup, Icon, Checkbox, Select } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useSearchParams } from "react-router-dom"
 
-const Filter = (category) => {
+const Filter = () => {
  const [searchParams , setSearchParams] = useSearchParams();
  const [filterData , setFilterData] = React.useState(searchParams.getAll("category") || []);
+ const [sortData , setSortData] = React.useState(searchParams.get("sort") || "");
 
  const handleFilter = (e) => {
     const option = e.target.value;
@@ -18,14 +19,35 @@ const Filter = (category) => {
     setFilterData(newFilterData)
  }
 
+ const handleSort = (e) => {
+    setSortData(e.target.value)
+ }
+
  React.useEffect(() => {
     const params = {};
     filterData && (params.category = filterData);
+    sortData && (params.sort = sortData)
     setSearchParams(params)
- }, [filterData , setSearchParams]);
+ }, [filterData , sortData, setSearchParams]);
 
   return (
     <>
+
+<div>
+         <Select
+                  placeholder="Sort By"
+                  width={250}
+                  borderColor="#4F585E"
+                  value="sortData"
+                 onChange={handleSort}
+                >
+                  <option value="asc" defaultValue={sortData === "asc"} onChange={handleSort} >Price low to high</option>
+                  <option value="desc" defaultValue={sortData === "desc"}  onChange={handleSort} >Price high to low</option>
+                  <option value="offerasc">Discount low to high</option>
+                  <option value="offerdesc">Discount high to low</option>
+                </Select>
+    </div>
+
     <div>
        <Text color="#4F585E" fontSize="26px" fontWeight="610">Filter</Text>
     </div>

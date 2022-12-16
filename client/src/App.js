@@ -11,11 +11,15 @@ function App() {
     <>
       <Navbar />
       <Router />
+
+     
+
       <UNavbar />
       <LabTest />
       <AllTest />
       <Healthpackages />
       <UFooter />
+
     </>
   );
 }
