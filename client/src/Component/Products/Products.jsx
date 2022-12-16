@@ -35,7 +35,7 @@ React.useEffect(() => {
       params : {
         category : category,
        sort : searchParams.get("sortData") && "price1",
-       order: searchParams.get("sortData")
+        order: searchParams.get("sortData")
       }
     }
     dispatch(getData(queryParams))

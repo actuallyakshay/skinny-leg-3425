@@ -3,10 +3,10 @@ import { Text , Box , Input, Radio, Stack, RadioGroup, Icon, Checkbox, Select } 
 import { SearchIcon } from "@chakra-ui/icons";
 import { useSearchParams } from "react-router-dom"
 
-const Filter = (category) => {
+const Filter = () => {
  const [searchParams , setSearchParams] = useSearchParams();
  const [filterData , setFilterData] = React.useState(searchParams.getAll("category") || []);
- const [sortData , setSortData] = React.useState(searchParams.get("sortData") || "");
+ const [sortData , setSortData] = React.useState(searchParams.get("sort") || "");
 
  const handleFilter = (e) => {
     const option = e.target.value;
@@ -19,12 +19,16 @@ const Filter = (category) => {
     setFilterData(newFilterData)
  }
 
+ const handleSort = (e) => {
+    setSortData(e.target.value)
+ }
+
  React.useEffect(() => {
     const params = {};
     filterData && (params.category = filterData);
-    sortData && (params.sortData = sortData)
+    sortData && (params.sort = sortData)
     setSearchParams(params)
- }, [filterData , setSearchParams,sortData]);
+ }, [filterData , sortData, setSearchParams]);
 
   return (
     <>
@@ -34,11 +38,11 @@ const Filter = (category) => {
                   placeholder="Sort By"
                   width={250}
                   borderColor="#4F585E"
-                  value={sortData}
-                  onChange={(e) => {setSortData(e.target.value)}}
+                  value="sortData"
+                 onChange={handleSort}
                 >
-                  <option value="asc"  >Price low to high</option>
-                  <option value="desc"  >Price high to low</option>
+                  <option value="asc" defaultValue={sortData === "asc"} onChange={handleSort} >Price low to high</option>
+                  <option value="desc" defaultValue={sortData === "desc"}  onChange={handleSort} >Price high to low</option>
                   <option value="offerasc">Discount low to high</option>
                   <option value="offerdesc">Discount high to low</option>
                 </Select>
