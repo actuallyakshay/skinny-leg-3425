@@ -1,17 +1,18 @@
 import { Navbar } from "./Component/Navbar/Navbar";
-
-import Products from "./Component/Products/Products";
 import { Router } from "./Component/Router/Router";
-
-
+import {LabTest} from "./Pages/LabTest";
 function App() {
   return (
     <>
+
      
 
      <Navbar />
-      <Router />
 
+      <Navbar />
+
+      <Router />
+      <LabTest/>
     </>
   );
 }

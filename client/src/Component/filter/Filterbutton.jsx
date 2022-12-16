@@ -1,8 +1,9 @@
-import React from 'react';
-import { Box,Button,ButtonGroup,Stack } from "@chakra-ui/react";
+import React from "react";
+import { Button, Stack } from "@chakra-ui/react";
 
 const Filterbutton = () => {
   return (
+
     <Stack spacing={0} direction='row' align='center'>
       <ButtonGroup >
     <Button colorScheme='teal' size="sm" borderRadius="none" >
@@ -88,4 +89,5 @@ const Filterbutton = () => {
   )
 }
 
-export default Filterbutton
+   
+ export default Filterbutton;
