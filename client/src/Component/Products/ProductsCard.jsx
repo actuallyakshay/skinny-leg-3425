@@ -1,9 +1,11 @@
 import style from "./ProductCard.module.css";
 
-const ProductsCard = ({src,alt,name,price,price1}) => {
+const ProductsCard = ({src,alt,name,price1}) => {
   
   const imageStyle = {
-   borderRadius: "30px"
+   borderRadius: "30px",
+   height: "150px",
+   width: "100%"
   }
   const textStyle = {
     textAlign : "center",
@@ -18,7 +20,6 @@ const ProductsCard = ({src,alt,name,price,price1}) => {
         </div>
         <div style={textStyle}>
           <div>{name}</div>
-          <div>₹{price}</div>
           <div>₹{price1}</div>
         </div>
     </div>

@@ -10,6 +10,7 @@ import {Loading} from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
 import { useLocation , useSearchParams } from "react-router-dom";
 import { useParams} from "react-router-dom"
+import Sorting from "../Sorting/Sorting";
 
 const Products = () => {
 const [searchParams] = useSearchParams();  
@@ -31,7 +32,7 @@ React.useEffect(() => {
   }
   //dispatch(getData(category))
   
-}, [dispatch]);
+}, [location.search]);
 
 if(isError){
   return <h1>Something Went Wrong!!!</h1>
@@ -67,16 +68,7 @@ if(isError){
                   Sort By:
                 </Text>
 
-                <Select
-                  placeholder="Sort By"
-                  width={250}
-                  borderColor="#4F585E"
-                >
-                  <option value="PrcLtoH">Price low to high</option>
-                  <option value="PrcHtoL">Price high to low</option>
-                  <option value="DiscLtoH">Discount low to high</option>
-                  <option value="DiscHtoL">Discount high to low</option>
-                </Select>
+               <Sorting />
               </Box>
             </Box>
 
@@ -98,7 +90,6 @@ if(isError){
               src={data.image}
               alt={data.alt}
               name={data.name}
-              price={data.price}
               price1={data.price1}
               />
             ))
@@ -123,7 +114,7 @@ const WrapperBreadcrumb = styled.div`
   width: 100%;
   margin-left: 100px;
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 100px;
 `;
 
 const Wrapper = styled.div`
