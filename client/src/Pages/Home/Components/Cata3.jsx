@@ -1,7 +1,7 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-export const Cata3 = ({ src, title }) => {
+export const Cata3 = ({ src, title, p }) => {
   return (
     <Box h="210px" w="160px">
       <Box
@@ -14,7 +14,7 @@ export const Cata3 = ({ src, title }) => {
         }}
         border={"1px solid #d7dfe5"}
         borderRadius="lg"
-        px="20px"
+        px={p ? p : "20px"}
         py="12px"
         transition={"all"}
         transitionDuration={"500ms"}

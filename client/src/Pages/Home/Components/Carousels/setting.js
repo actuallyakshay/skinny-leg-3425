@@ -209,3 +209,66 @@ export const cardconfig = {
     },
   ],
 };
+export const cardconfig2 = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 3.4,
+  slidesToScroll: 1,
+  cssEase: "linear",
+  initialSlide: 0,
+  arrow: false,
+  rows: 2,
+  slidesPerRow: 1,
+  responsive: [
+    {
+      breakpoint: 1281,
+      settings: {
+        slidesToShow: 2.9,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 2.3,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 913,
+      settings: {
+        slidesToShow: 2.2,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 840,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+      },
+    },
+
+    {
+      breakpoint: 541,
+      settings: {
+        slidesToShow: 1.4,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+      },
+    },
+  ],
+};
