@@ -1,0 +1,87 @@
+.all_test_heading{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.container_one{
+    width: 50%;
+    
+    
+}
+
+.container_two{
+    width: 30%;
+    margin-left: auto;
+    
+}
+
+.heading{
+    max-width: 80%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+.para_right{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.span_h1{
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.text{
+   margin-left: 50px;
+}
+
+.span_h5{
+    font-size: 16px;
+    font-weight: 500;
+    
+}
+
+.main_container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+}
+
+.select{
+    width: 30%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.head{
+    width: 70%;
+    display: flex;
+    
+}
+.Image_ph{
+    width: 10%;
+    height: 2rem;
+    
+}
+
+.select>button{
+    width: 80%;
+    
+}
