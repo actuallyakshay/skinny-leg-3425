@@ -6,7 +6,13 @@ import {UFooter} from "./Component/UFooter";
 function App() {
   return (
     <>
+
+     
+
+     <Navbar />
+
       <Navbar />
+
       <Router />
       <UNavbar/>
       <LabTest/>

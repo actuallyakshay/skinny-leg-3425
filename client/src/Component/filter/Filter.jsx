@@ -1,8 +1,29 @@
 import React from 'react';
-import { Text , Box , Input, Radio, Stack, RadioGroup, Icon, Checkbox } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons"
+import { Text , Box , Input, Radio, Stack, RadioGroup, Icon, Checkbox, filter } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+import { useSearchParams } from "react-router-dom"
 
-const Filter = () => {
+const Filter = (category) => {
+ const [searchParams , setSearchParams] = useSearchParams();
+ const [filterData , setFilterData] = React.useState(searchParams.getAll("category") || []);
+
+ const handleFilter = (e) => {
+    const option = e.target.value;
+    const newFilterData = [...filterData];
+    if(newFilterData.includes(option)){
+        newFilterData.splice(newFilterData.indexOf(option), 1);
+    }else{
+        newFilterData.push(option)
+    }
+    setFilterData(newFilterData)
+ }
+
+ React.useEffect(() => {
+    const params = {};
+    filterData && (params.category = filterData);
+    setSearchParams(params)
+ }, [filterData , setSearchParams]);
+
   return (
     <>
     <div>
@@ -30,7 +51,7 @@ const Filter = () => {
     <hr />
 
     <Box mt={8} mb={8}>
-        <Text color="#4F585E" fontSize="18px" fontWeight="700"> Brand</Text>
+        <Text color="#4F585E" fontSize="18px" fontWeight="700"> Filter By</Text>
     </Box>
 
     <Box position="relative" alignItems="center" >
@@ -40,51 +61,101 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>&me</Text>
+            <Text>Ayurvedic</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="ayurvedic" onChange={handleFilter} defaultChecked={filterData.includes("ayurvedic")} ></Checkbox>
         </Box>
     </Box>
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>2baconil</Text>
+            <Text>Medicine</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="medicine" onChange={handleFilter} defaultChecked={filterData.includes("medicine")}></Checkbox>
         </Box>
     </Box>
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>3 Ply</Text>
+            <Text>Babycare</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="babycare" onChange={handleFilter} defaultChecked={filterData.includes("babycare")} ></Checkbox>
         </Box>
     </Box>
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>3m Avagard</Text>
+            <Text>Diabetes</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="diabetes" onChange={handleFilter} defaultChecked={filterData.includes("diabetes")} ></Checkbox>
         </Box>
     </Box>
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>A2 Lite</Text>
+            <Text>Health Food</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="healthFood" onChange={handleFilter} defaultChecked={filterData.includes("healthFood")}></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Immunity</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="immunity" onChange={handleFilter} defaultChecked={filterData.includes("immunity")}></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Mens</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="mens" onChange={handleFilter} defaultChecked={filterData.includes("mens")}></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Skin Care</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="skincare" onChange={handleFilter} defaultChecked={filterData.includes("skincare")}></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Dis-Infactants</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="disinfactents" onChange={handleFilter} defaultChecked={filterData.includes("disinfactents")}></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>Healthcare Devices</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(1)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="healthcareDevices" onChange={handleFilter} defaultChecked={filterData.includes("healthcareDevices")}></Checkbox>
         </Box>
     </Box>
 
@@ -100,13 +171,75 @@ const Filter = () => {
 
     <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
-            <Text>100 - 199</Text>
+            <Text>0 - 100</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(3)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>100 - 200</Text>
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
              <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
         </Box>
     </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>200 - 400</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(2)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+ 
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>400 - 800</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(6)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>800 - 1600</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(3)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>1600 - 3000</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(7)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
+        <Box width="80%">
+            <Text>3000 and above</Text>
+        </Box>
+        <Box width="20%" display="flex" justifyContent="space-between">
+            <Text fontSize="15px">(2)</Text>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
+        </Box>
+    </Box>
+
 
     </>
   )
