@@ -1,0 +1,35 @@
+.cuto_services_box {
+    /* border: 1px solid red; */
+    height: 21rem;
+    display: flex;
+    gap: 20px;
+    margin-top: 1rem;
+  }
+  
+  .boxforall {
+    display: flex;
+    gap: 22px;
+    margin: auto;
+    width: 63rem;
+    margin-top: 1rem;
+  }
+  
+  .box_one {
+    width: 24rem;
+  }
+  
+  .box_one p {
+    padding-top: 1rem;
+    color: #4f585e;
+    font-size: 1.1rem;
+    font-weight: 450;
+  }
+  
+  .about_it {
+    margin-top: 1rem;
+  }
+  
+  .about_it p {
+    color: #8897a2;
+  }
+  

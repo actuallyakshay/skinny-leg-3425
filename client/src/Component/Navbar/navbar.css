@@ -1,3 +1,14 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+.navbar {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .animated-text {
   height: 40px;
   overflow: hidden;
@@ -47,4 +58,16 @@
 .sidebar::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+.homepage_topsection {
+  background-image: radial-gradient(
+      150px 150px at 95% 0%,
+      rgba(253, 186, 43, 0.3) 0%,
+      rgba(253, 186, 43, 0) 100%
+    ),
+    radial-gradient(
+      150px 150px at 5% 0%,
+      rgba(120, 213, 242, 0.3) 0%,
+      rgba(253, 186, 43, 0) 100%
+    );
 }

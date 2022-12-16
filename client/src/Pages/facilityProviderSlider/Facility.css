@@ -1,0 +1,18 @@
+.facility_box {
+    /* border: 1px solid red; */
+    height: 21rem;
+    margin-top: 2rem;
+  }
+  
+  .slick-arrow.slick-prev,
+  .slick-arrow.slick-next {
+    background-color: teal;
+  }
+  
+  .servic3_box {
+    /* border: 1px solid red; */
+    height: 21rem;
+    width: 60rem;
+    margin: auto;
+  }
+  

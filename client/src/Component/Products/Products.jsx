@@ -1,93 +1,149 @@
-import React, {useState} from 'react';
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
+import React, { useState } from "react";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import styled from "styled-components";
-import Filter from '../filter/Filter';
-import { Box, Text , Select} from "@chakra-ui/react"
-import Filterbutton from '../filter/Filterbutton';
+import Filter from "../filter/Filter";
+import { Box, Text, Select } from "@chakra-ui/react";
+import Filterbutton from "../filter/Filterbutton";
+import { useSelector,useDispatch } from "react-redux";
+import { getData } from "../../Redux/products/productAction";
+import {Loading} from "../Loading/Loading";
+import ProductsCard from "./ProductsCard";
+import { useLocation , useSearchParams } from "react-router-dom";
+import { useParams} from "react-router-dom"
 
 const Products = () => {
+const [searchParams] = useSearchParams();  
+const location = useLocation();
+const {data, isError, isLoading} = useSelector((store) => store.product);
+const dispatch = useDispatch();
+const {category} = useParams()
+
+React.useEffect(() => {
+  if(location || data.length === 0){
+     const category = searchParams.getAll("category");
+    const queryParams = {
+      params : {
+        category : category
+      }
+    }
+    dispatch(getData(queryParams))
+    
+  }
+  //dispatch(getData(category))
+  
+}, [dispatch]);
+
+if(isError){
+  return <h1>Something Went Wrong!!!</h1>
+}else if(isLoading){
+  return <Loading />
+}else
 
   return (
-   <>
-    <WrapperBreadcrumb>
-     <Breadcrumbs step1 step2 step3 />
-     </WrapperBreadcrumb>
+    <>
+      <WrapperBreadcrumb>
+        <Breadcrumbs  />
+      </WrapperBreadcrumb>
 
-     <ButtonFilterWrapper>
-    <Filterbutton />
-    </ButtonFilterWrapper>
+      <ButtonFilterWrapper>
+        <Filterbutton />
+      </ButtonFilterWrapper>
 
-  <div className='product-main-container'>
-     
-   <Wrapper>
+      
+      <Box width={800}  display="flex" justifyContent="space-between" mb={-10}  ml={400}>
+              <Box width={300}>
+                <Text fontSize="27px" fontWeight="490" color="#4F585E" >
+                  Mega Clearance Sale
+                </Text>
+              </Box>
 
-   <WrapperFilter>
-     <Filter />
-   </WrapperFilter>
+              <Box
+                width={400}
+                height={47}
+                display="flex"
+                justifyContent="space-around"
+              >
+                <Text display="flex" alignItems="center" color="gray.500">
+                  Sort By:
+                </Text>
 
-   <WrapperProducts>
-   <Box width={800} display="flex" justifyContent="space-between" >
-        <Box width={400}>
-            <Text fontSize="27px" fontWeight="490" color="#4F585E">Mega Clearance Sale</Text>
-        </Box>
+                <Select
+                  placeholder="Sort By"
+                  width={250}
+                  borderColor="#4F585E"
+                >
+                  <option value="PrcLtoH">Price low to high</option>
+                  <option value="PrcHtoL">Price high to low</option>
+                  <option value="DiscLtoH">Discount low to high</option>
+                  <option value="DiscHtoL">Discount high to low</option>
+                </Select>
+              </Box>
+            </Box>
 
-        <Box width={400} height={47} display="flex" justifyContent="space-around">
+      <div>
+        <Wrapper>
+          <WrapperFilter>
+            <Filter />
+          </WrapperFilter>
 
-            <Text display="flex" alignItems="center" color="gray.500">Sort By:</Text>
+           
 
-            <Select placeholder='Popularity' width={250} borderColor="#4F585E">
-            <option value='Relevance'>Relevance</option>
-            <option value='Price low to high'>Price low to high</option>
-            <option value='Price high to low'>Price high to low</option>
-            </Select>
-        </Box>
-    </Box>
-
-   </WrapperProducts>
-
-   </Wrapper>
-
-  </div>
-
+          <WrapperProducts>
+           
+           
+           {
+            data?.map((data) => (
+              <ProductsCard
+              key={data.id}
+              src={data.image}
+              alt={data.alt}
+              name={data.name}
+              price={data.price}
+              price1={data.price1}
+              />
+            ))
+           }
+           
+          </WrapperProducts>
+        </Wrapper>
+      </div>
     </>
   )
-}
+};
 
-export default Products
+export default Products;
 
 const ButtonFilterWrapper = styled.div`
-
-width: 70%;
-margin: auto;
-margin-bottom: 30px
-`
+  width: 70%;
+  margin: auto;
+  margin-bottom: 30px;
+`;
 
 const WrapperBreadcrumb = styled.div`
-width: 100%;
-margin-left: 100px;
-margin-bottom:30px;
-margin-top:30px
+  width: 100%;
+  margin-left: 100px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 const Wrapper = styled.div`
-display: flex;
-width: 85%;
-height: auto;
-margin:auto
+  display: flex;
+  width: 85%;
+  height: auto;
+  margin: auto;
 `;
 
 const WrapperFilter = styled.div`
-
-width : 350px;
-margin-right:30px
+  width: 350px;
+  margin-right: 30px;
 `;
 
 const WrapperProducts = styled.div`
-
-width: 100%;
-display : grid;
-grid-template-columns : repeat(auto-fit , minmax(200px,max-content)) ;
-justify-content: center;
-grid-gap:10px;
-font-size : 15px
-`
+  width: 100%;
+  margin-top:50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+  justify-content: center;
+  grid-gap: 15px;
+  font-size: 15px;
+`;
