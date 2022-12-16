@@ -4,7 +4,13 @@ import {LabTest} from "./Pages/LabTest";
 function App() {
   return (
     <>
+
+     
+
+     <Navbar />
+
       <Navbar />
+
       <Router />
       <LabTest/>
     </>

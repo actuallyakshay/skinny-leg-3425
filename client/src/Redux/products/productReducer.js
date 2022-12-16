@@ -2,7 +2,7 @@ import { PRODUCT_LOADING, PRODUCT_SUCCESS, PRODUCT_FAILURE } from "./productActi
 
 
 const initialState = {
-    product : [],
+    data : [],
     isLoading : false,
     isError : false,
     message: ""
@@ -22,7 +22,7 @@ const productReducer = (state=initialState , {type,payload}) => {
             ...state,
             isLoading: false,
             isError : false,
-            product: payload,
+            data: payload,
             message : "Product data fetched successfully"
         }
     }
