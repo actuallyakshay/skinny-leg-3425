@@ -3,7 +3,7 @@ import style from "./ProductCard.module.css";
 const ProductsCard = ({src,alt,name,price1}) => {
   
   const imageStyle = {
-   borderRadius: "30px",
+   borderRadius: "10px",
    height: "150px",
    width: "100%"
   }

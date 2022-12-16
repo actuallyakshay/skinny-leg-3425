@@ -10,7 +10,7 @@ import {Loading} from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
 import { useLocation , useSearchParams } from "react-router-dom";
 import { useParams} from "react-router-dom"
-import Sorting from "../Sorting/Sorting";
+
 
 const Products = () => {
 const [searchParams] = useSearchParams();  
@@ -18,7 +18,7 @@ const location = useLocation();
 const {data, isError, isLoading} = useSelector((store) => store.product);
 const dispatch = useDispatch();
 const {category} = useParams();
-const [sortData , setSortData] = React.useState(searchParams.get("sortData") || "");
+
 
 // React.useEffect(() => {
 //   if(location || data.length === 0){
@@ -34,8 +34,8 @@ React.useEffect(() => {
     const queryParams = {
       params : {
         category : category,
-        sort : sortData,
-       
+       sort : searchParams.get("sortData") && "price1",
+       order: searchParams.get("sortData")
       }
     }
     dispatch(getData(queryParams))
@@ -45,9 +45,6 @@ React.useEffect(() => {
   
 }, [location.search]);
 
-function sortData(e){
-console.log(e)
-}
 
 
 
@@ -81,11 +78,11 @@ if(isError){
                 display="flex"
                 justifyContent="space-around"
               >
-                <Text display="flex" alignItems="center" color="gray.500">
+                {/* <Text display="flex" alignItems="center" color="gray.500">
                   Sort By:
-                </Text>
+                </Text> */}
 
-               <Sorting filterVal={sortData} />
+              
               </Box>
             </Box>
 
