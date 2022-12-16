@@ -17,22 +17,39 @@ const [searchParams] = useSearchParams();
 const location = useLocation();
 const {data, isError, isLoading} = useSelector((store) => store.product);
 const dispatch = useDispatch();
-const {category} = useParams()
+const {category} = useParams();
+const [sortData , setSortData] = React.useState(searchParams.get("sortData") || "");
+
+// React.useEffect(() => {
+//   if(location || data.length === 0){
+//     searchParams.get("category")
+//     dispatch(getData(category))
+//   }
+  
+// }, [location.search,searchParams]);
 
 React.useEffect(() => {
   if(location || data.length === 0){
      const category = searchParams.getAll("category");
     const queryParams = {
       params : {
-        category : category
+        category : category,
+        sort : sortData,
+       
       }
     }
     dispatch(getData(queryParams))
     
   }
-  //dispatch(getData(category))
+  
   
 }, [location.search]);
+
+function sortData(e){
+console.log(e)
+}
+
+
 
 if(isError){
   return <h1>Something Went Wrong!!!</h1>
@@ -68,7 +85,7 @@ if(isError){
                   Sort By:
                 </Text>
 
-               <Sorting />
+               <Sorting filterVal={sortData} />
               </Box>
             </Box>
 
