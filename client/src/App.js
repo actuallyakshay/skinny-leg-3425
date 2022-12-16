@@ -7,12 +7,9 @@ function App() {
   return (
     <>
 
-     
-
-     <Navbar />
+       
 
       <Navbar />
-
       <Router />
       <UNavbar/>
       <LabTest/>
