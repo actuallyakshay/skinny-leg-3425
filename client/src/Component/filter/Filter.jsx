@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Text,
@@ -11,12 +12,11 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 import { useSearchParams } from "react-router-dom";
 
-const Filter = (category) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [filterData, setFilterData] = React.useState(
-    searchParams.getAll("category") || []
-  );
-
+const Filter = () => {
+ const [searchParams , setSearchParams] = useSearchParams();
+ const [filterData , setFilterData] = React.useState(searchParams.getAll("category") || []);
+ const [sortData , setSortData] = React.useState(searchParams.get("sort") || "");
+ 
   const handleFilter = (e) => {
     const option = e.target.value;
     const newFilterData = [...filterData];
@@ -27,67 +27,69 @@ const Filter = (category) => {
     }
     setFilterData(newFilterData);
   };
+ const handleSort = (e) => {
+    setSortData(e.target.value)
+ }
 
-  React.useEffect(() => {
+ React.useEffect(() => {
     const params = {};
     filterData && (params.category = filterData);
-    setSearchParams(params);
-  }, [filterData, setSearchParams]);
+    sortData && (params.sort = sortData)
+    setSearchParams(params)
+ }, [filterData , sortData, setSearchParams]);
 
   return (
     <>
-      <div>
-        <Text color="#4F585E" fontSize="26px" fontWeight="610">
-          Filter
-        </Text>
-      </div>
 
-      <Box mt={8} mb={9}>
-        <Text color="#4F585E" fontSize="18px" fontWeight="700">
-          Category
-        </Text>
+<div>
+         <Select
+                  placeholder="Sort By"
+                  width={250}
+                  borderColor="#4F585E"
+                  value="sortData"
+                 onChange={handleSort}
+                >
+                  <option value="asc" defaultValue={sortData === "asc"} onChange={handleSort} >Price low to high</option>
+                  <option value="desc" defaultValue={sortData === "desc"}  onChange={handleSort} >Price high to low</option>
+                  <option value="offerasc">Discount low to high</option>
+                  <option value="offerdesc">Discount high to low</option>
+                </Select>
+    </div>
 
-        <RadioGroup mt={4}>
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Text color="gray.500">Mega Clearance Sale</Text>
-            <Radio size="lg" colorScheme="green" />
-          </Box>
-        </RadioGroup>
-      </Box>
+    <div>
+       <Text color="#4F585E" fontSize="26px" fontWeight="610">Filter</Text>
+    </div>
 
-      <hr />
+    <Box mt={8} mb={9} >
+     <Text color="#4F585E" fontSize="18px" fontWeight="700">Category</Text>
 
-      <Box mt={8} mb={8}>
-        <Text color="#4F585E" fontSize="18px" fontWeight="700">
-          Sub Category
-        </Text>
-      </Box>
+      <RadioGroup mt={4}>
+     <Box display="flex" alignItems="center" justifyContent="space-between">
+        <Text color="gray.500" >Mega Clearance Sale</Text>
+        <Radio size="lg" colorScheme="green" />
+        </Box>
+     </RadioGroup>
 
-      <hr />
+    </Box>
 
-      <Box mt={8} mb={8}>
-        <Text color="#4F585E" fontSize="18px" fontWeight="700">
-          {" "}
-          Filter By
-        </Text>
-      </Box>
+    <hr />
 
-      <Box position="relative" alignItems="center">
-        <Input
-          placeholder="Search"
-          paddingLeft={3}
-          height="46px"
-          borderColor="#4F585E"
-          focusBorderColor="green.800"
-        />
-        <Icon as={SearchIcon} position="absolute" right={3} top={3}></Icon>
-      </Box>
+    <Box mt={8} mb={8} >
+        <Text color="#4F585E" fontSize="18px" fontWeight="700" >Sub Category</Text>
+    </Box>
 
-      <Box mt={4} display="flex" justifyContent="space-around">
+    <hr />
+
+    <Box mt={8} mb={8}>
+        <Text color="#4F585E" fontSize="18px" fontWeight="700"> Filter By</Text>
+    </Box>
+
+    <Box position="relative" alignItems="center" >
+        <Input placeholder='Search' paddingLeft={3} height="46px" borderColor="#4F585E" focusBorderColor='green.800' />
+         <Icon as={SearchIcon} position="absolute" right={3} top={3} ></Icon> 
+    </Box>
+
+    <Box mt={4} display="flex" justifyContent="space-around" >
         <Box width="80%">
           <Text>Ayurvedic</Text>
         </Box>

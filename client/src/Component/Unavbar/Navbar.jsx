@@ -15,7 +15,7 @@ import { TbDiscount2 } from "react-icons/tb";
 import { RiUser5Fill } from "react-icons/ri";
 import { HiShoppingCart } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
-
+import Logo from "../assets/logo.png"
 import { useEffect } from "react";
 
 const options = [
@@ -97,7 +97,7 @@ const UNavbar = () => {
         }}
       >
         <img
-          src="https://assets.pharmeasy.in/web-assets/dist/fca22bc9.png"
+          src={Logo}
           alt=""
         />
       </div>
