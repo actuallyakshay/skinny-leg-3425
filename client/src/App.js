@@ -5,17 +5,19 @@ import { LabTest } from "./Pages/LabTest";
 import { UNavbar } from "./Component/Unavbar/Navbar";
 import { UFooter } from "./Component/UFooter";
 import Healthpackages from "./Pages/Healthpackages";
+import Cart from "./Component/Addcart/cart"
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Router />
       <UNavbar />
       <LabTest />
       <AllTest />
       <Healthpackages />
-      <UFooter />
+      <UFooter /> */}
+      {/* <Cart/> */}
     </>
   );
 }
