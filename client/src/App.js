@@ -1,5 +1,5 @@
 import { Navbar } from "./Component/Navbar/Navbar";
-import { Router } from "./Component/Router/Router";
+import { Router } from "./Routes/Router";
 
 function App() {
   return (
