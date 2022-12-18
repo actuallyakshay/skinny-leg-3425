@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
-  Input,
   Stack,
   Card,
-  CardHeader,
-  Heading,
-  CardBody,
   Text,
   Button,
   Image,
@@ -13,10 +9,9 @@ import {
   HStack,
   VStack,
   Flex,
-  Grid,
 } from "@chakra-ui/react";
 import axios from "axios";
-import styles from "../Pages/AllTest.module.css";
+import styles from "./AllTest.module.css";
 
 const AllTest = () => {
   const [test, setTest] = useState([]);
@@ -52,7 +47,7 @@ const AllTest = () => {
         gap={[2, 3, 4, 5]}
         flexDirection={{ base: "column", lg: "row-reverse" }}
       >
-        <VStack px='4' pt={[2, 3, 4, 5]} mb={"10px"} align="start">
+        <VStack px="4" pt={[2, 3, 4, 5]} mb={"10px"} align="start">
           <Text
             fontWeight={"semibold"}
             color="blackAlpha.600"

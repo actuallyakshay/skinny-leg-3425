@@ -388,3 +388,12 @@ export const articleconfig = {
     },
   ],
 };
+export const labconfig = {
+  dot: false,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  cssEase: "linear",
+  initialSlide: 0,
+  arrow: false,
+};

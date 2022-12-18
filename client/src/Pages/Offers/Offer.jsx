@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Flex,
   Grid,
   Heading,
@@ -8,6 +7,7 @@ import {
   Image,
   Spacer,
   Text,
+  VStack,
 } from "@chakra-ui/react";
 import { IoIosArrowForward } from "react-icons/io";
 import data from "./Offerdata.json";
@@ -67,42 +67,46 @@ const OfferPage = () => {
           </Heading>
         </Box>
         <Grid
-          mt='5'
+          mt="5"
           gap="3"
           gridTemplateColumns={{ base: "repeat(1fr)", lg: "repeat(2,1fr)" }}
         >
           {data?.map((el, i) => {
             return (
-              <Box border="2px solid red">
+              <Box key={i + "offerkey"}>
                 <Flex
-                  gap="4%"
-                  borderRadius="6px"
-                  flexDirection={"column"}
-                  alignItems="center"
-                  shadow={"md"}
+                  border={"1px solid #d7dfe5"}
+                  borderRadius="lg"
+                  borderBottom="none"
+                  p="20px"
                 >
                   <HStack>
                     <Image w="18%" p={3} src={el?.image} />
-                    <Heading color="#4f585e" fontWeight="700" fontSize="18px">
-                      {el?.title}
-                    </Heading>
+                    <VStack align={"flex-start"} justify="space-between">
+                      <Text
+                        fontWeight="semibold"
+                        color="#4f585e"
+                        fontSize="18px"
+                      >
+                        {el?.title}
+                      </Text>
+                      <Text fontSize="14px" lineHeight="1.5" w="80%">
+                        {el?.coupon}
+                      </Text>
+                    </VStack>
                   </HStack>
-                  <Text
-                    color="#8897a2"
-                    fontWeight="700"
-                    fontSize="14px"
-                    lineHeight="1.5"
-                  >
-                    {el?.coupon}
-                  </Text>
                 </Flex>
                 <Flex
-                  border="1px solid #4f585e"
-                  borderRadius="6px"
-                  p="2% 4%"
-                  boxShadow="rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset"
+                  border="1px solid #d7dfe5"
+                  px="20px"
+                  py="10px"
+                  borderRadius="lg"
+                  // boxShadow="rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset"
                 >
-                  <Text>Code : {el?.Code}</Text>
+                  <p>
+                    Code :{" "}
+                    <strong style={{ color: "#4f585e" }}>{el?.Code}</strong>
+                  </p>
                   <Spacer />
                   <Text color="#10847e" fontWeight="700">
                     Copy Code

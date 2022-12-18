@@ -1,16 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from "../Pages/Home/Home";
-import Product from "../Component/Products/Products";
 import { SinglePage } from "../Pages/SinglePage/SinglePage";
 import { SingleProduct } from "../Pages/SinglePage/Components/SingleProduct";
-import { LabTest } from "../Pages/LabTest";
-import AllTest from "../Pages/AllTest";
-import Healthpackages from "../Pages/Healthpackages";
 import Medicine from "../Pages/Medicine/Medicine";
 import Products from "../Component/Products/Products";
 import OfferPage from "../Pages/Offers/Offer";
 import Blog from "../Component/blog/blog";
 import Cart from "../Component/Addcart/cart";
+import Healthpackages from "../Pages/Labtest/Healthpackages";
+import AllTest from "../Pages/Labtest/AllTest";
+import { LabTest } from "../Pages/Labtest/LabTest";
 
 // const arr = [
 //   "ayurvedic",

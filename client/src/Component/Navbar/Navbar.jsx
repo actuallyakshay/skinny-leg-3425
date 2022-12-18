@@ -81,7 +81,9 @@ export const Navbar = ({ name, avatar, pin }) => {
           >
             <AiOutlineMenuUnfold />
           </Button>
-          <Image w="150px" src={logo}></Image>
+          <Link to={"/"}>
+            <Image w="150px" src={logo}></Image>
+          </Link>
         </Flex>
         <Box
           px={"20px"}
