@@ -11,7 +11,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import axios from "axios";
-import LazyLoad from "react-lazyload";
 import styles from "../Pages/Healthpackages.module.css";
 
 const Healthpackages = () => {
@@ -38,7 +37,6 @@ const Healthpackages = () => {
         </div>
         <div>
           {test.map((item) => (
-            <LazyLoad height={250} offset={150}>
               <Stack spacing={10}  >
                 <Card key="md" size="md" _hover={{  borderColor:"teal",borderWidth:"2px"}} marginBottom="20px" className={styles.card}>
                   <CardHeader className={styles.cardHeader}>
@@ -60,7 +58,6 @@ const Healthpackages = () => {
                   </CardBody>
                 </Card>
               </Stack>
-            </LazyLoad>
           ))}
         </div>
       </div>

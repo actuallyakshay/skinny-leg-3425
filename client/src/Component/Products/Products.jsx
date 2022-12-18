@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getData } from "../../Redux/products/productAction";
 import { Loading } from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
 
 const Products = () => {

@@ -16,7 +16,7 @@ app.get("", async (req, res) => {
         name: temp,
       }).limit(limit);
       console.log(products);
-      res.send(products);
+     return res.send(products);
     } else if (category && sort) {
       if (sort == "asc") {
         let temp = await Product.find({ category: category })
@@ -35,7 +35,7 @@ app.get("", async (req, res) => {
         category: category,
         name: { $regex: "^" + temp, $options: "i" },
       }).limit(limit);
-      res.send(products);
+      return res.send(products);
     } else if (category && arr) {
       const [min, max] = arr.split(",").map(Number);
       let temp = await Product.find({
@@ -71,8 +71,9 @@ app.get("", async (req, res) => {
         .skip((page - 1) * limit)
         .limit(20);
       return res.send(products);
-    } else {
-      let products = await Product.find()
+    } else if (input) {
+      let temp = new RegExp(input, "i");
+      let products = await Product.find({ name: temp })
         .skip((page - 1) * limit)
         .limit(20);
       return res.send(products);
@@ -90,9 +91,9 @@ app.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     let product = await Product.findById({ _id: id });
-    res.send(product);
+  return  res.send(product);
   } catch (e) {
-    res.send(e.message);
+   return res.send(e.message);
   }
 });
 

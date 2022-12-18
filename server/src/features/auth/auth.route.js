@@ -9,7 +9,7 @@ app.get("", async (req, res) => {
     let users = await User.find();
     return res.send(users);
   } catch (e) {
-    res.send(e.message);
+    return res.send(e.message);
   }
 });
 
@@ -47,7 +47,7 @@ app.post("/login", async (req, res) => {
       }
     }
   } catch (e) {
-    res.status(404).send(e.message);
+    return res.status(404).send(e.message);
   }
 });
 
@@ -73,7 +73,7 @@ app.post("/signup", async (req, res) => {
       }
     }
   } catch (e) {
-    res.status(400).send(e.message);
+    return res.status(400).send(e.message);
   }
 });
 
@@ -118,7 +118,7 @@ app.patch("", async (req, res) => {
       }
     }
   } catch (e) {
-    req.status(404).Usersend(e.message);
+    return req.status(404).Usersend(e.message);
   }
 });
 
