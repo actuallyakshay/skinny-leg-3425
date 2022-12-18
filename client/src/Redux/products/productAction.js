@@ -5,7 +5,7 @@ import {
   PRODUCT_SUCCESS,
 } from "./productActionTypes";
 
-let URL = process.env.REACT_APP_URL;
+
 
 export const getProductData =
   (
@@ -24,7 +24,7 @@ export const getProductData =
     dispatch({ type: PRODUCT_LOADING });
     axios
       .get(
-        `${URL}/product?category=${category}&q=${q}&sort=${sort}&arr=${arr}&off=${off}&offSet=${offSet}&firstLetter=${firstLetter}&page=${page}&limit=${limit}`
+        `https://tame-elk-trench-coat.cyclic.app/product?category=${category}&q=${q}&sort=${sort}&arr=${arr}&off=${off}&offSet=${offSet}&firstLetter=${firstLetter}&page=${page}&limit=${limit}`
       )
       .then((res) => dispatch({ type: PRODUCT_SUCCESS, payload: res.data }))
       .catch((e) => dispatch({ type: PRODUCT_FAILURE, payload: e.message }));

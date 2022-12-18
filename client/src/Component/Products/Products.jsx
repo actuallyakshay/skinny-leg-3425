@@ -5,50 +5,34 @@ import Filter from "../filter/Filter";
 import { Box, Text, Select, Grid, Flex } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductData } from "../../Redux/products/productAction";
-import { Loading } from "../Loading/Loading";
-import { ProductCard } from "./ProductsCard";
 import { useLocation, useSearchParams } from "react-router-dom";
+import  ProComponent  from "./ProComponent";
+import Pagination from "../pagination/Pagination";
 
 const Products = () => {
-  const [searchParams] = useSearchParams();
-  const location = useLocation();
   const { productData, isError, isLoading } = useSelector(
     (store) => store?.product
   );
+  
   const dispatch = useDispatch();
-  // const { category } = useParams();
+
   const [cat, setCat] = useState("sale");
 
-  // React.useEffect(() => {
-  //   if(location || data.length === 0){
-  //     searchParams.get("category")
-  //     dispatch(getProductData(category))
-  //   }
-
-  // }, [location.search,searchParams]);
-
-  // React.useEffect(() => {
-  //   if(location || data.length === 0){
-  //      const category = searchParams.getAll("category");
-  //     const queryParams = {
-  //       params : {
-  //         category : category,
-  //        sort : searchParams.get("sortData") && "price1",
-  //         order: searchParams.get("sortData")
-  //       }
-  //     }
-  //     dispatch(getProductData(queryParams))
-
-  //   }
-  // }, [location.search]);
-
+  
   useEffect(() => {
     dispatch(getProductData(cat));
   }, [cat, dispatch]);
 
+  
+
   const handleClick = (val) => {
     setCat(val);
   };
+
+  const handleFilter = (prc) => {
+    let temp = prc.split(" - ").join(",");
+    dispatch(getProductData(cat,"","",temp));
+  }
 
   const handleSort = (val) => {
     console.log({ val });
@@ -63,6 +47,7 @@ const Products = () => {
     return <h1>Something Went Wrong!!!</h1>;
   } else
     return (
+      <>
       <Box w="100%" overflowX={"hidden"}>
         <Box ml={{ base: "10px", lg: "100px" }}>
           <WrapperBreadcrumb>
@@ -105,37 +90,23 @@ const Products = () => {
               w={{ base: "0", lg: "25%" }}
             >
               <WrapperFilter>
-                <Filter handleClick={handleClick} />
+                <Filter handleClick={handleClick} handleFilter={handleFilter} />
               </WrapperFilter>
             </Box>
-            <Grid
-              fontFamily={"poppins"}
-              gridTemplateColumns={{
-                base: "repeat(1,1fr)",
-                md: "repeat(2,1fr)",
-                lg: "repeat(3,1fr)",
-              }}
-              w="full"
-              gap="3"
-              rowGap={[3, 3, 5, 6]}
-            >
-              {productData?.map((data) => (
-                <ProductCard key={data._id} {...data} />
-              ))}
-            </Grid>
+
+            <ProComponent productData={productData} />
+           
           </Wrapper>
         </Box>
       </Box>
+
+      <Pagination />
+      </>
     );
 };
 
 export default Products;
 
-// const ButtonFilterWrapper = styled.div`
-//   width: 70%;
-//   margin: auto;
-//   margin-bottom: 30px;
-// `;
 
 const WrapperBreadcrumb = styled.div`
   width: max-content;
@@ -158,12 +129,3 @@ const WrapperFilter = styled.div`
   margin-right: 30px;
 `;
 
-// const WrapperProducts = styled.div`
-//   width: 100%;
-//   margin-top: 50px;
-//   display: grid;
-//   grid-template-columns: repeat(3, 1fr);
-//   justify-content: center;
-//   /* grid-gap: 2px; */
-//   font-size: 15px;
-// `;
