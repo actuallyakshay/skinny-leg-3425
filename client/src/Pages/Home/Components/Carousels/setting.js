@@ -397,3 +397,64 @@ export const labconfig = {
   initialSlide: 0,
   arrow: false,
 };
+export const product = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  cssEase: "linear",
+  initialSlide: 0,
+  arrow: false,
+  responsive: [
+    {
+      breakpoint: 1281,
+      settings: {
+        slidesToShow: 3.5,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 3.3,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 913,
+      settings: {
+        slidesToShow: 3.4,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 844,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+      },
+    },
+
+    {
+      breakpoint: 541,
+      settings: {
+        slidesToShow: 1.4,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+      },
+    },
+  ],
+};

@@ -5,7 +5,6 @@ import img1 from "./pslider/imgfirst.jpg";
 import img2 from "./pslider/img2nd.jpg";
 import img3 from "./pslider/img3.jpg";
 import img4 from "./pslider/img4.png";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Carousel1 } from "../../Home/Components/Carousels/Carousel1";
 
 const OurPatientsSlider = () => {
