@@ -7,6 +7,7 @@ import {
 
 let token = localStorage.getItem("token") || "";
 let role = localStorage.getItem("role") || "";
+let userToken = localStorage.gertItem("userToken") || "";
 
 const iState = {
   token: token,
@@ -15,6 +16,9 @@ const iState = {
   authError: false,
   role: role,
   name: "",
+  phoneNumber: "",
+  userToken: userToken,
+  userAuth: !!userToken,
 };
 
 export const authReducer = (state = iState, { type, payload }) => {
