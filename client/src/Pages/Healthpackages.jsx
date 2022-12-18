@@ -37,27 +37,37 @@ const Healthpackages = () => {
         </div>
         <div>
           {test.map((item) => (
-              <Stack spacing={10}  >
-                <Card key="md" size="md" _hover={{  borderColor:"teal",borderWidth:"2px"}} marginBottom="20px" className={styles.card}>
-                  <CardHeader className={styles.cardHeader}>
-                    <box className={styles.head}  >
-                    <Image src='https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg' alt='Pharmecy' className={styles.Image_ph} />
-                    <Text  className={styles.heading}  size="md">
+            <Stack spacing={10}>
+              <Card
+                key="md"
+                size="md"
+                _hover={{ borderColor: "teal" }}
+                marginBottom="20px"
+                className={styles.card}
+              >
+                <CardHeader className={styles.cardHeader}>
+                  <box className={styles.head}>
+                    <Image
+                      src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
+                      alt="Pharmecy"
+                      className={styles.Image_ph}
+                    />
+                    <Text className={styles.heading} size="md">
                       {item.name}
                     </Text>
-                    </box>
+                  </box>
 
-                    <box className={styles.select}>
-                    <Button colorScheme="teal" size="lg" >
+                  <box className={styles.select}>
+                    <Button colorScheme="teal" size="lg">
                       Select
                     </Button>
-                    </box>
-                  </CardHeader>
-                  <CardBody>
-                    <Text className={styles.text}>${item.price1} onwards</Text>
-                  </CardBody>
-                </Card>
-              </Stack>
+                  </box>
+                </CardHeader>
+                <CardBody>
+                  <Text className={styles.text}>${item.price1} onwards</Text>
+                </CardBody>
+              </Card>
+            </Stack>
           ))}
         </div>
       </div>

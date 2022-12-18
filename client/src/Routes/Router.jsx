@@ -31,10 +31,9 @@ export const Router = () => {
       <Route path="/SinglePage" element={<SinglePage />}>
         <Route path=":id" element={<SingleProduct />} />
       </Route>
-      <Route path="/labtest" element={<LabTest />}>
-        <Route path="all-tests" element={<AllTest />} />
-        <Route path="Healthpackages" element={<Healthpackages />} />
-      </Route>
+      <Route path="/labtest" element={<LabTest />} />
+      <Route path="all-tests" element={<AllTest />} />
+      <Route path="Healthpackages" element={<Healthpackages />} />
       <Route path="/medicine" element={<Medicine />} />
     </Routes>
   );

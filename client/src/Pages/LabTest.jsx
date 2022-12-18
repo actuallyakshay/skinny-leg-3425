@@ -54,9 +54,7 @@ function PrevArrow(props) {
       style={{
         ...style,
         display: "block",
-
         background: "none",
-
         color: "black",
         height: "2rem",
         width: "2rem",

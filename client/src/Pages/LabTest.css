@@ -1,350 +1,350 @@
 .sliderbox {
-    /* border: 1px solid red; */
-    width: 75%;
-    margin: auto;
-    margin-top: 4rem;
-  }
-  .slick-arrow.slick-prev,
-  .slick-arrow.slick-next {
-    background-color: teal;
-  }
-  
-  .main_div {
-    /* border: 1px solid red; */
-    height: 2000;
-    width: 75%;
-    margin: auto;   
-  }
-  
-  .all_things {
-    display: flex;
-    /* border: 1px solid red; */
-    text-decoration: none;
-  }
-  .allboxes {
-    border: 1px solid #4f585e;
-    height: 5rem;
-    width: 15rem;
-    margin-left: 2.2rem;
-    border-radius: 50px;
-    margin-top: 1rem;
-    display: flex;
-    cursor: pointer;
-    text-decoration: none;
-  }
-    
-  .allboxess {
-    border: 1px solid #4f585e;
-    height: 5rem;
-    width: 15rem;
-    margin-left: 2.2rem;
-    border-radius: 50px;
-    margin-top: 1rem;
-    display: flex;
-    cursor: pointer;
-    text-decoration: none;
-  }
+  /* border: 1px solid red; */
+  width: 75%;
+  margin: auto;
+  margin-top: 4rem;
+}
 
+/* .slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  background-color: teal;
+  display: none;
+} */
 
-  .allboxes img {
-    height: 2rem;
-    margin-left: 1.9rem;
-    margin-top: 1.3rem;
-  }
+.main_div {
+  /* border: 1px solid red; */
+  height: 2000;
+  width: 75%;
+  margin: auto;
+}
 
-  .allboxess img {
-    height: 2rem;
-    margin-left: 1.9rem;
-    margin-top: 1.3rem;
-  }
+.all_things {
+  display: flex;
+  /* border: 1px solid red; */
+  text-decoration: none;
+}
+.allboxes {
+  border: 1px solid #4f585e;
+  height: 5rem;
+  width: 15rem;
+  margin-left: 2.2rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-  .allboxes p {
-    height: 2rem;
-    margin-left: 1rem;
-    margin-top: 1.4rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #4f585e;
-  }
-   
-  .allboxess p {
-    height: 2rem;
-    margin-left: 1rem;
-    margin-top: 0.8rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #4f585e;
-  }
-     
-  .saveperdiv {
-    margin-top: 1rem;
-  }
-  
-  .previouslydiv {
-    margin-top: 4rem;
-  }
-  
-  .pre {
-    /* border: 1px solid red; */
-    display: flex;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #4f585e;
-  }
-  .browseddiv {
-    display: flex;
-    /* border: 1px solid red; */
-    height: 245px;
-    gap: 20px;
-  }
-  .body_checkdiv1 {
-    border: 1px solid #dfe3e6;
-    height: 222px;
-    width: 23%;
-    border-radius: 5px;
-    margin-top: 1rem;
-    cursor: pointer;
-  }
-  .body_checkdiv1:hover {
-    color: teal;
-  }
-  
-  .body_checkdiv1 img {
-    margin-left: 1rem;
-    height: 1.9rem;
-    margin-top: 1.5rem;
-  }
-  .body_checkdiv1 p {
-    margin-left: 1rem;
-    font-size: 1.9;
-    font-weight: 600;
-    margin-top: 0.5rem;
-    color: #4f585e;
-  }
-  
-  .avai {
-    color: #636d74;
-    font-size: 0.8rem;
-  }
-  .test {
-    color: #8896a0;
-    font-size: 0.8rem;
-  }
-  .testprice {
-    color: #464a4d;
-    font-size: 1rem;
-  }
-  
-  .body_checkdiv2 {
-    border: 1px solid #dfe3e6;
-    height: 210px;
-    width: 25%;
-    border-radius: 5px;
-    margin-top: 1rem;
-    cursor: pointer;
-  }
-  
-  .body_checkdiv2 img {
-    margin-left: 1rem;
-    height: 1.9rem;
-    margin-top: 1.5rem;
-  }
-  .body_checkdiv2 p {
-    margin-left: 1rem;
-    font-size: 1.9;
-    font-weight: 600;
-    margin-top: 0.5rem;
-    color: #4f585e;
-  }
-  
-  .avai {
-    color: #636d74;
-    font-size: 0.8rem;
-  }
-  .test {
-    color: #dae3e9;
-    font-size: 0.8rem;
-  }
-  .testprice {
-    color: #464a4d;
-    font-size: 1rem;
-  }
-  
-  .certifiedpartner {
-    /* border: 1px solid red; */
-    margin-top: 4rem;
-  }
-  
-  .textcerti {
-    /* border: 1px solid red; */
-    display: flex;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #4f585e;
-  }
-  
-  .partnerlabsdiv {
-    display: flex;
-    /* border: 1px solid red; */
-    height: 11.2rem;
-    gap: 20px;
-  }
-  
-  .covidrtpcr {
-    border: 1px solid #dfe3e6;
-    height: 10rem;
-    width: 23%;
-    border-radius: 5px;
-    margin-top: 1rem;
-    cursor: pointer;
-  }
-  
-  .covidrtpcr img {
-    margin-left: 1.4rem;
-    height: 1.9rem;
-    margin-top: 1.5rem;
-  }
-  
-  .rtpcr {
-    margin-left: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: 1rem;
-    width: 11rem;
-    color: #4f585e;
-  }
-  
-  .certified {
-    color: #a0aeb7;
-    font-weight: 500;
-    font-size: 0.8rem;
-    margin-left: 1rem;
-  }
-  
-  .lab_test_online_div {
-    /* border:  1px solid red; */
-    margin-top: 2.5rem;
-    color: #4f585e;
-    font-family: Open Sans, sans-serif !important;
-  }
-  
-  .lab_tests_online {
-    /* border:  1px solid red; */
-    font-size: 1rem;
-    font-weight: 600;
-    color: #5d666c;
-  }
-  
-  .Book_Diagnostics {
-    margin-top: 2rem;
-    font-family: Open Sans, sans-serif !important;
-  }
-  
-  .booking_made_simple {
-    /* border:  1px solid red; */
-    margin-top: 1rem;
-    color: #4f585e;
-  }
-  
-  .booking_made_simple h2 {
-    /* border:  1px solid red; */
-    font-size: 1rem;
-    font-weight: 600;
-    color: #596167;
-  }
-  .span_box {
-    margin-top: 1rem;
-    width: 70rem;
-  }
-  
-  .secondparadiv {
-    margin-top: 2rem;
-  }
-  
-  .secondspan {
-    width: 100rem;
-  }
-  
-  /* .thirdparadiv{
+.allboxess {
+  border: 1px solid #4f585e;
+  height: 5rem;
+  width: 15rem;
+  margin-left: 2.2rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.allboxes img {
+  height: 2rem;
+  margin-left: 1.9rem;
+  margin-top: 1.3rem;
+}
+
+.allboxess img {
+  height: 2rem;
+  margin-left: 1.9rem;
+  margin-top: 1.3rem;
+}
+
+.allboxes p {
+  height: 2rem;
+  margin-left: 1rem;
+  margin-top: 1.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4f585e;
+}
+
+.allboxess p {
+  height: 2rem;
+  margin-left: 1rem;
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4f585e;
+}
+
+.saveperdiv {
+  margin-top: 1rem;
+}
+
+.previouslydiv {
+  margin-top: 4rem;
+}
+
+.pre {
+  /* border: 1px solid red; */
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4f585e;
+}
+.browseddiv {
+  display: flex;
+  /* border: 1px solid red; */
+  height: 245px;
+  gap: 20px;
+}
+.body_checkdiv1 {
+  border: 1px solid #dfe3e6;
+  height: 222px;
+  width: 23%;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.body_checkdiv1:hover {
+  color: teal;
+}
+
+.body_checkdiv1 img {
+  margin-left: 1rem;
+  height: 1.9rem;
+  margin-top: 1.5rem;
+}
+.body_checkdiv1 p {
+  margin-left: 1rem;
+  font-size: 1.9;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  color: #4f585e;
+}
+
+.avai {
+  color: #636d74;
+  font-size: 0.8rem;
+}
+.test {
+  color: #8896a0;
+  font-size: 0.8rem;
+}
+.testprice {
+  color: #464a4d;
+  font-size: 1rem;
+}
+
+.body_checkdiv2 {
+  border: 1px solid #dfe3e6;
+  height: 210px;
+  width: 25%;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.body_checkdiv2 img {
+  margin-left: 1rem;
+  height: 1.9rem;
+  margin-top: 1.5rem;
+}
+.body_checkdiv2 p {
+  margin-left: 1rem;
+  font-size: 1.9;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  color: #4f585e;
+}
+
+.avai {
+  color: #636d74;
+  font-size: 0.8rem;
+}
+.test {
+  color: #dae3e9;
+  font-size: 0.8rem;
+}
+.testprice {
+  color: #464a4d;
+  font-size: 1rem;
+}
+
+.certifiedpartner {
+  /* border: 1px solid red; */
+  margin-top: 4rem;
+}
+
+.textcerti {
+  /* border: 1px solid red; */
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4f585e;
+}
+
+.partnerlabsdiv {
+  display: flex;
+  /* border: 1px solid red; */
+  height: 11.2rem;
+  gap: 20px;
+}
+
+.covidrtpcr {
+  border: 1px solid #dfe3e6;
+  height: 10rem;
+  width: 23%;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.covidrtpcr img {
+  margin-left: 1.4rem;
+  height: 1.9rem;
+  margin-top: 1.5rem;
+}
+
+.rtpcr {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  width: 11rem;
+  color: #4f585e;
+}
+
+.certified {
+  color: #a0aeb7;
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+}
+
+.lab_test_online_div {
+  /* border:  1px solid red; */
+  margin-top: 2.5rem;
+  color: #4f585e;
+  font-family: Open Sans, sans-serif !important;
+}
+
+.lab_tests_online {
+  /* border:  1px solid red; */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5d666c;
+}
+
+.Book_Diagnostics {
+  margin-top: 2rem;
+  font-family: Open Sans, sans-serif !important;
+}
+
+.booking_made_simple {
+  /* border:  1px solid red; */
+  margin-top: 1rem;
+  color: #4f585e;
+}
+
+.booking_made_simple h2 {
+  /* border:  1px solid red; */
+  font-size: 1rem;
+  font-weight: 600;
+  color: #596167;
+}
+.span_box {
+  margin-top: 1rem;
+  width: 70rem;
+}
+
+.secondparadiv {
+  margin-top: 2rem;
+}
+
+.secondspan {
+  width: 100rem;
+}
+
+/* .thirdparadiv{
       border: 1px solid red;
   } */
-  
-  .thirdparadiv h2 {
-    /* border:  1px solid red; */
-    font-size: 1rem;
-    font-weight: 545;
-    color: #232628;
-    margin-top: 1.5rem;
-  }
-  
-  .doorstep {
-    margin-top: 1rem;
-  }
-  
-  .fourthparadiv {
-    margin-top: 1rem;
-    color: #232628;
-  }
-  .diagnosticonline {
-    /* border:  1px solid red; */
-    font-size: 1rem;
-    font-weight: 545;
-    color: #232628;
-    margin-top: 1.5rem;
-  }
-  .fourthspan {
-    margin-top: 1rem;
-  }
-  
-  .pointsdiv1 {
-    margin-left: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .visit {
-    color: rgb(38, 145, 145);
-    margin-top: 1rem;
-  }
-  
-  .fifthparadiv {
-    margin-top: 1rem;
-    color: #5d666c;
-    font-family: Open Sans, sans-serif !important;
-  }
-  
-  .whychoosepharmEasy {
-    margin-top: 1rem;
-    color: #5d666c;
-  }
-  
-  .sixthpartdiv {
-    margin-top: 1rem;
-  }
-  
-  .somepoint {
-    margin-left: 1rem;
-  }
-  
-  .lastdiv {
-    margin-top: 1rem;
-  }
-  
-  .faqdiv {
-    /* border: 1px solid red; */
-    margin-top: 2rem;
-    font-family: Open Sans, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #5d666c;
-  }
-  
-  .acco2 {
-    margin-top: 1rem;
-  }
-  
-  .appdiv {
-    /* border: 1px solid red; */
-    width: 66rem;
-    margin: auto;
-  }
-  
+
+.thirdparadiv h2 {
+  /* border:  1px solid red; */
+  font-size: 1rem;
+  font-weight: 545;
+  color: #232628;
+  margin-top: 1.5rem;
+}
+
+.doorstep {
+  margin-top: 1rem;
+}
+
+.fourthparadiv {
+  margin-top: 1rem;
+  color: #232628;
+}
+.diagnosticonline {
+  /* border:  1px solid red; */
+  font-size: 1rem;
+  font-weight: 545;
+  color: #232628;
+  margin-top: 1.5rem;
+}
+.fourthspan {
+  margin-top: 1rem;
+}
+
+.pointsdiv1 {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.visit {
+  color: rgb(38, 145, 145);
+  margin-top: 1rem;
+}
+
+.fifthparadiv {
+  margin-top: 1rem;
+  color: #5d666c;
+  font-family: Open Sans, sans-serif !important;
+}
+
+.whychoosepharmEasy {
+  margin-top: 1rem;
+  color: #5d666c;
+}
+
+.sixthpartdiv {
+  margin-top: 1rem;
+}
+
+.somepoint {
+  margin-left: 1rem;
+}
+
+.lastdiv {
+  margin-top: 1rem;
+}
+
+.faqdiv {
+  /* border: 1px solid red; */
+  margin-top: 2rem;
+  font-family: Open Sans, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5d666c;
+}
+
+.acco2 {
+  margin-top: 1rem;
+}
+
+.appdiv {
+  /* border: 1px solid red; */
+  width: 66rem;
+  margin: auto;
+}
