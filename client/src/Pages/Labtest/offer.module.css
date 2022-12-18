@@ -1,0 +1,47 @@
+
+
+* {
+    font-family: Open Sans, sans-serif;
+}
+
+
+
+.gridOffers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    cursor: pointer;
+
+}
+
+@media (max-width: 850px) {
+
+    .menu {
+        display: block;
+    }
+
+    .linksNavbar {
+        display: none
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .gridOffers {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,10 @@
 import { Box, Flex, Grid, HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { postCartData } from "../../Redux/Cart/cart.action";
 
 function MedicineComponent({
+  _id,
   image,
   name,
   company,
@@ -9,6 +12,15 @@ function MedicineComponent({
   price1,
   tablet,
 }) {
+  const { userToken } = useSelector((state) => state?.authReducer);
+  const dispatch = useDispatch();
+  const hadleAddtoCart = (product, quantity) => {
+    let body = {
+      product,
+      quantity,
+    };
+    dispatch(postCartData(userToken, body));
+  };
   return (
     <Grid
       gridTemplateColumns={".5fr 2fr"}
@@ -71,6 +83,7 @@ function MedicineComponent({
             fontSize="15px"
             color="#10847e"
             ml="auto"
+            onClick={() => hadleAddtoCart(_id, 1)}
           >
             ADD
           </Box>

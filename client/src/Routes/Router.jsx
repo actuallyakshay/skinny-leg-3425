@@ -10,6 +10,14 @@ import Healthpackages from "../Pages/Labtest/Healthpackages";
 import AllTest from "../Pages/Labtest/AllTest";
 import { LabTest } from "../Pages/Labtest/LabTest";
 import { Cart } from "../Pages/Cart/Cart";
+import SignupPage from "../Admin/SignupPage";
+import LoginPage from "../Admin/LoginPage";
+import AdminDashboard from "../Admin/Dashboard";
+import FirstPage from "../Admin/FirstPage";
+import AllProducts from "../Admin/AllProducts";
+import Trash from "../Admin/Trash";
+import AllUsers from "../Admin/AllUsers";
+import PrivateRoute from "./PrivateRoute";
 
 // const arr = [
 //   "ayurvedic",
@@ -40,6 +48,40 @@ export const Router = () => {
       <Route path="/medicine" element={<Medicine />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/admin/createuser" element={<SignupPage />} />
+      <Route path="/admin/login" element={<LoginPage />} />
+      <Route
+        path="/admin/dashboard"
+        element={
+          <PrivateRoute>
+            <FirstPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/products"
+        element={
+          <PrivateRoute>
+            <AllProducts />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/trash"
+        element={
+          <PrivateRoute>
+            <Trash />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/users"
+        element={
+          <PrivateRoute>
+            <AllUsers />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };
