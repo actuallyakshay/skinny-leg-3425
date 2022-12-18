@@ -41,8 +41,8 @@ export const ProductCard = ({
           </Box>
         </Link>
         <Flex w="full" justifyContent={"center"}>
-          <Button size="sm" my="10px" h="34px" colorScheme={"teal"}>
-            Add
+          <Button size="md" my="10px" h="38px" borderRadius={10}  colorScheme={"teal"}>
+            Add to Cart
           </Button>
         </Flex>
       </Box>
