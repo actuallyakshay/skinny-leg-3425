@@ -5,11 +5,11 @@ import Filter from "../filter/Filter";
 import { Box, Text, Select } from "@chakra-ui/react";
 import Filterbutton from "../filter/Filterbutton";
 import { useSelector,useDispatch } from "react-redux";
-import { getData } from "../../Redux/products/productAction";
+import { getData,getDataForSort } from "../../Redux/products/productAction";
 import {Loading} from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
 import { useLocation , useSearchParams } from "react-router-dom";
-import { useParams} from "react-router-dom"
+import { useParams} from "react-router-dom";
 
 
 const Products = () => {
@@ -18,6 +18,8 @@ const location = useLocation();
 const {data, isError, isLoading} = useSelector((store) => store.product);
 const dispatch = useDispatch();
 const {category} = useParams();
+const [sortData , setSortData] = React.useState(searchParams.get("sortData") || "")
+const [cat , setCat] = React.useState("sale")
 
 
 // React.useEffect(() => {
@@ -28,23 +30,35 @@ const {category} = useParams();
   
 // }, [location.search,searchParams]);
 
-React.useEffect(() => {
-  if(location || data.length === 0){
-     const category = searchParams.getAll("category");
-    const queryParams = {
-      params : {
-        category : category,
-       sort : searchParams.get("sortData") && "price1",
-        order: searchParams.get("sortData")
-      }
-    }
-    dispatch(getData(queryParams))
+// React.useEffect(() => {
+//   if(location || data.length === 0){
+//      const category = searchParams.getAll("category");
+//     const queryParams = {
+//       params : {
+//         category : category,
+//        sort : searchParams.get("sortData") && "price1",
+//         order: searchParams.get("sortData")
+//       }
+//     }
+//     dispatch(getData(queryParams))
     
-  }
-  
-  
-}, [location.search]);
+//   }  
+//  }, [location.search]);
 
+
+React.useEffect(() => {
+dispatch(getDataForSort(cat,"price1"))
+}, [dispatch,cat])
+
+// const HandleSort=(e)=>{
+//   setSortData(e.target.value)
+//   dispatch(getDataForSort("medicine","price1"));
+// console.log(e.target.value)
+// }
+
+const handleFilter = (e) => {
+setCat(e)
+}
 
 
 
@@ -78,10 +92,22 @@ if(isError){
                 display="flex"
                 justifyContent="space-around"
               >
-                {/* <Text display="flex" alignItems="center" color="gray.500">
+                <Text display="flex" alignItems="center" color="gray.500">
                   Sort By:
-                </Text> */}
-
+                </Text>
+               
+                <Select
+                  placeholder="Sort By"
+                  width={250}
+                  borderColor="#4F585E"
+                  // value={sortData}
+                  // onChange={(e)=>HandleSort(e)}
+                >
+                  <option value="asc"  >Price low to high</option>
+                  <option value="desc"  >Price high to low</option>
+                  <option value="asc">Discount low to high</option>
+                  <option value="desc">Discount high to low</option>
+                </Select>
               
               </Box>
             </Box>
@@ -89,7 +115,7 @@ if(isError){
       <div>
         <Wrapper>
           <WrapperFilter>
-            <Filter />
+            <Filter handleFilter={handleFilter} />
           </WrapperFilter>
 
            

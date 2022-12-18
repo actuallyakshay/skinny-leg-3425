@@ -3,21 +3,21 @@ import { Text , Box , Input, Radio, Stack, RadioGroup, Icon, Checkbox, Select } 
 import { SearchIcon } from "@chakra-ui/icons";
 import { useSearchParams } from "react-router-dom"
 
-const Filter = () => {
+const Filter = ({handleFilter}) => {
  const [searchParams , setSearchParams] = useSearchParams();
  const [filterData , setFilterData] = React.useState(searchParams.getAll("category") || []);
  const [sortData , setSortData] = React.useState(searchParams.get("sort") || "");
 
- const handleFilter = (e) => {
-    const option = e.target.value;
-    const newFilterData = [...filterData];
-    if(newFilterData.includes(option)){
-        newFilterData.splice(newFilterData.indexOf(option), 1);
-    }else{
-        newFilterData.push(option)
-    }
-    setFilterData(newFilterData)
- }
+//  const handleFilter = (e) => {
+//     const option = e.target.value;
+//     const newFilterData = [...filterData];
+//     if(newFilterData.includes(option)){
+//         newFilterData.splice(newFilterData.indexOf(option), 1);
+//     }else{
+//         newFilterData.push(option)
+//     }
+//     setFilterData(newFilterData)
+//  }
 
  const handleSort = (e) => {
     setSortData(e.target.value)
@@ -87,7 +87,7 @@ const Filter = () => {
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(2)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="ayurvedic" onChange={handleFilter} defaultChecked={filterData.includes("ayurvedic")} ></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="ayurvedic" onChange={() => handleFilter("ayurvedic")}  ></Checkbox>
         </Box>
     </Box>
 
@@ -97,7 +97,7 @@ const Filter = () => {
         </Box>
         <Box width="20%" display="flex" justifyContent="space-between">
             <Text fontSize="15px">(1)</Text>
-             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="medicine" onChange={handleFilter} defaultChecked={filterData.includes("medicine")}></Checkbox>
+             <Checkbox colorScheme="green" borderColor="blackAlpha.700" value="medicine" onChange={() => handleFilter("medicine")} ></Checkbox>
         </Box>
     </Box>
 
