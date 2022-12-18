@@ -1,15 +1,27 @@
-import { Box, Button, Flex, Grid, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  Image,
+  Link,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { AiOutlineClockCircle, AiOutlinePaperClip } from "react-icons/ai";
 import { BsCardList } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
 import { SearchBox } from "../../Component/Navbar/SearchBox";
 import { Carousel1 } from "./Components/Carousels/Carousel1";
 import {
+  articleconfig,
   cardconfig,
   cardconfig2,
   cataconfig,
   cataconfig2,
   offerconfig,
+  offerconfig2,
 } from "./Components/Carousels/setting";
 import { Cata } from "./Components/Cata";
 import { Cata2 } from "./Components/Cata2";
@@ -26,6 +38,10 @@ import labtextdata from "./Data/Labtext.json";
 import { LabtextCard } from "./Components/LabtextCard";
 import { ProductCard3 } from "./Components/ProductCard3";
 import featuredbranddata from "./Data/FeaturedBrand.json";
+import offerData from "./Data/Offer.json";
+import articles from "./Data/Articles.json";
+import { ArticleCard } from "./Components/ArticleCard";
+import { WhyUs } from "./Components/WhyUs";
 export const Home = () => {
   return (
     <Box mt={"104px"}>
@@ -494,7 +510,8 @@ export const Home = () => {
                   src={item.src}
                   title={item.title}
                   key={item.title}
-                  p="1px"
+                  px="0px"
+                  py="0px"
                 />
               ))}
             </Carousel1>
@@ -534,6 +551,143 @@ export const Home = () => {
               ))}
             </Carousel1>
           </Box>
+        </Box>
+      </Box>
+      <Box
+        px={{ base: "10px", md: "20px", lg: "40px" }}
+        bg={{
+          base: "url(https://assets.pharmeasy.in/apothecary/images/spotlight.svg) center top no-repeat, linear-gradient(rgb(255, 248, 227) 0%, rgba(255, 255, 255, 0) 100%)",
+          lg: "url(https://assets.pharmeasy.in/apothecary/images/spotlightBig.svg) no-repeat, linear-gradient(rgb(255, 248, 227) 0%, rgba(255, 255, 255, 0) 100%)",
+        }}
+        bgPos="center"
+        py="10px"
+        bgRepeat={"no-repeat"}
+      >
+        <Box>
+          <Text fontSize={{ base: "20px", md: "26px" }} fontWeight="semibold">
+            In the Spotlight
+          </Text>
+
+          <Box>
+            <Carousel1 setting={cardconfig}>
+              {ShopByCata.map((item) => (
+                <ProductCard
+                  src={item.src}
+                  title={item.title}
+                  key={item.title}
+                />
+              ))}
+            </Carousel1>
+          </Box>
+        </Box>
+      </Box>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }}>
+        <Carousel1 setting={offerconfig2}>
+          {offerData.map((item, i) => (
+            <OfferCard2
+              key={i + "offer"}
+              src={item.src}
+              border="lg"
+              base="250px"
+            />
+          ))}
+        </Carousel1>
+      </Box>
+      <Box px={{ base: "10px", md: "20px", lg: "40px" }}>
+        <Box>
+          <Flex justify={"space-between"} align="center" w="98%">
+            <Box gap="10px">
+              <Text fontSize={"26px"} fontWeight="semibold">
+                Health Articles
+              </Text>
+              <Text color="gray.900">
+                Get up-to-date on our latest health updates
+              </Text>
+            </Box>
+            <Text className="highText">View All</Text>
+          </Flex>
+          <Box>
+            <Carousel1 setting={articleconfig}>
+              {articles.map((item, i) => (
+                <ArticleCard
+                  src={item.src}
+                  title={item.des}
+                  key={i + "articles"}
+                />
+              ))}
+            </Carousel1>
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        px={{ base: "10px", md: "20px", lg: "40px" }}
+        bg="#ebf2ff"
+        py="20px"
+        my="20px"
+      >
+        <Text
+          fontSize={"26px"}
+          pb="20px"
+          fontWeight="semibold"
+          textAlign={"center"}
+        >
+          Why Choose Us?
+        </Text>
+        <Flex gap="20px" justify={"center"} flexWrap="wrap">
+          <WhyUs
+            src="https://assets.pharmeasy.in/apothecary/images/family.svg?dim=256x0"
+            title="32 Million+"
+            des="Registered users as of Mar 31, 2022"
+          />
+          <WhyUs
+            src="https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=256x0"
+            title="36 Million+"
+            des="Orders on Pharmeasy till date "
+          />
+          <WhyUs
+            src="https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=256x0"
+            title="99000+"
+            des="Unique items sold last 3 months"
+          />
+          <WhyUs
+            src="https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=256x0"
+            title="19500+"
+            des="Pin codes serviced last 3 months"
+          />
+        </Flex>
+      </Box>
+      <Box
+        px={{ base: "10px", md: "20px", lg: "40px" }}
+        my="40px"
+        bg="#bfeddd"
+        w="95%"
+        mx="auto"
+        position={"relative"}
+        display={{ base: "none", lg: "block" }}
+      >
+        <Image src="https://assets.pharmeasy.in/apothecary/images/downloadBanner.webp?dim=1440x0&q=100"></Image>
+        <Box
+          position={"absolute"}
+          className="downloadBanner"
+          w="23%"
+          textAlign={"center"}
+        >
+          <Heading fontSize={"30px"}>
+            Simplifying Healthcare Impacting Lives
+          </Heading>
+          <Text py="2%">Download the App for Free</Text>
+          <Flex w="full" justify={"space-between"} align="center" h="60px">
+            <Link href="https://pey.onelink.me/3krD/2bwqxjrj">
+              <Box>
+                <Image src="https://assets.pharmeasy.in/apothecary/images/googlePlay.svg?dim=256x0"></Image>
+              </Box>
+            </Link>
+            <Link href="https://pey.onelink.me/3krD/2bwqxjrj">
+              <Box>
+                <Image src="https://assets.pharmeasy.in/apothecary/images/appStore.svg?dim=256x0"></Image>
+              </Box>
+            </Link>
+          </Flex>
         </Box>
       </Box>
     </Box>

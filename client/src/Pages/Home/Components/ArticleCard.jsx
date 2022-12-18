@@ -1,12 +1,11 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-export const Cata3 = ({ src, title, px, py }) => {
+export const ArticleCard = ({ src, title }) => {
   return (
-    <Box h="210px" w="160px">
+    <Box h="310px" w="350px">
       <Box
-        w="160px"
-        h="200px"
+        h="300px"
         cursor={"pointer"}
         _hover={{
           boxShadow:
@@ -14,17 +13,17 @@ export const Cata3 = ({ src, title, px, py }) => {
         }}
         border={"1px solid #d7dfe5"}
         borderRadius="lg"
-        px={px ? px : "20px"}
-        py={py ? py : "12px"}
         transition={"all"}
         transitionDuration={"500ms"}
       >
         <Box>
           <Image borderTopRadius={"lg"} w="100%" src={src}></Image>
         </Box>
-        <Text textAlign={"center"} fontWeight={"bold"} mt="10px">
-          {title}
-        </Text>
+        <Box color={"gray.600"} textAlign={"left"} mx="10px">
+          <Text fontWeight={"semibold"} mt="10px">
+            {title}
+          </Text>
+        </Box>
       </Box>
     </Box>
   );

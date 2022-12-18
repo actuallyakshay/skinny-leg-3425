@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import styled from "styled-components";
 import Filter from "../filter/Filter";
 import { Box, Text, Select } from "@chakra-ui/react";
 import Filterbutton from "../filter/Filterbutton";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getData } from "../../Redux/products/productAction";
-import {Loading} from "../Loading/Loading";
+import { Loading } from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
-import { useLocation , useSearchParams } from "react-router-dom";
-import { useParams} from "react-router-dom"
+import { useLocation, useSearchParams } from "react-router-dom";
+
 
 const Products = () => {
+
 const [searchParams] = useSearchParams();  
 const location = useLocation();
 const {data, isError, isLoading} = useSelector((store) => store.product);
 const dispatch = useDispatch();
-const {category} = useParams()
+const {category} = useParams();
+
+
+// React.useEffect(() => {
+//   if(location || data.length === 0){
+//     searchParams.get("category")
+//     dispatch(getData(category))
+//   }
+  
+// }, [location.search,searchParams]);
 
 React.useEffect(() => {
   if(location || data.length === 0){
      const category = searchParams.getAll("category");
     const queryParams = {
       params : {
-        category : category
+        category : category,
+       sort : searchParams.get("sortData") && "price1",
+        order: searchParams.get("sortData")
       }
     }
     dispatch(getData(queryParams))
     
   }
-  //dispatch(getData(category))
   
-}, [dispatch]);
+  
+}, [location.search]);
+
+
+
 
 if(isError){
   return <h1>Something Went Wrong!!!</h1>
@@ -63,20 +78,11 @@ if(isError){
                 display="flex"
                 justifyContent="space-around"
               >
-                <Text display="flex" alignItems="center" color="gray.500">
+                {/* <Text display="flex" alignItems="center" color="gray.500">
                   Sort By:
-                </Text>
+                </Text> */}
 
-                <Select
-                  placeholder="Sort By"
-                  width={250}
-                  borderColor="#4F585E"
-                >
-                  <option value="PrcLtoH">Price low to high</option>
-                  <option value="PrcHtoL">Price high to low</option>
-                  <option value="DiscLtoH">Discount low to high</option>
-                  <option value="DiscHtoL">Discount high to low</option>
-                </Select>
+              
               </Box>
             </Box>
 
@@ -98,7 +104,6 @@ if(isError){
               src={data.image}
               alt={data.alt}
               name={data.name}
-              price={data.price}
               price1={data.price1}
               />
             ))
@@ -123,7 +128,7 @@ const WrapperBreadcrumb = styled.div`
   width: 100%;
   margin-left: 100px;
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 100px;
 `;
 
 const Wrapper = styled.div`
@@ -140,7 +145,7 @@ const WrapperFilter = styled.div`
 
 const WrapperProducts = styled.div`
   width: 100%;
-  margin-top:50px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
   justify-content: center;
