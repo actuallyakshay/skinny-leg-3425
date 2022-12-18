@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import "./CustoServices.css";
 
 const Services = () => {
@@ -8,7 +8,7 @@ const Services = () => {
       <Box className="cuto_services_box">
         <Box className="boxforall">
           <Box className="box_one">
-            <img
+            <Image
               src="https://assets.pharmeasy.in/web-assets/dist/9407515b.svg?dim=0x72&dpr=1.25&q=100"
               alt="Trusted Labs"
             />
@@ -21,7 +21,7 @@ const Services = () => {
             </Box>
           </Box>
           <Box className="box_one">
-            <img src="https://assets.pharmeasy.in/web-assets/dist/0105ddc1.svg?dim=0x72&dpr=1.25&q=100" />
+            <Image src="https://assets.pharmeasy.in/web-assets/dist/0105ddc1.svg?dim=0x72&dpr=1.25&q=100" />
             <p>Home Visit</p>
             <Box className="about_it">
               <p>
@@ -31,7 +31,7 @@ const Services = () => {
             </Box>
           </Box>
           <Box className="box_one">
-            <img src="https://assets.pharmeasy.in/web-assets/dist/fc71c500.svg?dim=0x72&dpr=1.25&q=100" />
+            <Image src="https://assets.pharmeasy.in/web-assets/dist/fc71c500.svg?dim=0x72&dpr=1.25&q=100" />
             <p>Timely and Accurate Reports</p>
             <Box className="about_it">
               <p>
@@ -41,7 +41,7 @@ const Services = () => {
             </Box>
           </Box>
           <Box className="box_one">
-            <img src="https://assets.pharmeasy.in/web-assets/dist/4a11ac5a.svg?dim=0x72&dpr=1.25&q=100" />
+            <Image src="https://assets.pharmeasy.in/web-assets/dist/4a11ac5a.svg?dim=0x72&dpr=1.25&q=100" />
             <p>Up to 70% OFF</p>
             <Box className="about_it">
               <p>

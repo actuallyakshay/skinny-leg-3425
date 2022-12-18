@@ -4,16 +4,13 @@ import {
   IconButton,
   useBreakpointValue,
   Stack,
-  Heading,
-  Text,
   Container,
-  Button
+  Button,
 } from "@chakra-ui/react";
 
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 import Slider from "react-slick";
-
 
 // const settings = {
 //     dots: true,
@@ -24,80 +21,70 @@ import Slider from "react-slick";
 //     autoplaySpeed: 2000
 // };
 
-
 var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  initialSlide: 0,
+  arrow: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true,
       },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
       },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
 
 export default function Cartcarousal() {
-  
-  
   const [slider, setSlider] = useState("");
 
-  
-  
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
 
   const cards = [
     {
-     
-        image:
-          "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/28122007/Home-Remedies-3-e1668525781621.jpg" ,
-         },
-    {
-      
       image:
-      "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/03143039/Health-Today-1-2-e1668506427623.jpg",
+        "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/28122007/Home-Remedies-3-e1668525781621.jpg",
     },
     {
-     
-        image:
+      image:
+        "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/03143039/Health-Today-1-2-e1668506427623.jpg",
+    },
+    {
+      image:
         "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/03143042/Lifestyle-1-1-e1668506475164.jpg",
     },
-    
-       {
-       
-        image:
-          "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/28122034/Chronic-Ailments-1-1-e1668525877831.jpg" ,
-         },
-         {
-        
-          image:"https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/11/02074732/Wellness-1-e1668525839475.jpg"
-            
-           },
 
+    {
+      image:
+        "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/10/28122034/Chronic-Ailments-1-1-e1668525877831.jpg",
+    },
+    {
+      image:
+        "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/11/02074732/Wellness-1-e1668525839475.jpg",
+    },
   ];
 
   return (
@@ -107,9 +94,7 @@ export default function Cartcarousal() {
       width={"90%"}
       overflow={"hidden"}
       gap={6}
-     
     >
-    
       <IconButton
         // aria-label="left-arrow"
         // variant="ghost"
@@ -121,8 +106,7 @@ export default function Cartcarousal() {
         zIndex={1}
         onClick={() => slider?.slickPrev()}
       >
-        
-        <BiLeftArrowAlt  color="#10847E"size="30px"  />
+        <BiLeftArrowAlt color="#10847E" size="30px" />
       </IconButton>
       {/* Right Icon */}
       <IconButton
@@ -135,7 +119,7 @@ export default function Cartcarousal() {
         zIndex={1}
         onClick={() => slider?.slickNext()}
       >
-        <BiRightArrowAlt  color="#10847E"  size="30px" />
+        <BiRightArrowAlt color="#10847E" size="30px" />
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
@@ -152,11 +136,13 @@ export default function Cartcarousal() {
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
             backgroundImage={`url(${card.image})`}
-            
-            as='button' bg='tomato' color='white' px={2} h={2}
+            as="button"
+            bg="tomato"
+            color="white"
+            px={2}
+            h={2}
           >
-            
-           button
+            button
             <Container size="container.lg" height="50px" position="relative">
               <Stack
                 spacing={6}
@@ -165,19 +151,14 @@ export default function Cartcarousal() {
                 // position="absolute"
                 top="50%"
                 transform="translate(0, -50%)"
-              >
-              
-               
-              </Stack>
+              ></Stack>
             </Container>
-           
           </Box>
-            
         ))}
-           <Button colorScheme='teal' size='xs' >he</Button>
+        <Button colorScheme="teal" size="xs">
+          he
+        </Button>
       </Slider>
-    
     </Box>
-   
   );
 }

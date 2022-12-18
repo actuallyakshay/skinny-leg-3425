@@ -7,17 +7,14 @@ import {
   Table,
   TableContainer,
   Tbody,
-  Td,
   Text,
   Th,
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import Cartcarousal from "../Addcart/Cartcarousal";
 import axios from "axios";
 import Counter from "./Counter";
-import CartSlider from "./Cartcarausal"
-
+import CartSlider from "./Cartcarausal";
 
 const d = [
   {
@@ -54,21 +51,20 @@ const d = [
   },
 ];
 
-function  Cart() {
+function Cart() {
   const [total, setTotal] = useState(0);
   const [data, setData] = useState([]);
 
-
-// //   let emails = "pathaksupriya981@gmail.com";
+  // //   let emails = "pathaksupriya981@gmail.com";
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     let daa = await axios.get(d, {
-//       headers: {
-//         // email: emails,
-//       },
+      //       headers: {
+      //         // email: emails,
+      //       },
     });
     setData(daa.data);
   };
@@ -116,115 +112,124 @@ function  Cart() {
     setData(newData);
   };
 
-
-
   return (
-   <div>
-{/* <Cartcarousal/>
+    <div>
+      {/* <Cartcarousal/>
 
 
 */}
 
-
-
-<Stack textAlign={"center"}>
-      {/* <Navbar /> */}
-      <Box w={"90%"} p="0% 2%" textAlign={"center"}>
-        <Image
-          w={"90%"}
-          
-        />
-        <Box display={"flex"} justifyContent={"space-between"} mb={"30px"}>
-          <Box display={"flex"} alignItems="center" gap={"30px"}>
-            <Text  fontSize={["20px", "20px", "30px"]}>MY CART(LENGTH OF CART) |</Text>
-            <Box gap={"5px"}>
-              {/* <RepeatIcon color={"#10847E"} fontSize={"20px"} /> Refresh */}
+      <Stack textAlign={"center"}>
+        {/* <Navbar /> */}
+        <Box w={"90%"} p="0% 2%" textAlign={"center"}>
+          <Image w={"90%"} />
+          <Box display={"flex"} justifyContent={"space-between"} mb={"30px"}>
+            <Box display={"flex"} alignItems="center" gap={"30px"}>
+              <Text fontSize={["20px", "20px", "30px"]}>
+                MY CART(LENGTH OF CART) |
+              </Text>
+              <Box gap={"5px"}>
+                {/* <RepeatIcon color={"#10847E"} fontSize={"20px"} /> Refresh */}
+              </Box>
+            </Box>
+            <Box display={"flex"} gap={"30px"}>
+              <Button bg={"#10847E"} color={"white"}>
+                CONTINUE SHOPPING
+              </Button>
+              <Button bg={"#10847E"} color={"white"}>
+                PROCEED TO CHECKOUT
+              </Button>
             </Box>
           </Box>
-          <Box display={"flex"} gap={"30px"}>
+          <Box
+            display={"flex"}
+            justifyContent="center"
+            gap={"30px"}
+            alignItems={"center"}
+            borderTop={"2px solid #dedede"}
+          >
+            {/* <TbTruckDelivery fontSize={"25px"} /> */}
+            <Text color={"#212c31"} fontWeight={"semibold"}>
+              GET YOUR ORDER DELIVERED VERY SOON
+            </Text>
+          </Box>
+          <TableContainer>
+            <Table variant="simple">
+              <Thead>
+                <Tr>
+                  <Th fontSize={["sm", "lg", "lg"]} w={"40%"}>
+                    Name
+                  </Th>
+                  <Th fontSize={["sm", "lg", "lg"]} w={"30%"}>
+                    Price
+                  </Th>
+                  <Th fontSize={["sm", "lg", "lg"]} w={"30%"}>
+                    Discount
+                  </Th>
+                  <Th fontSize={["sm", "lg", "lg"]} w={"30%"}>
+                    Qty
+                  </Th>
+                  <Th fontSize={["sm", "lg", "lg"]} w={"30%"}>
+                    Sub-Total
+                  </Th>
+                  <Th fontSize={["sm", "lg", "lg"]} w={"10%"}></Th>
+                </Tr>
+              </Thead>
+
+              <Tbody>
+                {data.map((el, i) => {
+                  return (
+                    <Counter
+                      key={i}
+                      {...el}
+                      changeQty={changeQty}
+                      i={i}
+                      handleDelete={handleDelete}
+                      handleQuantity={handleQuantity}
+                    />
+                  );
+                })}
+              </Tbody>
+            </Table>
+          </TableContainer>
+          <Box align={"right"}>
+            <Box w={"20%"} align="left" p={"10px"}>
+              <Text fontSize={["20px", "30px", "30px"]}>
+                Sub-Total: ₹ {total}.00
+              </Text>
+              <Text fontSize={["20px", "20px", "30px"]}>
+                Delivery Charges: ₹ 0.00
+              </Text>
+              <Text fontSize={["20px", "20px", "30px"]}>
+                Total: ₹ {total}.00
+              </Text>
+            </Box>
+          </Box>
+          <Box
+            align={"right"}
+            borderTop={"1px solid #dedede"}
+            borderBottom={"2px solid #dedede"}
+            p={"10px 0px 10px 0px"}
+          >
             <Button bg={"#10847E"} color={"white"}>
-            CONTINUE SHOPPING
+              {/* <Link href="/">CONTINUE SHOPPING</Link> */}
             </Button>
-            <Button bg={"#10847E"} color={"white"}>
+            <Button ml={"20px"} bg={"#10847E"} color={"white"}>
               PROCEED TO CHECKOUT
             </Button>
           </Box>
-        </Box>
-        <Box
-          display={"flex"}
-          justifyContent="center"
-          gap={"30px"}
-          alignItems={"center"}
-          borderTop={"2px solid #dedede"}
-        >
-          {/* <TbTruckDelivery fontSize={"25px"} /> */}
-          <Text color={"#212c31"} fontWeight={"semibold"}>
-            GET YOUR ORDER DELIVERED VERY SOON
-           
+          <Text textAlign={"center"} color={"#212c31"} fontWeight={"semibold"}>
+            RESTOCK YOUR BASKET
           </Text>
+          <br />
+          <br />
+          <br />
+          <CartSlider />
         </Box>
-        <TableContainer>
-          <Table variant="simple">
-            <Thead>
-              <Tr>
-                <Th fontSize={["sm", "lg", "lg"]} w={"40%"}>Name</Th>
-                <Th  fontSize={["sm", "lg", "lg"]}w={"30%"}>Price</Th>
-                <Th fontSize={["sm", "lg", "lg"]} w={"30%"}>Discount</Th>
-                <Th fontSize={["sm", "lg", "lg"]}w={"30%"}>Qty</Th>
-                <Th fontSize={["sm", "lg", "lg"]} w={"30%"}>Sub-Total</Th>
-                <Th fontSize={["sm", "lg", "lg"]} w={"10%"}></Th>
-              </Tr>
-            </Thead>
-
-            <Tbody>
-              {data.map((el, i) => {
-                return (
-                  <Counter
-                    key={i}
-                    {...el}
-                    changeQty={changeQty}
-                    i={i}
-                    handleDelete={handleDelete}
-                    handleQuantity={handleQuantity}
-                  />
-                );
-              })}
-            </Tbody>
-          </Table>
-        </TableContainer>
-        <Box align={"right"}>
-          <Box w={"20%"} align="left" p={"10px"}>
-            <Text fontSize={["20px", "30px", "30px"]}>Sub-Total: ₹ {total}.00</Text>
-            <Text fontSize={["20px", "20px", "30px"]}>Delivery Charges: ₹ 0.00</Text>
-            <Text  fontSize={["20px", "20px", "30px"]}>Total: ₹ {total}.00</Text>
-          </Box>
-        </Box>
-        <Box
-          align={"right"}
-          borderTop={"1px solid #dedede"}
-          borderBottom={"2px solid #dedede"}
-          p={"10px 0px 10px 0px"}
-        >
-          <Button bg={"#10847E"} color={"white"}>
-            {/* <Link href="/">CONTINUE SHOPPING</Link> */}
-          </Button>
-          <Button ml={"20px"} bg={"#10847E"} color={"white"}>
-            PROCEED TO CHECKOUT
-          </Button>
-        </Box>
-        <Text textAlign={"center"} color={"#212c31"} fontWeight={"semibold"}>
-          RESTOCK YOUR BASKET
-        </Text>
-        <br/>
-        <br/>
-        <br/>
-        <CartSlider />
-      </Box>
-      {/* <Footer /> */}
-    </Stack>
-   </div>
-  
+        {/* <Footer /> */}
+      </Stack>
+    </div>
   );
-};
+}
 
 export default Cart;

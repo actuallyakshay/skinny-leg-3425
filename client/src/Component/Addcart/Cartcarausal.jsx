@@ -61,6 +61,7 @@ export default class CartSlider extends Component {
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
+      arrow: false,
     };
     return (
       <Box mb={"20px"}>
@@ -75,11 +76,11 @@ export default class CartSlider extends Component {
                 textAlign="center"
               >
                 <Image style={{ height: "200px" }} src={el.src} />
-                <Text fontSize={["sm" ,"lg", "lg"]}>{el.name}</Text>
-                <Text fontSize={["sm" ,"lg", "lg"]}>{el.pcs}</Text>
+                <Text fontSize={["sm", "lg", "lg"]}>{el.name}</Text>
+                <Text fontSize={["sm", "lg", "lg"]}>{el.pcs}</Text>
                 <Box display={"flex"} justifyContent={"space-between"}>
-                  <Text fontSize={["sm" ,"md", "lg"]}>₹ {el.amount}</Text>
-                  <Button   padding={"25px"} bgColor={"#10847E"} color={"white"}>
+                  <Text fontSize={["sm", "md", "lg"]}>₹ {el.amount}</Text>
+                  <Button padding={"25px"} bgColor={"#10847E"} color={"white"}>
                     ADD
                   </Button>
                 </Box>

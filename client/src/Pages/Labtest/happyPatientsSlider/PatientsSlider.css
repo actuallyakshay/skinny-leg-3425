@@ -1,0 +1,22 @@
+.our_happy_patients_div {
+  /* border: 1px solid red; */
+  background-color: #f4f7fb;
+  height: 25rem;
+}
+
+.happypatientsbox {
+  /* border: 1px solid red; */
+  height: 25rem;
+  width: 60rem;
+  margin: auto;
+}
+
+.firstbox {
+  /* border: 1px solid red; */
+  margin-top: 2.2rem;
+  width: 25rem;
+  margin-left: 5rem;
+  font-size: 1.8rem;
+  color: #4f585e;
+  font-weight: 600;
+}

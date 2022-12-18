@@ -4,14 +4,13 @@ import {
   Stack,
   Card,
   CardHeader,
-  Heading,
   CardBody,
   Text,
   Button,
   Image,
 } from "@chakra-ui/react";
 import axios from "axios";
-import styles from "../Pages/Healthpackages.module.css";
+import styles from "./Healthpackages.module.css";
 
 const Healthpackages = () => {
   const [test, setTest] = useState([]);

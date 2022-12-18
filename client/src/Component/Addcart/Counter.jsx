@@ -1,8 +1,6 @@
 import { CloseIcon } from "@chakra-ui/icons";
 import { Button, Image, Td, Text, Tr } from "@chakra-ui/react";
-import axios from "axios";
-import React, { useState } from "react";
-
+import React from "react";
 
 const Counter = ({
   title,
@@ -14,11 +12,7 @@ const Counter = ({
   // changeQty,
   handleDelete,
 }) => {
-  const [count, setCount] = useState(1);
- 
-
-
-
+  // const [count, setCount] = useState(1);
 
   return (
     <Tr>
@@ -37,7 +31,6 @@ const Counter = ({
           borderBottomRightRadius={"0px"}
           disabled={qty === 1}
           mr={"1px"}
-
           onClick={(prev) => {
             handleQuantity({ id: _id, qty: qty - 1 });
           }}
@@ -59,11 +52,9 @@ const Counter = ({
           borderBottomLeftRadius={"0px"}
           bg={"#92be4d"}
           color={"white"}
-
           onClick={(prev) => {
             handleQuantity({ id: _id, qty: qty + 1 });
           }}
-
         >
           +
         </Button>

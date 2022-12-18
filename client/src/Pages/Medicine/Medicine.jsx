@@ -52,8 +52,8 @@ function Medicine() {
               w="35px"
               h="35px"
               border="2px solid #10847e"
-              bg={temp == i ? "#10847e" : "white"}
-              color={temp == i ? "white" : "#10847e"}
+              bg={temp === i ? "#10847e" : "white"}
+              color={temp === i ? "white" : "#10847e"}
               _hover={{ cursor: "pointer" }}
               onClick={() => handleClick(el, i)}
               fontWeight="500"

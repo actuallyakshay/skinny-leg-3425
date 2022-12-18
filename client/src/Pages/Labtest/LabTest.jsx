@@ -7,179 +7,169 @@ import {
   AccordionIcon,
   Box,
   Text,
+  Image,
+  Flex,
 } from "@chakra-ui/react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import img1 from "./labtest IMG/IMAGES1.PNG";
-import img2 from "./labtest IMG/IMAGES2.PNG";
-import img3 from "./labtest IMG/IMAGES3.PNG";
-import img4 from "./labtest IMG/IMAGES4.PNG";
-import img5 from "./labtest IMG/IMAGES5.PNG";
-import img6 from "./labtest IMG/IMAGES6.PNG";
-import img7 from "./labtest IMG/monsoon fever packege.jpg";
 import saveper from "./all faci/save 5percent.jpg";
 import "./LabTest.css";
-import styles from "../Styles/OrderMedicine.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import styles from "./OrderMedicine.module.css";
+import { Link } from "react-router-dom";
 import OurPatientsSlider from "./happyPatientsSlider/OurPatientsSlider";
 import { FacilitySlider } from "./facilityProviderSlider/FacilitySlider";
 import Services from "./CustomerService/Services";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { labconfig } from "../Home/Components/Carousels/setting";
+import { Carousel1 } from "../Home/Components/Carousels/Carousel1";
 
-function NextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <IoIosArrowForward
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        color: "black",
-        height: "2rem",
-
-        background: "none",
-        width: "2rem",
-        zIndex: 50,
-      }}
-      onClick={onClick}
-    />
-  );
-}
-
-function PrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <IoIosArrowBack
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "none",
-        color: "black",
-        height: "2rem",
-        width: "2rem",
-        zIndex: 50,
-      }}
-      onClick={onClick}
-    />
-  );
-}
 export const LabTest = () => {
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "160px",
-    slidesToShow: 1,
-    speed: 500,
-    // nextArrow: <NextArrow />,
-    // prevArrow: <PrevArrow />,
-  };
   return (
-    <>
-      <Box className="sliderbox">
-        <Slider {...settings} className="sliderimg">
-          <div>
-            <img
-              src={img1}
+    <Box mt="104px" w={{ base: "100%", lg: "75%" }} mx="auto">
+      <Box>
+        <Carousel1 setting={labconfig}>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/8e7a19b75e3-MP1100.jpg"
+              }
               alt=""
-              style={{
-                height: "18rem",
-                width: "90%",
-                margin: "auto",
-                backgroundSize: "cover",
-              }}
             />
-          </div>
-          <div>
-            <img
-              src={img2}
+          </Box>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/03438c566ea-Booking-Lab-Tests_HP_634x274.jpg"
+              }
               alt=""
-              style={{ height: "18rem", width: "90%", margin: "auto" }}
             />
-          </div>
-          <div>
-            <img
-              src={img3}
+          </Box>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/ab56cb3731b-Diag_Superfast_Cat_634-x-274_v3.jpg"
+              }
               alt=""
-              style={{ height: "18rem", width: "90%", margin: "auto" }}
             />
-          </div>
-          <div>
-            <img
-              src={img4}
+          </Box>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/c2c34b1f64f-surgicaregeneric.jpg"
+              }
               alt=""
-              style={{ height: "18rem", width: "90%", margin: "auto" }}
             />
-          </div>
-          <div>
-            <img
-              src={img5}
+          </Box>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/077b535cbfd-3_HP_634x274.jpg"
+              }
               alt=""
-              style={{ height: "18rem", width: "90%", margin: "auto" }}
             />
-          </div>
-          <div>
-            <img
-              src={img6}
+          </Box>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/6ee85df7b05-SmokingDHP.jpg"
+              }
               alt=""
-              style={{ height: "18rem", width: "90%", margin: "auto" }}
             />
-          </div>
-          <div>
-            <img
-              src={img7}
+          </Box>
+          <Box maxW={"700px"}>
+            <Image
+              w="100%"
+              src={
+                "https://cms-contents.pharmeasy.in/banner/cbde4a27696-YAY550XMAS.jpg"
+              }
               alt=""
-              style={{ height: "18rem", width: "90%", margin: "auto" }}
             />
-          </div>
-        </Slider>
+          </Box>
+        </Carousel1>
       </Box>
-      <Box className="main_div">
-        <Box className="all_things">
-          <Link to={"/all-tests"} className="allboxes">
-            <img
-              src="https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg"
-              alt="all test"
-            />
-            <p>All Tests</p>
-          </Link>
-          <Link to={"/Healthpackages"} className="allboxess">
-            <img
-              src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
-              alt=""
-            />
-            <p>
-              Health <br />
-              packages
-            </p>
-          </Link>
-          <Link to={""} className="allboxess">
-            <img
-              src="https://assets.pharmeasy.in/web-assets/dist/d4d62fbf.svg"
-              alt="upload Precription"
-            />
-            <p>
-              Upload <br /> Precription
-            </p>
-          </Link>
-          <Link to={""} className="allboxes">
-            <img
-              src="https://assets.pharmeasy.in/web-assets/dist/4ed59722.svg"
-              alt="Book on Call"
-            />
-            <p>Book on Call</p>
-          </Link>
+      <Box>
+        <Flex
+          w={{ base: "95%", lg: "90%" }}
+          mx="auto"
+          py={{ lg: "20px" }}
+          px={{ md: "10px", lg: "20px" }}
+          gap={[2, 3, 4, 5, 6, 10]}
+          className="sidebar"
+        >
+          <Box minW="200px" border={"1px solid #d7dfe5"} borderRadius="3xl">
+            <Link to={"/all-tests"}>
+              <Flex
+                w="max-content"
+                align={"center"}
+                px="20px"
+                py="10px"
+                gap="3"
+              >
+                <Image
+                  w="50px"
+                  h="50px"
+                  objectFit={"contain"}
+                  src="https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg"
+                  alt="all test"
+                />
+                <Text>All Tests</Text>
+              </Flex>
+            </Link>
+          </Box>
+          <Box minW="200px" border={"1px solid #d7dfe5"} borderRadius="3xl">
+            <Link to={"/Healthpackages"}>
+              <Flex align={"center"} px="20px" py="10px" gap="3">
+                <Image
+                  w="50px"
+                  h="50px"
+                  objectFit={"contain"}
+                  src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
+                  alt=""
+                />
+                <Text>Health packages</Text>
+              </Flex>
+            </Link>
+          </Box>
+          <Box minW="200px" border={"1px solid #d7dfe5"} borderRadius="3xl">
+            <Link to={""}>
+              <Flex align={"center"} px="20px" py="10px" gap="3">
+                <Image
+                  w="50px"
+                  h="50px"
+                  objectFit={"contain"}
+                  src="https://assets.pharmeasy.in/web-assets/dist/d4d62fbf.svg"
+                  alt="upload Precription"
+                />
+                <Text>Upload Precription</Text>
+              </Flex>
+            </Link>
+          </Box>
+          <Box minW="200px" border={"1px solid #d7dfe5"} borderRadius="3xl">
+            <Link to={""}>
+              <Flex align={"center"} px="20px" py="10px" gap="3">
+                <Image
+                  w="50px"
+                  h="50px"
+                  objectFit={"contain"}
+                  src="https://assets.pharmeasy.in/web-assets/dist/4ed59722.svg"
+                  alt="Book on Call"
+                />
+                <Text>Book on Call</Text>
+              </Flex>
+            </Link>
+          </Box>
+        </Flex>
+        <Box>
+          <Image src={saveper} alt="" />
         </Box>
-        <Box className="saveperdiv">
-          <img src={saveper} alt="" />
-        </Box>
-        {/* Previously Browsed By You */}
-        <Box className="previouslydiv ">
+        <Box>
           <Text className="pre">Previously Browsed By You</Text>
           <Box className="browseddiv ">
             <Link to={"/rtpcr"} className="body_checkdiv1">
-              <img
+              <Image
                 src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
                 alt="full body checkup"
               />
@@ -189,7 +179,7 @@ export const LabTest = () => {
               <p className="testprice">₹1,499 onwards</p>
             </Link>
             <Link to={"/rtpcr"} className="body_checkdiv2">
-              <img
+              <Image
                 src="https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg"
                 alt="full body checkup"
               />
@@ -198,7 +188,7 @@ export const LabTest = () => {
               <p className="testprice">₹1,499 onwards</p>
             </Link>
             <Link to={"/rtpcr"} className="body_checkdiv2">
-              <img
+              <Image
                 src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
                 alt="full body checkup"
               />
@@ -214,7 +204,7 @@ export const LabTest = () => {
           <p className="textcerti">Certified Partner Labs</p>
           <Box className="partnerlabsdiv">
             <Link to="/labdetails" className="covidrtpcr">
-              <img
+              <Image
                 src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/CompanyLogo/c1e61675f13e3744a29aca8e1a481c4c.png"
                 alt="full body checkup"
               />
@@ -222,7 +212,7 @@ export const LabTest = () => {
               <p className="certified">NABL, CAP Certified</p>
             </Link>
             <Link to={"/labdetails"} className="covidrtpcr">
-              <img src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/CompanyLogo/a0f1970bb7d73fcdbd5f08533a2484f2.png" />
+              <Image src="https://s3.ap-south-1.amazonaws.com/pe-neon-public/diagnostics/production/CompanyLogo/a0f1970bb7d73fcdbd5f08533a2484f2.png" />
               <p className="rtpcr">PharmEasy Labs (Thyrocare powered)</p>
               <p className="certified"> Certified</p>
             </Link>
@@ -515,7 +505,7 @@ export const LabTest = () => {
       <div className="appdiv">
         <div className={styles.bottom_2}>
           <div className={styles.bottom_21}>
-            <img
+            <Image
               src="https://assets.pharmeasy.in/web-assets/_next/icons/footerMobile.jpg"
               alt=""
             />
@@ -529,7 +519,7 @@ export const LabTest = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
+                  <Image
                     src="https://www.idfcfirstbank.com/content/dam/IDFCFirstBank/apple-store-icon.svg"
                     alt=""
                   />
@@ -541,7 +531,7 @@ export const LabTest = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
+                  <Image
                     src="https://www.idfcfirstbank.com/content/dam/IDFCFirstBank/android-store-icon.svg"
                     alt=""
                   />
@@ -551,6 +541,6 @@ export const LabTest = () => {
           </div>
         </div>
       </div>
-    </>
+    </Box>
   );
 };

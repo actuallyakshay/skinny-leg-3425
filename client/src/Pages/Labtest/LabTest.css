@@ -1,80 +1,13 @@
-.sliderbox {
-  /* border: 1px solid red; */
-  width: 75%;
-  margin: auto;
-  margin-top: 4rem;
-}
-
-/* .slick-arrow.slick-prev,
-.slick-arrow.slick-next {
-  background-color: teal;
-  display: none;
-} */
-
-.main_div {
-  /* border: 1px solid red; */
-  height: 2000;
-  width: 75%;
-  margin: auto;
-}
-
-.all_things {
-  display: flex;
-  /* border: 1px solid red; */
-  text-decoration: none;
-}
 .allboxes {
-  border: 1px solid #4f585e;
-  height: 5rem;
-  width: 15rem;
-  margin-left: 2.2rem;
+  max-width: fit-content;
+  width: 200px;
+  border: 1px solid #d7dfe5;
   border-radius: 50px;
-  margin-top: 1rem;
   display: flex;
   cursor: pointer;
   text-decoration: none;
-}
-
-.allboxess {
-  border: 1px solid #4f585e;
-  height: 5rem;
-  width: 15rem;
-  margin-left: 2.2rem;
-  border-radius: 50px;
-  margin-top: 1rem;
-  display: flex;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.allboxes img {
-  height: 2rem;
-  margin-left: 1.9rem;
-  margin-top: 1.3rem;
-}
-
-.allboxess img {
-  height: 2rem;
-  margin-left: 1.9rem;
-  margin-top: 1.3rem;
-}
-
-.allboxes p {
-  height: 2rem;
-  margin-left: 1rem;
-  margin-top: 1.4rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #4f585e;
-}
-
-.allboxess p {
-  height: 2rem;
-  margin-left: 1rem;
-  margin-top: 0.8rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #4f585e;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .saveperdiv {
