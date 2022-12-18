@@ -2,6 +2,7 @@ const express = require("express");
 const Product = require("./product.model");
 const jwt = require("jsonwebtoken");
 const User = require("../auth/auth.model");
+const Trash = require("../TrashProducts/trash.model");
 
 const app = express.Router();
 
@@ -143,6 +144,80 @@ app.patch("/:id", async (req, res) => {
           return res.send(product);
         }
       }
+    }
+  } catch (e) {
+    return res.send(e.message);
+  }
+});
+
+app.patch("", async (req, res) => {
+  const {
+    id,
+    price1,
+    price2,
+    off,
+    qunatity,
+    category,
+    tablet,
+    ingredients,
+    company,
+    testInclude,
+    name,
+    image,
+  } = req.body;
+  const token = req.headers.token;
+
+  try {
+    let decode = jwt.decode(token, "17147714");
+    if (!decode) {
+      return res.send("Invalid token");
+    } else {
+      let product = await Product.findByIdAndUpdate(
+        { _id: id },
+        {
+          price1,
+          price2,
+          off,
+          qunatity,
+          category,
+          tablet,
+          ingredients,
+          company,
+          testInclude,
+          name,
+          image,
+        }
+      );
+      return res.send(product);
+    }
+  } catch (e) {
+    return res.send(e.message);
+  }
+});
+
+app.delete("/:id", async (req, res) => {
+  const token = req.headers.token;
+  const {
+    price1,
+    price2,
+    off,
+    qunatity,
+    category,
+    tablet,
+    ingredients,
+    company,
+    testInclude,
+    name,
+    image,
+  } = req.body;
+  try {
+    let decode = jwt.decode(token, "17147714");
+    if (!decode) {
+      return res.send("Invalid token");
+    } else {
+      let trash = await Trash.create(req.body);
+      let product = await Product.findByIdAndDelete(req.params.id);
+      res.send(trash);
     }
   } catch (e) {
     return res.send(e.message);

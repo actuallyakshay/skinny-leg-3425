@@ -1,0 +1,37 @@
+const mongoose = require("mongoose");
+
+const trashSchema = new mongoose.Schema(
+  {
+    image: String,
+    name: String,
+    price1: Number,
+    price2: Number,
+    off: Number,
+    quantity: Number,
+    category: String,
+    tablet: String,
+    ingredients: String,
+    company: String,
+    testInclude: String,
+    image1: String,
+    image2: String,
+    image3: String,
+    ratings: [{ user_name: String, user_image: String, stars: Number }],
+    reviews: [
+      {
+        user_name: String,
+        user_image: String,
+        title: String,
+        liked: [{ Liked_name: String, Likes_image: String }],
+      },
+    ],
+  },
+  {
+    timestamps: true,
+    versionKey: false,
+  }
+);
+
+const Trash = mongoose.model("trash", trashSchema);
+
+module.exports = Trash;

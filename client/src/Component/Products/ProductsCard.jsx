@@ -34,7 +34,9 @@ export const ProductCard = ({
             </p>
             <Flex gap="2" flexWrap={"wrap"}>
               <Text>₹{price1}</Text>
-              <Text color={"red"}>{off} % OFF</Text>
+              <Text color="white" className="off">
+                {off} % OFF
+              </Text>
             </Flex>
           </Box>
         </Link>

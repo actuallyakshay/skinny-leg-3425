@@ -67,7 +67,7 @@ const OfferPage = () => {
           </Heading>
         </Box>
         <Grid
-          mt='5'
+          mt="5"
           gap="3"
           gridTemplateColumns={{ base: "repeat(1fr)", lg: "repeat(2,1fr)" }}
         >

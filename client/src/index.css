@@ -109,3 +109,16 @@ code {
   line-height: 1.5rem;
   height: 3rem;
 }
+
+
+.off {
+  color: #fff;
+  background-image: url(https://assets.pharmeasy.in/web-assets/_next/icons/pdp-discount.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 20px 5px 5px;
+  margin-left: 5px;
+  min-width: 65px;
+}
