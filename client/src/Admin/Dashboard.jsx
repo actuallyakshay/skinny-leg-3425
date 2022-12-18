@@ -98,6 +98,8 @@ export default function AdminDashboard() {
           </Link>
         </HStack>
         <HStack display={{ base: "none", md: "flex" }}>
+          <Avatar name={name} />
+          <Text>{role}</Text>
           <Button
             fontSize={"sm"}
             fontWeight={200}
@@ -108,7 +110,6 @@ export default function AdminDashboard() {
           >
             {isAuth ? "Signout" : "Login"}
           </Button>
-          <Avatar name={name} />
         </HStack>
       </Flex>
       <Divider />
