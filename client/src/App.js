@@ -1,23 +1,14 @@
+import { Router } from "react-router-dom";
 import { Navbar } from "./Component/Navbar/Navbar";
-import { Router } from "./Component/Router/Router";
-import AllTest from "./Pages/AllTest";
-import { LabTest } from "./Pages/LabTest";
-import { UNavbar } from "./Component/Unavbar/Navbar";
-import { UFooter } from "./Component/UFooter";
-import Healthpackages from "./Pages/Healthpackages";
-import Cart from "./Component/Addcart/Cart"
+import {UFooter} from "./Component/UFooter"
 
 function App() {
   return (
     <>
-      {/* <Navbar />
+        <Navbar /> 
       <Router />
-      <UNavbar />
-      <LabTest />
-      <AllTest />
-      <Healthpackages />
-      <UFooter /> */}
-      {/* <Cart/> */}
+      <UFooter /> 
+     
     </>
   );
 }
