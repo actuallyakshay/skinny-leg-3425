@@ -6,7 +6,7 @@ import { Router } from "./Routes/Router";
 function App() {
   return (
     <>
-      <Navbar />
+        <Navbar /> 
       <Router />
       {/* <UFooter /> */}
     </>
