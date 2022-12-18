@@ -16,7 +16,7 @@ app.get("", async (req, res) => {
         name: temp,
       }).limit(limit);
       console.log(products);
-     return res.send(products);
+      return res.send(products);
     } else if (category && sort) {
       if (sort == "asc") {
         let temp = await Product.find({ category: category })
@@ -91,9 +91,9 @@ app.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     let product = await Product.findById({ _id: id });
-  return  res.send(product);
+    return res.send(product);
   } catch (e) {
-   return res.send(e.message);
+    return res.send(e.message);
   }
 });
 
@@ -103,7 +103,7 @@ app.patch("/:id", async (req, res) => {
   console.log({ stars });
   const { id } = req.params;
   try {
-    let decode = jwt.decode(token, process.env.SECRET_KEY);
+    let decode = jwt.decode(token, "17147714");
     if (!decode) {
       return res.send("Invalid token");
     } else {

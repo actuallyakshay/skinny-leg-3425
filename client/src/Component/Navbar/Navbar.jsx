@@ -190,11 +190,11 @@ export const Navbar = ({ name, avatar, pin }) => {
           <Flex h="full" justify={"center"} align="center">
             <RouteLinks mx="-4px" link={"/medicine"} title={"Medicine"} />
             <RouteLinks mx="-4px" title={"Lab Test"} link={"/labtest"} />
-            <RouteLinks mx="-4px" title={"Healthcare"} />
+            <RouteLinks mx="-4px" link={"/products"} title={"Healthcare"} />
             <RouteLinks mx="-4px" title={"Surgeries"} />
-            <RouteLinks mx="4px" title={"Health Blogs"} />
+            <RouteLinks mx="4px" link={"/products"} title={"Health Blogs"} />
             <RouteLinks mx={"-20px"} title={"PLUS"} />
-            <RouteLinks mx={"-20px"} title={"Offers"} />
+            <RouteLinks mx={"-20px"} link={"/offers"} title={"Offers"} />
             <RouteLinks title={"Value Store"} />
           </Flex>
         </Box>

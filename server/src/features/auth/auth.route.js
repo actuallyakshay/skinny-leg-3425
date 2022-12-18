@@ -19,14 +19,14 @@ app.post("/login", async (req, res) => {
     if (phoneNumber) {
       let user = await User.findOne({ phoneNumber: phoneNumber });
       if (user) {
-        const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY);
+        const token = jwt.sign({ _id: user._id }, "17147714");
         return res.send({ token });
       } else {
         let temp = await User.create({
           phoneNumber,
           role: "Guest",
         });
-        const token1 = jwt.sign({ _id: temp._id }, process.env.SECRET_KEY);
+        const token1 = jwt.sign({ _id: temp._id }, "17147714");
         return res.send({ token: token1 });
       }
     } else if (email) {
@@ -38,7 +38,7 @@ app.post("/login", async (req, res) => {
         if (match) {
           let token = jwt.sign(
             { _id: user._id, name: user.name, role: user.role },
-            process.env.SECRET_KEY
+            "17147714"
           );
           return res.status(200).send({ token });
         } else {
@@ -92,7 +92,7 @@ app.patch("", async (req, res) => {
     if (!token) {
       return res.send("Missing token");
     } else {
-      const decode = jwt.decode(token, process.env.SECRET_KEY);
+      const decode = jwt.decode(token, "17147714");
       if (!decode) {
         return res.send("Wrong token");
       } else {

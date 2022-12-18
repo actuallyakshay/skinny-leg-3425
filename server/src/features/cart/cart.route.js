@@ -11,7 +11,7 @@ const authMiddleWare = async (req, res, next) => {
     if (!token) {
       return res.send("Token missing");
     } else {
-      let decode = jwt.decode(token, process.env.SECRET_KEY);
+      let decode = jwt.decode(token, "17147714");
       if (!decode) {
         return res.send("Invalid Token");
       } else {

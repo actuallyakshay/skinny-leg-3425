@@ -8,20 +8,21 @@ import AllTest from "../Pages/AllTest";
 import Healthpackages from "../Pages/Healthpackages";
 import Medicine from "../Pages/Medicine/Medicine";
 import Products from "../Component/Products/Products";
+import OfferPage from "../Pages/Offers/Offer";
 
-const arr = [
-  "ayurvedic",
-  "babycare",
-  "diabetes",
-  "disinfactents",
-  "healthcareDevices",
-  "healthFood",
-  "immunity",
-  "medicine",
-  "mens",
-  "stomach",
-  "skincare",
-];
+// const arr = [
+//   "ayurvedic",
+//   "babycare",
+//   "diabetes",
+//   "disinfactents",
+//   "healthcareDevices",
+//   "healthFood",
+//   "immunity",
+//   "medicine",
+//   "mens",
+//   "stomach",
+//   "skincare",
+// ];
 
 export const Router = () => {
   return (
@@ -32,6 +33,7 @@ export const Router = () => {
         <Route path=":id" element={<SingleProduct />} />
       </Route>
       <Route path="/labtest" element={<LabTest />} />
+      <Route path="/offers" element={<OfferPage />} />
       <Route path="all-tests" element={<AllTest />} />
       <Route path="Healthpackages" element={<Healthpackages />} />
       <Route path="/medicine" element={<Medicine />} />
