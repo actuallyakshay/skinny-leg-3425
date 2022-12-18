@@ -40,19 +40,29 @@ const AllTest = () => {
           {test.map((item) => (
             <LazyLoad height={250} offset={150}>
               <Stack spacing="4">
-                <Card key="md" size="md">
+                <Card
+                  key="md"
+                  size="md"
+                  _hover={{ borderColor: "teal", borderWidth: "2px" }}
+                  marginBottom="20px"
+                  className={styles.card}
+                >
                   <CardHeader className={styles.cardHeader}>
-                    <box className={styles.head}  >
-                    <Image src='https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg' alt='Pharmecy' className={styles.Image_ph} />
-                    <Text  className={styles.heading}  size="md">
-                      {item.name}
-                    </Text>
+                    <box className={styles.head}>
+                      <Image
+                        src="https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg"
+                        alt="Pharmecy"
+                        className={styles.Image_ph}
+                      />
+                      <Text className={styles.heading} size="md">
+                        {item.name}
+                      </Text>
                     </box>
 
                     <box className={styles.select}>
-                    <Button colorScheme="teal" size="lg">
-                      Select
-                    </Button>
+                      <Button colorScheme="teal" size="lg">
+                        Select
+                      </Button>
                     </box>
                   </CardHeader>
                   <CardBody>

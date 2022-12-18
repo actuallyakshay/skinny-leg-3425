@@ -40,7 +40,7 @@ const Healthpackages = () => {
           {test.map((item) => (
             <LazyLoad height={250} offset={150}>
               <Stack spacing={10} _hover="teal" >
-                <Card key="md" size="md" >
+                <Card key="md" size="md"  _hover={{  borderColor:"teal",borderWidth:"2px", }} marginBottom="20px" className={styles.card} >
                   <CardHeader className={styles.cardHeader}>
                     <box className={styles.head}  >
                     <Image src='https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg' alt='Pharmecy' className={styles.Image_ph} />
