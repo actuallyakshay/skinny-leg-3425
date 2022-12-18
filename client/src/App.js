@@ -17,7 +17,7 @@ function App() {
       <AllTest />
       <Healthpackages />
       <UFooter /> */}
-      <Cart/>
+      {/* <Cart/> */}
     </>
   );
 }
