@@ -5,7 +5,7 @@ import { LabTest } from "./Pages/LabTest";
 import { UNavbar } from "./Component/Unavbar/Navbar";
 import { UFooter } from "./Component/UFooter";
 import Healthpackages from "./Pages/Healthpackages";
-import Cart from "./Component/Addcart/cart"
+import Cart from "./Component/Addcart/Cart"
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <AllTest />
       <Healthpackages />
       <UFooter /> */}
-      {/* <Cart/> */}
+      <Cart/>
     </>
   );
 }
