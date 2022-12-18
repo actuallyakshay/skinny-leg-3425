@@ -88,8 +88,8 @@ export const Coupon = ({ isOpen, onClose, btnRef, apply }) => {
             ""
           )}
           <Flex mt="20px" gap="3" flexDir={"column"}>
-            {data ? (
-              data?.map((el, i) => {
+            {data.length > 0 ? (
+              data.map((el, i) => {
                 return (
                   <Box key={i + "offerkey"}>
                     <Flex
