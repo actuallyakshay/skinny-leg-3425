@@ -26,7 +26,17 @@ const arr = [
   "skincare",
 ];
 
-const Filter = ({ handleClick }) => {
+const priceArr = [
+  "0 - 100",
+  "100 - 200",
+  "200 - 400",
+  "400 - 800",
+  "800 - 1600",
+  "1600 - 3000",
+  "3000 & above"
+]
+
+const Filter = ({ handleClick, handleFilter }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filterData, setFilterData] = React.useState(
     searchParams.getAll("category") || []
@@ -35,26 +45,6 @@ const Filter = ({ handleClick }) => {
     searchParams.get("sort") || ""
   );
 
-  const handleFilter = (e) => {
-    const option = e.target.value;
-    const newFilterData = [...filterData];
-    if (newFilterData.includes(option)) {
-      newFilterData.splice(newFilterData.indexOf(option), 1);
-    } else {
-      newFilterData.push(option);
-    }
-    setFilterData(newFilterData);
-  };
-  const handleSort = (e) => {
-    setSortData(e.target.value);
-  };
-
-  React.useEffect(() => {
-    const params = {};
-    filterData && (params.category = filterData);
-    sortData && (params.sort = sortData);
-    setSearchParams(params);
-  }, [filterData, sortData, setSearchParams]);
 
   return (
     <>
@@ -143,75 +133,24 @@ const Filter = ({ handleClick }) => {
         </Text>
       </Box>
 
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>0 - 100</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(3)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
+      <RadioGroup mt="4">
+        <VStack gap="1" align="flex-start">
+          {priceArr.map((el, i) => {
+            return (
+              <Radio
+                key={i + el}
+                colorScheme="green"
+                borderColor="blackAlpha.700"
+                value={el}
+                onClick={() => handleFilter(el)}
+              >
+                <Text textTransform={"capitalize"}>{el}</Text>
+              </Radio>
+            );
+          })}
+        </VStack>
+      </RadioGroup>
 
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>100 - 200</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(2)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
-
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>200 - 400</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(2)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
-
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>400 - 800</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(6)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
-
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>800 - 1600</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(3)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
-
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>1600 - 3000</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(7)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
-
-      <Box mt={4} display="flex" justifyContent="space-around">
-        <Box width="80%">
-          <Text>3000 and above</Text>
-        </Box>
-        <Box width="20%" display="flex" justifyContent="space-between">
-          <Text fontSize="15px">(2)</Text>
-          <Checkbox colorScheme="green" borderColor="blackAlpha.700"></Checkbox>
-        </Box>
-      </Box>
     </>
   );
 };

@@ -34,13 +34,15 @@ export const ProductCard = ({
             </p>
             <Flex gap="2" flexWrap={"wrap"}>
               <Text>₹{price1}</Text>
-              <Text color={"red"}>{off} % OFF</Text>
+              <Text color="white" className="off">
+                {off} % OFF
+              </Text>
             </Flex>
           </Box>
         </Link>
         <Flex w="full" justifyContent={"center"}>
-          <Button size="sm" my="10px" h="34px" colorScheme={"teal"}>
-            Add
+          <Button size="md" my="10px" h="38px" borderRadius={10}  colorScheme={"teal"}>
+            Add to Cart
           </Button>
         </Flex>
       </Box>
