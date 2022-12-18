@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import styled from "styled-components";
 import Filter from "../filter/Filter";
 import { Box, Text, Select } from "@chakra-ui/react";
 import Filterbutton from "../filter/Filterbutton";
+
 import { useSelector,useDispatch } from "react-redux";
 import { getData,getDataForSort } from "../../Redux/products/productAction";
 import {Loading} from "../Loading/Loading";
 import ProductsCard from "./ProductsCard";
-import { useLocation , useSearchParams } from "react-router-dom";
-import { useParams} from "react-router-dom";
+import { useLocation , useSearchParams , useParams} from "react-router-dom";
 
 
 const Products = () => {
+
 const [searchParams] = useSearchParams();  
 const location = useLocation();
 const {data, isError, isLoading} = useSelector((store) => store.product);
@@ -171,7 +172,7 @@ const WrapperFilter = styled.div`
 
 const WrapperProducts = styled.div`
   width: 100%;
-  margin-top:50px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
   justify-content: center;

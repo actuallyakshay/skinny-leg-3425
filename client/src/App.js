@@ -1,18 +1,13 @@
 import { Navbar } from "./Component/Navbar/Navbar";
-import { Router } from "./Component/Router/Router";
-import {LabTest} from "./Pages/LabTest";
+import { UFooter } from "./Component/UFooter";
+import { Router } from "./Routes/Router";
+
 function App() {
   return (
     <>
-
-     
-
-     <Navbar />
-
       <Navbar />
-
       <Router />
-     
+      <UFooter />
     </>
   );
 }
