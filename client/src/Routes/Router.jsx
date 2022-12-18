@@ -6,10 +6,10 @@ import Medicine from "../Pages/Medicine/Medicine";
 import Products from "../Component/Products/Products";
 import OfferPage from "../Pages/Offers/Offer";
 import Blog from "../Component/blog/blog";
-import Cart from "../Component/Addcart/cart";
 import Healthpackages from "../Pages/Labtest/Healthpackages";
 import AllTest from "../Pages/Labtest/AllTest";
 import { LabTest } from "../Pages/Labtest/LabTest";
+import { Cart } from "../Pages/Cart/Cart";
 
 // const arr = [
 //   "ayurvedic",
