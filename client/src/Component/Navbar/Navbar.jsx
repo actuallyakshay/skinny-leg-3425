@@ -25,6 +25,7 @@ import { Login } from "../Login/Login";
 import { Location } from "./Location";
 import { SearchBox } from "./SearchBox";
 import { RouteLinks } from "./RouteLinks";
+import { Link } from "react-router-dom";
 export const Navbar = ({ name, avatar, pin }) => {
   const {
     isOpen: issidebarOpen,
@@ -130,9 +131,11 @@ export const Navbar = ({ name, avatar, pin }) => {
           </Flex>
           <Flex align={"center"} gap="1" cursor="pointer">
             <BsCart fontSize="20px" />
-            <Text display={["none", "none", "flex", "flex", "flex", "flex"]}>
-              Cart
-            </Text>
+            <Link to="/cart">
+              <Text display={["none", "none", "flex", "flex", "flex", "flex"]}>
+                Cart
+              </Text>
+            </Link>
           </Flex>
         </Flex>
       </Flex>
@@ -192,7 +195,7 @@ export const Navbar = ({ name, avatar, pin }) => {
             <RouteLinks mx="-4px" title={"Lab Test"} link={"/labtest"} />
             <RouteLinks mx="-4px" link={"/products"} title={"Healthcare"} />
             <RouteLinks mx="-4px" title={"Surgeries"} />
-            <RouteLinks mx="4px" link={"/products"} title={"Health Blogs"} />
+            <RouteLinks mx="4px" link={"/blog"} title={"Health Blogs"} />
             <RouteLinks mx={"-20px"} title={"PLUS"} />
             <RouteLinks mx={"-20px"} link={"/offers"} title={"Offers"} />
             <RouteLinks title={"Value Store"} />

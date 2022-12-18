@@ -9,6 +9,8 @@ import Healthpackages from "../Pages/Healthpackages";
 import Medicine from "../Pages/Medicine/Medicine";
 import Products from "../Component/Products/Products";
 import OfferPage from "../Pages/Offers/Offer";
+import Blog from "../Component/blog/blog";
+import Cart from "../Component/Addcart/cart";
 
 // const arr = [
 //   "ayurvedic",
@@ -37,6 +39,8 @@ export const Router = () => {
       <Route path="all-tests" element={<AllTest />} />
       <Route path="Healthpackages" element={<Healthpackages />} />
       <Route path="/medicine" element={<Medicine />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 };
