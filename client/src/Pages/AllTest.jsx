@@ -39,8 +39,8 @@ const AllTest = () => {
         <div>
           {test.map((item) => (
             <LazyLoad height={250} offset={150}>
-              <Stack spacing="4">
-                <Card key="md" size="md">
+              <Stack direction={['column']} spacing='24px'>
+                <Card key="md" size="md" _hover={{  borderColor:"teal",borderWidth:"2px", }} marginBottom="20px" className={styles.card} >
                   <CardHeader className={styles.cardHeader}>
                     <box className={styles.head}  >
                     <Image src='https://assets.pharmeasy.in/web-assets/dist/6b3d644c.svg' alt='Pharmecy' className={styles.Image_ph} />
