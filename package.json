@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "force": "^0.0.3",
-    "react-axios": "^2.0.6"
-  }
-}
