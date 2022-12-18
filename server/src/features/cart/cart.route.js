@@ -25,7 +25,7 @@ const authMiddleWare = async (req, res, next) => {
       }
     }
   } catch (e) {
-    res.send(e.message);
+    return res.send(e.message);
   }
 };
 
@@ -40,9 +40,9 @@ app.get("", async (req, res) => {
       },
       "product",
     ]);
-    res.send(carts);
+    return res.send(carts);
   } catch (e) {
-    res.send(e.message);
+    return res.send(e.message);
   }
 });
 
@@ -107,7 +107,7 @@ app.post("", async (req, res) => {
       }
     }
   } catch (e) {
-    res.send(e.message);
+    return res.send(e.message);
   }
 });
 
@@ -130,9 +130,9 @@ app.delete("/:id", async (req, res) => {
       }
     );
     await Cart.findByIdAndDelete({ _id: id });
-    res.send("Deleted Successfully");
+    return res.send("Deleted Successfully");
   } catch (e) {
-    res.send(e.message);
+    return res.send(e.message);
   }
 });
 
