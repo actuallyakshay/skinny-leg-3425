@@ -1,29 +1,49 @@
-import style from "./ProductCard.module.css";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-const ProductsCard = ({src,alt,name,price1}) => {
-  
-  const imageStyle = {
-   borderRadius: "10px",
-   height: "150px",
-   width: "100%"
-  }
-  const textStyle = {
-    textAlign : "center",
-    color: "gray",
-    fontSize: "16px",
-    fontWeight: "bold",
-  }
+export const ProductCard = ({
+  _id,
+  image,
+  name,
+  price2,
+  price1,
+  off,
+  link,
+}) => {
   return (
-    <div  className={style.productCard}>
-        <div>
-          <img src={src} alt={alt} style={imageStyle}  />
-        </div>
-        <div style={textStyle}>
-          <div>{name}</div>
-          <div>₹{price1}</div>
-        </div>
-    </div>
-  )
-}
+    <Box w="100%">
+      <Box
+        _hover={{
+          boxShadow:
+            "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;",
+        }}
+        border={"1px solid #d7dfe5"}
+        borderRadius="lg"
+        transition={"all"}
+        transitionDuration={"500ms"}
+      >
+        <Link to={_id}>
+          <Box py="12px" w="full" h="140px">
+            <Image w="100%" h="100%" objectFit={"contain"} src={image}></Image>
+          </Box>
+          <Box textAlign={"left"} mx="10px">
+            <p className="cardname">{name}</p>
 
-export default ProductsCard
+            <p>
+              MRP <del>₹{price2}</del>
+            </p>
+            <Flex gap="2" flexWrap={"wrap"}>
+              <Text>₹{price1}</Text>
+              <Text color={"red"}>{off} % OFF</Text>
+            </Flex>
+          </Box>
+        </Link>
+        <Flex w="full" justifyContent={"center"}>
+          <Button size="sm" my="10px" h="34px" colorScheme={"teal"}>
+            Add
+          </Button>
+        </Flex>
+      </Box>
+    </Box>
+  );
+};

@@ -1,19 +1,31 @@
 import axios from "axios";
-import { PRODUCT_FAILURE, PRODUCT_LOADING, PRODUCT_SUCCESS } from "./productActionTypes";
+import {
+  PRODUCT_FAILURE,
+  PRODUCT_LOADING,
+  PRODUCT_SUCCESS,
+} from "./productActionTypes";
 
 let URL = process.env.REACT_APP_URL;
 
-export const getData = (queryParams) => async (dispatch) => {
+export const getProductData =
+  (
+    category,
+    q = "",
+    sort = "",
+    arr = "",
+    off = "",
+    offSet = "",
+    firstLetter = "",
+    page = 1,
+    limit = 30
+  ) =>
+  (dispatch) => {
+    console.log({ category });
     dispatch({ type: PRODUCT_LOADING });
-    try {
-        // let response = await axios.get(`${URL}/product?category=${category}&q=${q}&sort=${sort}&arr=${arr}&off=${off}&offSet=${offSet}&firstLetter=${firstLetter}&page=${page}&limit=${limit}`);
-        let response = await axios.get(`${URL}/product` , queryParams)
-        dispatch({ type: PRODUCT_SUCCESS, payload: response.data });
-        console.log(response.data)
-        // return response.data;
-    } catch (error) {
-        console.log(error.message)
-        dispatch({ type: PRODUCT_FAILURE, payload: error.message })
-    }
-
-}
+    axios
+      .get(
+        `${URL}/product?category=${category}&q=${q}&sort=${sort}&arr=${arr}&off=${off}&offSet=${offSet}&firstLetter=${firstLetter}&page=${page}&limit=${limit}`
+      )
+      .then((res) => dispatch({ type: PRODUCT_SUCCESS, payload: res.data }))
+      .catch((e) => dispatch({ type: PRODUCT_FAILURE, payload: e.message }));
+  };
