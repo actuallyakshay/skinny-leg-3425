@@ -58,6 +58,7 @@ export const offerconfig = {
   cssEase: "linear",
   initialSlide: 0,
   arrow: false,
+  autoplay: true,
   responsive: [
     {
       breakpoint: 1025,
@@ -268,6 +269,121 @@ export const cardconfig2 = {
         slidesToShow: 1,
         slidesToScroll: 1,
         infinite: true,
+      },
+    },
+  ],
+};
+export const offerconfig2 = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  cssEase: "linear",
+  initialSlide: 0,
+  arrow: false,
+  autoplay: true,
+  responsive: [
+    {
+      breakpoint: 1281,
+      settings: {
+        slidesToShow: 2.5,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 913,
+      settings: {
+        slidesToShow: 2.2,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 841,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 541,
+      settings: {
+        slidesToShow: 1.5,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+export const articleconfig = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 3.5,
+  slidesToScroll: 1,
+  cssEase: "linear",
+  initialSlide: 0,
+  arrow: false,
+  responsive: [
+    {
+      breakpoint: 1281,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 2.4,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 913,
+      settings: {
+        slidesToShow: 2.2,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 841,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 541,
+      settings: {
+        slidesToShow: 1.4,
+        slidesToScroll: 1,
+        infinite: false,
+      },
+    },
+    {
+      breakpoint: 420,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
       },
     },
   ],

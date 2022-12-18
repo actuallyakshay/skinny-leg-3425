@@ -11,7 +11,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import axios from "axios";
-import LazyLoad from "react-lazyload";
 import styles from "../Pages/Healthpackages.module.css";
 
 const Healthpackages = () => {
@@ -38,29 +37,37 @@ const Healthpackages = () => {
         </div>
         <div>
           {test.map((item) => (
-            <LazyLoad height={250} offset={150}>
-              <Stack spacing={10} _hover="teal" >
-                <Card key="md" size="md" >
-                  <CardHeader className={styles.cardHeader}>
-                    <box className={styles.head}  >
-                    <Image src='https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg' alt='Pharmecy' className={styles.Image_ph} />
-                    <Text  className={styles.heading}  size="md">
+            <Stack spacing={10}>
+              <Card
+                key="md"
+                size="md"
+                _hover={{ borderColor: "teal" }}
+                marginBottom="20px"
+                className={styles.card}
+              >
+                <CardHeader className={styles.cardHeader}>
+                  <box className={styles.head}>
+                    <Image
+                      src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
+                      alt="Pharmecy"
+                      className={styles.Image_ph}
+                    />
+                    <Text className={styles.heading} size="md">
                       {item.name}
                     </Text>
-                    </box>
+                  </box>
 
-                    <box className={styles.select}>
-                    <Button colorScheme="teal" size="lg" >
+                  <box className={styles.select}>
+                    <Button colorScheme="teal" size="lg">
                       Select
                     </Button>
-                    </box>
-                  </CardHeader>
-                  <CardBody>
-                    <Text className={styles.text}>${item.price1} onwards</Text>
-                  </CardBody>
-                </Card>
-              </Stack>
-            </LazyLoad>
+                  </box>
+                </CardHeader>
+                <CardBody>
+                  <Text className={styles.text}>${item.price1} onwards</Text>
+                </CardBody>
+              </Card>
+            </Stack>
           ))}
         </div>
       </div>

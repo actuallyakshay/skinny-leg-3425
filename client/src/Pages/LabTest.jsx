@@ -20,7 +20,7 @@ import img7 from "./labtest IMG/monsoon fever packege.jpg";
 import saveper from "./all faci/save 5percent.jpg";
 import "./LabTest.css";
 import styles from "../Styles/OrderMedicine.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import OurPatientsSlider from "./happyPatientsSlider/OurPatientsSlider";
 import { FacilitySlider } from "./facilityProviderSlider/FacilitySlider";
 import Services from "./CustomerService/Services";
@@ -54,9 +54,7 @@ function PrevArrow(props) {
       style={{
         ...style,
         display: "block",
-
         background: "none",
-
         color: "black",
         height: "2rem",
         width: "2rem",
@@ -74,8 +72,8 @@ export const LabTest = () => {
     centerPadding: "160px",
     slidesToShow: 1,
     speed: 500,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    // nextArrow: <NextArrow />,
+    // prevArrow: <PrevArrow />,
   };
   return (
     <>
@@ -151,14 +149,19 @@ export const LabTest = () => {
               src="https://assets.pharmeasy.in/web-assets/dist/dea295a0.svg"
               alt=""
             />
-            <p>Health <br/>packages</p>
+            <p>
+              Health <br />
+              packages
+            </p>
           </Link>
           <Link to={""} className="allboxess">
             <img
               src="https://assets.pharmeasy.in/web-assets/dist/d4d62fbf.svg"
               alt="upload Precription"
             />
-            <p>Upload <br/> Precription</p>
+            <p>
+              Upload <br /> Precription
+            </p>
           </Link>
           <Link to={""} className="allboxes">
             <img

@@ -50,6 +50,7 @@
   --colors-diagnosticIllustration1000: #187484;
   --colors-diagnosticSecondary100: #ffeff3;
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -90,4 +91,21 @@ code {
       rgba(188, 104, 150, 0.49) 45%,
       transparent
     );
+}
+.downloadBanner {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cardname {
+  margin-top: 10px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.5rem;
+  height: 3rem;
 }
