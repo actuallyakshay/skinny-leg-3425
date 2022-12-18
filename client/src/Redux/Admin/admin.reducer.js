@@ -7,7 +7,7 @@ import {
 
 let token = localStorage.getItem("token") || "";
 let role = localStorage.getItem("role") || "";
-let userToken = localStorage.gertItem("userToken") || "";
+let userToken = localStorage.getItem("userToken") || "";
 
 const iState = {
   token: token,
