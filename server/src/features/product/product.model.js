@@ -12,6 +12,9 @@ const productSchema = new mongoose.Schema(
     ingredients: String,
     company: String,
     testInclude: String,
+    image1: String,
+    image2: String,
+    image3: String,
     ratings: [{ user_name: String, user_image: String, stars: Number }],
     reviews: [
       {

@@ -37,7 +37,7 @@ app.post("/login", async (req, res) => {
         let match = await bcrypt.compare(password, user.password);
         if (match) {
           let token = jwt.sign(
-            { _id: user._id, name: user.name },
+            { _id: user._id, name: user.name, role: user.role },
             process.env.SECRET_KEY
           );
           return res.status(200).send({ token });
@@ -52,25 +52,23 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-  const { name, email, password, pinCode, phoneNumber } = req.body;
+  const { name, email, password, pinCode, phoneNumber, role } = req.body;
   const token = req.headers.token;
   try {
     let user = await User.findOne({ email });
     if (user) {
       return res.status(400).send("user already exist");
     } else {
-      if (!token) {
-        let pass = await bcrypt.hash(password, 10);
-        let user = await User.create({
-          name,
-          email,
-          password: pass,
-          pinCode,
-          phoneNumber,
-          role: "Guest",
-        });
-        return res.send(user);
-      }
+      let pass = await bcrypt.hash(password, 10);
+      let user = await User.create({
+        name,
+        email,
+        password: pass,
+        pinCode,
+        phoneNumber,
+        role,
+      });
+      return res.send(user);
     }
   } catch (e) {
     return res.status(400).send(e.message);
