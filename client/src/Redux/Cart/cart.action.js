@@ -11,11 +11,7 @@ export const getCartdata = (token) => (dispatch) => {
     .catch((e) => console.log(e.message));
 };
 
-export const postCartData = (token, product, quantity) => (dispatch) => {
-  let body = {
-    product,
-    quantity,
-  };
+export const postCartData = (token, body) => (dispatch) => {
   axios
     .post(`${process.env.REACT_APP_URL}/cart`, body, {
       headers: token,

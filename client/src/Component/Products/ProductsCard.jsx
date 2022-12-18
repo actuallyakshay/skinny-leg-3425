@@ -1,5 +1,7 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { postCartData } from "../../Redux/Cart/cart.action";
 
 export const ProductCard = ({
   _id,
@@ -10,6 +12,17 @@ export const ProductCard = ({
   off,
   link,
 }) => {
+  const { userToken } = useSelector((state) => state?.authReducer);
+
+  const dispatch = useDispatch();
+  const hadleAddtoCart = (product, quantity) => {
+    let body = {
+      product,
+      quantity,
+    };
+    dispatch(postCartData(userToken, body));
+  };
+
   return (
     <Box w="100%">
       <Box
@@ -41,7 +54,14 @@ export const ProductCard = ({
           </Box>
         </Link>
         <Flex w="full" justifyContent={"center"}>
-          <Button size="md" my="10px" h="38px" borderRadius={10}  colorScheme={"teal"}>
+          <Button
+            size="md"
+            my="10px"
+            h="38px"
+            borderRadius={10}
+            colorScheme={"teal"}
+            onClick={() => hadleAddtoCart(_id, 1)}
+          >
             Add to Cart
           </Button>
         </Flex>
