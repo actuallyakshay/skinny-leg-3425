@@ -1,3 +1,5 @@
+import { signOut } from "firebase/auth";
+import { auth } from "../../Component/Login/firebase";
 import {
   GET_LOGIN_ERROR,
   GET_LOGIN_LOADING,
@@ -31,6 +33,7 @@ export const authReducer = (state = iState, { type, payload }) => {
       return {
         ...state,
         authLoading: true,
+        
       };
 
     case GET_LOGIN_SUCCESS:
@@ -46,6 +49,10 @@ export const authReducer = (state = iState, { type, payload }) => {
       };
 
     case GET_SIGNOUT:
+      // export const logout = () => {
+        signOut(auth);
+        // dispatch({ type: GET_SIGNOUT });
+      // };
       localStorage.removeItem("token");
       localStorage.removeItem("role");
       localStorage.removeItem("userToken");

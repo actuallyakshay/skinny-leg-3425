@@ -4,7 +4,6 @@ import {
   onAuthStateChanged,
   RecaptchaVerifier,
   signInWithPhoneNumber,
-  signOut,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
@@ -26,8 +25,6 @@ export const Login = ({ onLoginClose }) => {
 
   const getdata = async (number) => {
     const phoneNumber = number.substring(3, number.length);
-    // console.log(phoneNumber);
-
     var body = {
       phoneNumber: Number(phoneNumber),
     };
@@ -61,7 +58,4 @@ export const setUpRecapta = (number) => {
   );
   recaptchaVerifier.render();
   return signInWithPhoneNumber(auth, number, recaptchaVerifier);
-};
-export const logout = () => {
-  signOut(auth);
 };
