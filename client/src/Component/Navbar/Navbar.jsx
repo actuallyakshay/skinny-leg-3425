@@ -29,8 +29,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 export const Navbar = ({ name, avatar, pin }) => {
   const location = useLocation();
+  // const [number, setNumber] = useState();
   const [display, setDisplay] = useState(false);
   const { userName } = useSelector((state) => state?.authReducer);
+  const { userAuth } = useSelector((state) => state?.authReducer);
   const {
     isOpen: issidebarOpen,
     onOpen: onsidebarOpen,
@@ -65,6 +67,8 @@ export const Navbar = ({ name, avatar, pin }) => {
       windowHeight > 40 ? setActive("navbar") : setActive("");
     }
   };
+
+  console.log({ userName });
   return (
     <Box
       display={display ? "none" : "block"}
@@ -137,7 +141,7 @@ export const Navbar = ({ name, avatar, pin }) => {
           >
             <IoPersonOutline fontSize="20px" />
             <Text whiteSpace={"nowrap"}>
-              {userName ? userName : "Hello,Log In"}
+              {userAuth ? "Akshay" : "Hello,Log In"}
             </Text>
           </Flex>
           <Flex align={"center"} gap="1" cursor="pointer">
@@ -165,7 +169,11 @@ export const Navbar = ({ name, avatar, pin }) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerBody className="sidebar">
-            <Sidebar Openlogin={onLoginOpen} name={userName} avatar={avatar} />
+            <Sidebar
+              Openlogin={onLoginOpen}
+              name={userName || "Akshay"}
+              avatar={avatar}
+            />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -182,7 +190,11 @@ export const Navbar = ({ name, avatar, pin }) => {
           <DrawerHeader>Create your account</DrawerHeader>
 
           <DrawerBody>
-            <Login onLoginClose={onLoginClose} />
+            <Login
+              // number={number}
+              // setnumber={setNumber}
+              onLoginClose={onLoginClose}
+            />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
