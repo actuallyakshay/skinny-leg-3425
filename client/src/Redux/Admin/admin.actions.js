@@ -20,3 +20,7 @@ export const getLOGINbyNUMBER = (phoneNumber, varified) => (dispatch) => {
     console.log(res.data.token);
   });
 };
+
+// export const getSingleUSer = (phoneNumber) =>(dispatch)=> {
+  
+// }

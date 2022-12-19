@@ -26,10 +26,13 @@ import { Location } from "./Location";
 import { SearchBox } from "./SearchBox";
 import { RouteLinks } from "./RouteLinks";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Coupon } from "../../Pages/Cart/Coupon";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { GET_SIGNOUT } from "../../Redux/Admin/admin.types";
 export const Navbar = ({ name, avatar, pin }) => {
   const location = useLocation();
+  const dispatch = useDispatch();
   // const [number, setNumber] = useState();
   const [display, setDisplay] = useState(false);
   const { userName } = useSelector((state) => state?.authReducer);
@@ -75,7 +78,7 @@ export const Navbar = ({ name, avatar, pin }) => {
     }
   };
 
-  console.log({ userName });
+  // console.log({ userName });
   return (
     <Box
       display={display ? "none" : "block"}
@@ -148,9 +151,24 @@ export const Navbar = ({ name, avatar, pin }) => {
           >
             <IoPersonOutline fontSize="20px" />
             <Text whiteSpace={"nowrap"}>
-              {userAuth ? "Akshay" : "Hello,Log In"}
+              {userAuth ? (
+                <Flex align={"center"} w="max-content">
+                  <Text>Akshay</Text>
+                </Flex>
+              ) : (
+                "Hello,Log In"
+              )}
             </Text>
           </Flex>
+          <Text
+            display={userAuth ? "flex" : "none"}
+            onClick={() => {
+              dispatch({ type: GET_SIGNOUT }) && window.location.reload();
+            }}
+            cursor={"pointer"}
+          >
+            <RiLogoutCircleLine />
+          </Text>
           <Flex
             align={"center"}
             gap="1"
