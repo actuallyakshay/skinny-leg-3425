@@ -9,8 +9,27 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { getLOGINbyNUMBER } from "../../Redux/Admin/admin.actions";
 
-export const OtpComponent = ({ number, setOtp, setNumber, handlelogin }) => {
+export const OtpComponent = ({
+  number,
+  setNumber,
+  obj,
+  getdata,
+  onLoginClose,
+}) => {
+  const dispatch = useDispatch();
+  const verifyOtp = async (otp) => {
+    try {
+      const user = await obj.confirm(otp);
+      dispatch(getLOGINbyNUMBER(number, true));
+      getdata(user.user.phoneNumber);
+      onLoginClose();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const validateOTP = (value) => {
     let error;
     if (!value) {
@@ -26,8 +45,7 @@ export const OtpComponent = ({ number, setOtp, setNumber, handlelogin }) => {
         initialValues={{ name: "" }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            setOtp(values.name);
-            handlelogin(values.name);
+            verifyOtp(values.name);
             actions.setSubmitting(false);
           }, 1000);
         }}

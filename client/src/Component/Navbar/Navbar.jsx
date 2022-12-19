@@ -27,6 +27,7 @@ import { SearchBox } from "./SearchBox";
 import { RouteLinks } from "./RouteLinks";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Coupon } from "../../Pages/Cart/Coupon";
 export const Navbar = ({ name, avatar, pin }) => {
   const location = useLocation();
   // const [number, setNumber] = useState();
@@ -50,7 +51,13 @@ export const Navbar = ({ name, avatar, pin }) => {
     onOpen: onLoginOpen,
     onClose: onLoginClose,
   } = useDisclosure();
+  const {
+    isOpen: isOffer,
+    onOpen: onOfferOpen,
+    onClose: onOfferClose,
+  } = useDisclosure();
   const logRef = useRef();
+  const offerRef = useRef();
   const [active, setActive] = useState(" ");
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
@@ -144,7 +151,13 @@ export const Navbar = ({ name, avatar, pin }) => {
               {userAuth ? "Akshay" : "Hello,Log In"}
             </Text>
           </Flex>
-          <Flex align={"center"} gap="1" cursor="pointer">
+          <Flex
+            align={"center"}
+            gap="1"
+            ref={offerRef}
+            onClick={onOfferOpen}
+            cursor="pointer"
+          >
             <CiDiscount1 fontSize="20px" />
             <Text display={["none", "none", "flex", "flex", "flex", "flex"]}>
               Offers
@@ -187,7 +200,11 @@ export const Navbar = ({ name, avatar, pin }) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader borderBottom={"1px solid #d7dfe5"}>
+            <Flex justify={"center"}>
+              <Image w="250px" src={logo}></Image>
+            </Flex>
+          </DrawerHeader>
 
           <DrawerBody>
             <Login
@@ -254,6 +271,7 @@ export const Navbar = ({ name, avatar, pin }) => {
           </Flex>
         </Box>
       </Box>
+      <Coupon isOpen={isOffer} btnRef={offerRef} onClose={onOfferClose} />
     </Box>
   );
 };

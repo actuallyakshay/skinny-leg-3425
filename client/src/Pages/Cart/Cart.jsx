@@ -16,7 +16,7 @@ import { Coupon } from "./Coupon";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-export const Cart = ({ data, address }) => {
+export const Cart = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const dispatch = useDispatch();

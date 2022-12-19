@@ -16,14 +16,9 @@ import {
 import { Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { auth } from "./firebase";
+import { setUpRecapta } from "./Login";
 
-export const FormComponent = ({ setNumber }) => {
-  const [user, setUser] = useState({
-    phoneNumber: "",
-    verified: false,
-  });
-  const [obj, setObj] = useState({});
-
+export const FormComponent = ({ setNumber, setObj }) => {
   const validateNumber = (value) => {
     let error;
     if (!value) {
@@ -34,45 +29,15 @@ export const FormComponent = ({ setNumber }) => {
     return error;
   };
 
-  // const setUpRecapta = (number) => {
-  //   const recaptchaVerifier = new RecaptchaVerifier(
-  //     "recaptcha-container",
-  //     { size: "invisible" },
-  //     auth
-  //   );
-  //   recaptchaVerifier.render();
-  //   return signInWithPhoneNumber(auth, number, recaptchaVerifier);
-  // };
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-  //     setUser(currentuser);
-  //   });
-  //   return () => unsubscribe();
-  // }, [user]);
-
-  // const logout = () => {
-  //   signOut(auth);
-  //   // navigate("/");
-  // };
-
-  // const verifyOtp = async () => {
-  //   try {
-  //     await obj.confirm(otp);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const sendOTP = async (number) => {
-  //   // console.log
-  //   try {
-  //     const res = await setUpRecapta(`+91${number}`);
-  //     console.log(res);
-  //     setObj(res);
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
-  // };
+  const sendOTP = async (number) => {
+    try {
+      const res = await setUpRecapta(`+91${number}`);
+      console.log(res);
+      setObj(res);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
 
   return (
     <Box>
@@ -80,7 +45,7 @@ export const FormComponent = ({ setNumber }) => {
         initialValues={{ number: "" }}
         onSubmit={(values, actions) => {
           setTimeout(() => {
-            // sendOTP(values.number);
+            sendOTP(values.number);
             setNumber(values.number);
             actions.setSubmitting(false);
           }, 1000);
@@ -121,6 +86,7 @@ export const FormComponent = ({ setNumber }) => {
           </Form>
         )}
       </Formik>
+      <Box id="recaptcha-container"></Box>
     </Box>
   );
 };
