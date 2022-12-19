@@ -16,7 +16,7 @@ export const getLOGIN = (body) => (dispatch) => {
 export const getLOGINbyNUMBER = (phoneNumber, varified) => (dispatch) => {
   let body = { phoneNumber, varified };
   axios.post(`${process.env.REACT_APP_URL}/user/login`, body).then((res) => {
-    dispatch({ type: GET_NUMBER_LOGIN, payload: res.data.token });
+    dispatch({ type: GET_NUMBER_LOGIN, payload: res.data });
     console.log(res.data.token);
   });
 };

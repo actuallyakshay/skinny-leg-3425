@@ -9,6 +9,7 @@ import {
 let token = localStorage.getItem("token") || "";
 let role = localStorage.getItem("role") || "";
 let userToken = localStorage.getItem("userToken") || "";
+let userName = localStorage.getItem("userName") || "";
 
 const iState = {
   token: token,
@@ -20,6 +21,8 @@ const iState = {
   phoneNumber: "",
   userToken: userToken,
   userAuth: !!userToken,
+  userName: userName,
+  userID: "",
 };
 
 export const authReducer = (state = iState, { type, payload }) => {
@@ -46,6 +49,7 @@ export const authReducer = (state = iState, { type, payload }) => {
       localStorage.removeItem("token");
       localStorage.removeItem("role");
       localStorage.removeItem("userToken");
+      localStorage.removeItem("userName");
       return {
         ...state,
         isAuth: false,
@@ -55,11 +59,14 @@ export const authReducer = (state = iState, { type, payload }) => {
       };
 
     case GET_NUMBER_LOGIN:
-      localStorage.setItem("userToken", payload);
+      localStorage.setItem("userToken", payload.token);
+      localStorage.setItem("userName", payload.userName);
       return {
         ...state,
         userAuth: true,
-        userToken: payload,
+        userToken: payload.token,
+        userName: payload.name,
+        userID: payload._id,
       };
     default:
       return state;

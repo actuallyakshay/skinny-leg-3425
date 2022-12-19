@@ -56,7 +56,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <Box mt="104px">
+    <Box>
       <Flex
         position={"sticky"}
         top="0"

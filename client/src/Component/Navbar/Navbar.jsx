@@ -25,8 +25,12 @@ import { Login } from "../Login/Login";
 import { Location } from "./Location";
 import { SearchBox } from "./SearchBox";
 import { RouteLinks } from "./RouteLinks";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 export const Navbar = ({ name, avatar, pin }) => {
+  const location = useLocation();
+  const [display, setDisplay] = useState(false);
+  const { userName } = useSelector((state) => state?.authReducer);
   const {
     isOpen: issidebarOpen,
     onOpen: onsidebarOpen,
@@ -48,8 +52,13 @@ export const Navbar = ({ name, avatar, pin }) => {
   const [active, setActive] = useState(" ");
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
+    if (location.pathname.includes("admin")) {
+      setDisplay(true);
+    } else {
+      setDisplay(false);
+    }
     return () => window.removeEventListener("scroll", stickNavbar);
-  }, []);
+  }, [location]);
   const stickNavbar = () => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
@@ -57,7 +66,11 @@ export const Navbar = ({ name, avatar, pin }) => {
     }
   };
   return (
-    <Box className={`${active} nav`} bg="white">
+    <Box
+      display={display ? "none" : "block"}
+      className={`${active} nav`}
+      bg="white"
+    >
       <Flex
         h={"64px"}
         align="center"
@@ -123,7 +136,9 @@ export const Navbar = ({ name, avatar, pin }) => {
             w="40%"
           >
             <IoPersonOutline fontSize="20px" />
-            <Text>{name ? name : "Hello,Log In"}</Text>
+            <Text whiteSpace={"nowrap"}>
+              {userName ? userName : "Hello,Log In"}
+            </Text>
           </Flex>
           <Flex align={"center"} gap="1" cursor="pointer">
             <CiDiscount1 fontSize="20px" />
@@ -150,7 +165,7 @@ export const Navbar = ({ name, avatar, pin }) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerBody className="sidebar">
-            <Sidebar Openlogin={onLoginOpen} name={name} avatar={avatar} />
+            <Sidebar Openlogin={onLoginOpen} name={userName} avatar={avatar} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
