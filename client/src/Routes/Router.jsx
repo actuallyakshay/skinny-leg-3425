@@ -18,6 +18,7 @@ import AllProducts from "../Admin/AllProducts";
 import Trash from "../Admin/Trash";
 import AllUsers from "../Admin/AllUsers";
 import PrivateRoute from "./PrivateRoute";
+import { Login } from "../Component/Login/Login";
 
 // const arr = [
 //   "ayurvedic",
@@ -47,6 +48,7 @@ export const Router = () => {
       <Route path="Healthpackages" element={<Healthpackages />} />
       <Route path="/medicine" element={<Medicine />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/admin/createuser" element={<SignupPage />} />
       <Route path="/admin/login" element={<LoginPage />} />

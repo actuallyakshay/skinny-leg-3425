@@ -7,6 +7,7 @@ const Product = require("../product/product.model");
 
 const authMiddleWare = async (req, res, next) => {
   const token = req.headers.token;
+  console.log({ token });
   try {
     if (!token) {
       return res.send("Token missing");

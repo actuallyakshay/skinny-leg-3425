@@ -15,11 +15,11 @@ function MedicineComponent({
   const { userToken } = useSelector((state) => state?.authReducer);
   const dispatch = useDispatch();
   const hadleAddtoCart = (product, quantity) => {
-    let body = {
-      product,
-      quantity,
-    };
-    dispatch(postCartData(userToken, body));
+    // let body = {
+    //   product,
+    //   quantity,
+    // };
+    dispatch(postCartData(product, quantity, userToken));
   };
   return (
     <Grid

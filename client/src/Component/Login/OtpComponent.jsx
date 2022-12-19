@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 
-export const OtpComponent = ({ number, setOtp, setNumber }) => {
+export const OtpComponent = ({ number, setOtp, setNumber, handlelogin }) => {
   const validateOTP = (value) => {
     let error;
     if (!value) {
@@ -27,6 +27,7 @@ export const OtpComponent = ({ number, setOtp, setNumber }) => {
         onSubmit={(values, actions) => {
           setTimeout(() => {
             setOtp(values.name);
+            handlelogin(values.name);
             actions.setSubmitting(false);
           }, 1000);
         }}
