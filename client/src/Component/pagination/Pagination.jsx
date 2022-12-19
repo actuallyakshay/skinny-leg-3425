@@ -1,15 +1,35 @@
 import React from "react";
-import {Stack , Button , Text} from "@chakra-ui/react";
+import {Stack , Button , Text, Box, HStack} from "@chakra-ui/react";
 
-const Pagination = () => {
-const [page,setPage] = React.useState(0);
+const Pagination = ({current,handlePageClick}) => {
+    const prev = (
+        <Button backgroundColor="teal.500" color="white" disabled={current === 1} onClick={() => handlePageClick(current-1)} >
+          Prev
+        </Button>
+    );
+
+    const currentPage = (
+        <Button>{current}</Button>
+    );
+
+    const next = (
+      <Button  backgroundColor="teal.500" color="white" onClick={() => handlePageClick(current+1)} >
+         Next
+      </Button>
+    )
+
 
 
 return (
-   <Stack direction="row" align="center" w={50}  pl={20}  border="1px solid blue" >
-    <Button size="md" onClick={() => {setPage(page-1)}}>Prev</Button>
-     <Text fontSize="2xl" >{page}</Text>
-    <Button size="md" onClick={() => {setPage(page+1)}}>Next</Button>
+   <Stack direction="row" align="center"   pl={20} mt={5}  >
+    <HStack justifyContent="center" w="full" >
+    <Box>
+    {prev}
+   {currentPage}
+   {next}
+    </Box>
+    </HStack>
+
     </Stack>
 )
 }
