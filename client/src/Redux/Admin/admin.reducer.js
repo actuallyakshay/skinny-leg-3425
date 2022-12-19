@@ -2,6 +2,7 @@ import {
   GET_LOGIN_ERROR,
   GET_LOGIN_LOADING,
   GET_LOGIN_SUCCESS,
+  GET_NUMBER_LOGIN,
   GET_SIGNOUT,
 } from "./admin.types";
 
@@ -44,12 +45,21 @@ export const authReducer = (state = iState, { type, payload }) => {
     case GET_SIGNOUT:
       localStorage.removeItem("token");
       localStorage.removeItem("role");
+      localStorage.removeItem("userToken");
       return {
         ...state,
         isAuth: false,
         role: "",
         name: "",
         token: "",
+      };
+
+    case GET_NUMBER_LOGIN:
+      localStorage.setItem("userToken", payload);
+      return {
+        ...state,
+        userAuth: true,
+        userToken: payload,
       };
     default:
       return state;

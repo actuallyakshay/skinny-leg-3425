@@ -167,7 +167,7 @@ export const Navbar = ({ name, avatar, pin }) => {
           <DrawerHeader>Create your account</DrawerHeader>
 
           <DrawerBody>
-            <Login />
+            <Login onLoginClose={onLoginClose} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

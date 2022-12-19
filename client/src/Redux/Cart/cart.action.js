@@ -8,14 +8,22 @@ export const getCartdata = (token) => (dispatch) => {
       headers: token,
     })
     .then((res) => dispatch({ type: CART_SUCCESS, payload: res.data }))
+    .then((res) => console.log(res.data))
     .catch((e) => console.log(e.message));
 };
 
-export const postCartData = (token, body) => (dispatch) => {
-  axios
-    .post(`${process.env.REACT_APP_URL}/cart`, body, {
-      headers: token,
-    })
+export const postCartData = (product, quantity, token) => (dispatch) => {
+  axios(`${process.env.REACT_APP_URL}/cart`, {
+    method: "POST",
+    data: {
+      product,
+      quantity,
+    },
+    headers: {
+      token: token,
+      "content-type": "application/json",
+    },
+  })
     .then((res) => console.log(res.data))
     .catch((e) => console.log(e.message));
 };

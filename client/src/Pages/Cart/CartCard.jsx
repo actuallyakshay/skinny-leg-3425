@@ -1,7 +1,9 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useSelector } from "react-redux";
 export const CartCard = ({
+  _id,
   image,
   name,
   price1,
@@ -9,6 +11,7 @@ export const CartCard = ({
   off,
   quantity,
   handleDel,
+  handleAddToCart,
 }) => {
   return (
     <Flex w="full" p="10px" borderBottom={"1px solid #d7dfe5"} gap="2">
@@ -44,7 +47,7 @@ export const CartCard = ({
               colorScheme={"blue"}
               borderRadius="50%"
               size={"sm"}
-              onClick={() => quantity - 1}
+              onClick={() => handleAddToCart(_id, -1)}
             >
               -
             </Button>
@@ -53,7 +56,7 @@ export const CartCard = ({
               colorScheme={"blue"}
               borderRadius="50%"
               size={"sm"}
-              onClick={() => quantity + 1}
+              onClick={() => handleAddToCart(_id, 1)}
             >
               +
             </Button>

@@ -7,6 +7,7 @@ const Product = require("../product/product.model");
 
 const authMiddleWare = async (req, res, next) => {
   const token = req.headers.token;
+  console.log({ token });
   try {
     if (!token) {
       return res.send("Token missing");
@@ -47,6 +48,7 @@ app.get("", async (req, res) => {
 });
 
 app.post("", async (req, res) => {
+  console.log(req.body);
   try {
     let dbProduct = await Product.findOne({ _id: req.body.product });
     let cartItem = await Cart.findOne({ product: req.body.product });

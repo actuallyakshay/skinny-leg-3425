@@ -5,6 +5,7 @@ import {
   Image,
   Text,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -12,10 +13,63 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CartCard } from "./CartCard";
 import item from "../SinglePage/ayurvedic.json";
 import { Coupon } from "./Coupon";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 export const Cart = ({ data, address }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const dispatch = useDispatch();
+  const toast = useToast();
+
+  const { userToken } = useSelector((state) => state?.authReducer);
+
+  const handleAddToCart = (product, quantity) => {
+    let type;
+    if (quantity == -1) {
+      type = "dec";
+    } else {
+      type = "inc";
+    }
+    let body = {
+      product,
+      quantity,
+      type,
+    };
+    axios
+      .post(`${process.env.REACT_APP_URL}/cart`, body, {
+        headers: userToken,
+      })
+      .then((res) => {
+        if (res.data === "Token missing") {
+          toast({
+            title: `${res.data}`,
+            status: "warning",
+            position: "top",
+            duration: 2000,
+            isClosable: true,
+          });
+        } else {
+          toast({
+            title: `${res.data}`,
+            status: "success",
+            position: "top",
+            duration: 2000,
+            isClosable: true,
+          });
+        }
+      })
+      .catch((e) =>
+        toast({
+          title: `${e.message}`,
+          status: "error",
+          position: "top",
+          duration: 2000,
+          isClosable: true,
+        })
+      );
+  };
+
   const total =
     item?.reduce((acc, el) => acc + el.price1 * el.quantity, 0).toFixed(2) || 0;
   const mrp =
@@ -60,7 +114,9 @@ export const Cart = ({ data, address }) => {
           {/* <CartCard {...data[0]} />
           <CartCard {...data[0]} /> */}
           {item ? (
-            item.map((el) => <CartCard {...el} />)
+            item.map((el) => (
+              <CartCard handleAddToCart={handleAddToCart} {...el} />
+            ))
           ) : (
             <Flex
               justify={"center"}
