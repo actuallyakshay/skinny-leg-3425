@@ -13,6 +13,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { useSearchParams } from "react-router-dom";
 
 const arr = [
+  "sale",
   "ayurvedic",
   "babycare",
   "diabetes",
@@ -68,7 +69,7 @@ const Filter = ({ handleClick, handleFilter }) => {
             justifyContent="space-between"
           >
             <Text color="gray.500">Mega Clearance Sale</Text>
-            <Radio size="lg" colorScheme="green" />
+            <Radio size="lg" defaultChecked={true} colorScheme="green" />
           </Box>
         </RadioGroup>
       </Box>

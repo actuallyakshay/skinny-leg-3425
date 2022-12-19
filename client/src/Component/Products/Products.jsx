@@ -17,11 +17,15 @@ const Products = () => {
   const dispatch = useDispatch();
 
   const [cat, setCat] = useState("sale");
+  const [page,setPage] = useState(1)
 
+  const handlePageClick = () => {
+
+  }
   
   useEffect(() => {
-    dispatch(getProductData(cat));
-  }, [cat, dispatch]);
+    dispatch(getProductData(cat,page));
+  }, [cat,page, dispatch]);
 
   
 
@@ -100,7 +104,7 @@ const Products = () => {
         </Box>
       </Box>
 
-      <Pagination />
+      <Pagination handlePageClick={(val)=> setPage(val)} current={page} />
       </>
     );
 };
