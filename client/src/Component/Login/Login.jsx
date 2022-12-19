@@ -24,23 +24,16 @@ export const Login = ({ onLoginClose }) => {
     return () => unsubscribe();
   }, [user]);
 
-  const getdata = (number) => {
-    const phoneNumber = +number.substring(3, number.length);
-    console.log(phoneNumber);
+  const getdata = async (number) => {
+    const phoneNumber = number.substring(3, number.length);
+    // console.log(phoneNumber);
 
-    var postData = {
-      phoneNumber: phoneNumber,
+    var body = {
+      phoneNumber: Number(phoneNumber),
     };
-
-    let axiosConfig = {
-      headers: {
-        "Content-Type": "application/json;charset=UTF-8",
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
-    axios
-      .get(`${process.env.REACT_APP_URL}/user`, postData, axiosConfig)
-      .then((res) => console.log("data", res.data));
+    let res = await axios.post(`${process.env.REACT_APP_URL}/user`, body);
+    let data = console.log("data", res.data);
+    console.log(data);
   };
 
   return (
