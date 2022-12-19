@@ -7,33 +7,23 @@ export const getCartdata = (token) => (dispatch) => {
     .get(`${process.env.REACT_APP_URL}/cart`, {
       headers: token,
     })
-    // .then((res) => dispatch({ type: CART_SUCCESS, payload: res.data }))
+    .then((res) => dispatch({ type: CART_SUCCESS, payload: res.data }))
     .then((res) => console.log(res.data))
     .catch((e) => console.log(e.message));
 };
 
 export const postCartData = (product, quantity, token) => (dispatch) => {
-  let body = {
-    product,
-    quantity,
-  };
-  axios
-    .post(`${process.env.REACT_APP_URL}/cart`, body, {
-      headers: token,
-    })
+  axios(`${process.env.REACT_APP_URL}/cart`, {
+    method: "POST",
+    data: {
+      product,
+      quantity,
+    },
+    headers: {
+      token: token,
+      "content-type": "application/json",
+    },
+  })
     .then((res) => console.log(res.data))
     .catch((e) => console.log(e.message));
-  //   axios(`http://localhost:8080/cart`, {
-  //     method: "POST",
-  //     body: {
-  //       product,
-  //       quantity,
-  //     },
-  //     headers: {
-  //       token: token,
-  //       "content-type": "application/json",
-  //     },
-  //   })
-  //     .then((res) => console.log(res.data))
-  //     .catch((e) => console.log(e.message));
 };

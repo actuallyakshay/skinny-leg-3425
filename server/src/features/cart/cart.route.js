@@ -48,6 +48,7 @@ app.get("", async (req, res) => {
 });
 
 app.post("", async (req, res) => {
+  console.log(req.body);
   try {
     let dbProduct = await Product.findOne({ _id: req.body.product });
     let cartItem = await Cart.findOne({ product: req.body.product });
