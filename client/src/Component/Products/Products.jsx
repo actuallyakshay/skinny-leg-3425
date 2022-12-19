@@ -52,59 +52,61 @@ const Products = () => {
   } else
     return (
       <>
-      <Box w="100%" overflowX={"hidden"}>
-        <Box ml={{ base: "10px", lg: "100px" }}>
-          <WrapperBreadcrumb>
-            <Breadcrumbs />
-          </WrapperBreadcrumb>
-        </Box>
-        <Flex px="5" w="full" justifyContent="space-between">
-          <Text fontSize="27px" fontWeight="490" color="#4F585E">
-            Mega Clearance Sale
-          </Text>
-          <Select
-            size="sm"
-            placeholder="Sort By"
-            width={250}
-            borderColor="#4F585E"
-            onChange={(e) => handleSort(e.target.value)}
-          >
-            <option value="asc">Price low to high</option>
-            <option value="desc">Price high to low</option>
-          </Select>
-        </Flex>
-        <Box
-          width={800}
-          display="flex"
-          justifyContent="space-between"
-          mb={-10}
-          ml={400}
-        >
-          <Box
-            width={400}
-            height={47}
-            display="flex"
-            justifyContent="space-around"
-          ></Box>
-        </Box>
-        <Box overflowX={"hidden"}>
-          <Wrapper>
-            <Box
-              display={{ base: "none", lg: "flex" }}
-              w={{ base: "0", lg: "25%" }}
+        <Box w="100%" overflowX={"hidden"}>
+          <Box ml={{ base: "10px", lg: "100px" }}>
+            <WrapperBreadcrumb>
+              <Breadcrumbs />
+            </WrapperBreadcrumb>
+          </Box>
+          <Flex px="5" w="full" justifyContent="space-between">
+            <Text fontSize="27px" fontWeight="490" color="#4F585E">
+            Category :   {cat}
+            </Text>
+            <Select
+              size="sm"
+              placeholder="Sort By"
+              width={250}
+              borderColor="#4F585E"
+              onChange={(e) => handleSort(e.target.value)}
             >
-              <WrapperFilter>
-                <Filter handleClick={handleClick} handleFilter={handleFilter} />
-              </WrapperFilter>
-            </Box>
+              <option value="asc">Price low to high</option>
+              <option value="desc">Price high to low</option>
+            </Select>
+          </Flex>
+          <Box
+            width={800}
+            display="flex"
+            justifyContent="space-between"
+            mb={-10}
+            ml={400}
+          >
+            <Box
+              width={400}
+              height={47}
+              display="flex"
+              justifyContent="space-around"
+            ></Box>
+          </Box>
+          <Box overflowX={"hidden"}>
+            <Wrapper>
+              <Box
+                display={{ base: "none", lg: "flex" }}
+                w={{ base: "0", lg: "25%" }}
+              >
+                <WrapperFilter>
+                  <Filter
+                    handleClick={handleClick}
+                    handleFilter={handleFilter}
+                  />
+                </WrapperFilter>
+              </Box>
 
-            <ProComponent productData={productData} />
-           
-          </Wrapper>
+              <ProComponent productData={productData} />
+            </Wrapper>
+          </Box>
         </Box>
-      </Box>
 
-      <Pagination handlePageClick={(val)=> setPage(val)} current={page} />
+        <Pagination handlePageClick={(val) => setPage(val)} current={page} />
       </>
     );
 };
