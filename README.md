@@ -1,5 +1,5 @@
 # skinny-leg-3425
-This is an e-commerce website which basically deals with medicines and meications . 
+This is an e-commerce website which basically deals with medicines and medications . 
 It also includes many other functionalities like sorting , filter based on category , price.
 This is a full fleged website where we have used backend as well as frontend and all the functionalities are done from backend.
 
