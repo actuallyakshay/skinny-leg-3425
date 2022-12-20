@@ -18,3 +18,20 @@ Some images of our websites are :-
 ![Screenshot (639)](https://user-images.githubusercontent.com/103635044/208608319-0151eb1f-72ec-4ea4-9732-b96565bc2548.png)
 ![Screenshot (640)](https://user-images.githubusercontent.com/103635044/208608324-406153b0-9a4e-4c95-a2d5-81f91fe79ea0.png)
 ![Screenshot (641)](https://user-images.githubusercontent.com/103635044/208608331-a44cb923-f506-4d93-999e-7c334bc20f14.png)
+
+## Tech Stack
+
+#### Frontend
+- ReactJS
+- Redux
+- Chakra-UI
+- HTML
+- CSS
+- Styled Component
+
+#### Backend
+- Nodejs
+- ExpressJS
+- MongoDB
+- Firebase
+
