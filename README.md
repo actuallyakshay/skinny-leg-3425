@@ -30,6 +30,7 @@ Some images of our websites are :-
 - Styled Component
 
 #### Backend
+- TypeScript
 - Nodejs
 - ExpressJS
 - MongoDB
