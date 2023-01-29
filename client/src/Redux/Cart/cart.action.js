@@ -23,6 +23,7 @@ export const postCartData = (product, quantity, token) => (dispatch) => {
       token: token,
       "content-type": "application/json",
     },
+    
   })
     .then((res) => console.log(res.data))
     .catch((e) => console.log(e.message));

@@ -19,9 +19,16 @@ const AllTest = () => {
   async function getTestData() {
     const data = await axios.get(
       `${process.env.REACT_APP_URL}/product?category=labtest&limit&=10&page=1`
+      
     );
+
+    
+      
+    
+    
     // setTest((prev) => [...data.data]);
     setTest(data.data);
+    
   }
 
   useEffect(() => {

@@ -17,6 +17,7 @@ import FirstPage from "../Admin/FirstPage";
 import AllProducts from "../Admin/AllProducts";
 import Trash from "../Admin/Trash";
 import AllUsers from "../Admin/AllUsers";
+import SearchComponent from "../Component/Navbar/SearchComponent";
 import PrivateRoute from "./PrivateRoute";
 import { Login } from "../Component/Login/Login";
 
@@ -49,6 +50,7 @@ export const Router = () => {
       <Route path="/medicine" element={<Medicine />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/searchedData" element={<SearchComponent />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/admin/createuser" element={<SignupPage />} />
       <Route path="/admin/login" element={<LoginPage />} />

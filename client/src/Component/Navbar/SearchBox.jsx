@@ -1,8 +1,39 @@
 import { Box, Flex, Input, useDisclosure } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import searchData from "./db.json";
+import { useNavigate } from "react-router-dom";
+// import { async } from './../../../../server/src/config/db';
 
 export const SearchBox = () => {
+  const [searchedValue, setSearchedValue] = useState("");
+  const [searchedData, setSearchedData] = useState([]);
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/searchedData");
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    handleChange();
+  }, [searchedValue]);
+
+  const handleChange = async (e) => {
+    setSearchedValue(e.target.value);
+    // e.preventDefault();
+    const data = searchData
+      .map((data) => data)
+      .filter((data) => data.category.startsWith(e.target.value));
+
+    const shortData = data.slice(0, 40);
+    setSearchedData([...data]);
+    localStorage.setItem("searchData", JSON.stringify(shortData));
+
+    console.log(searchedData, "searchlatest");
+  };
+
   const {
     isOpen: isSearch,
     onOpen: onSearch,
@@ -36,6 +67,8 @@ export const SearchBox = () => {
               id="myText"
               variant={"unstyled"}
               onBlur={onCloseSearch}
+              value={searchedValue}
+              onChange={(e) => handleChange(e)}
               border="none"
               w="full"
               placeholder="Search for"
@@ -64,6 +97,7 @@ export const SearchBox = () => {
           color={"white"}
           mr="5px"
           fontWeight={"semibold"}
+          onClick={handleClick}
         >
           Search
         </Box>
