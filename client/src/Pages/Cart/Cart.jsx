@@ -41,6 +41,7 @@ export const Cart = () => {
         headers: userToken,
       })
       .then((res) => {
+        
         if (res.data === "Token missing") {
           toast({
             title: `${res.data}`,

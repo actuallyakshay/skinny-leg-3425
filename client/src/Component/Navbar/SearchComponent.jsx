@@ -1,9 +1,10 @@
 import { Grid } from "@chakra-ui/react";
 import React from "react";
-import { ProductCard } from "./ProductsCard";
+import { SearchData } from "./Searchdata";
 
-function ProComponent({ productData }) {
-  console.log("data", productData);
+function SearchComponent() {
+  const productData = JSON.parse(localStorage.getItem("searchData"));
+  console.log(productData, "datatatatatata");
   return (
     <Grid
       fontFamily={"poppins"}
@@ -17,10 +18,10 @@ function ProComponent({ productData }) {
       rowGap={[3, 3, 5, 6]}
     >
       {productData?.map((data) => (
-        <ProductCard key={data._id} {...data} />
+        <SearchData key={data._id} {...data} />
       ))}
     </Grid>
   );
 }
 
-export default ProComponent;
+export default SearchComponent;
