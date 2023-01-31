@@ -25,7 +25,7 @@ export const SearchBox = () => {
     // e.preventDefault();
     const data = searchData
       .map((data) => data)
-      .filter((data) => data.category.startsWith(e.target.value));
+      .filter((data) => data.name.startsWith(e.target.value) || data.category.startsWith(e.target.value))
 
     const shortData = data.slice(0, 40);
     setSearchedData([...data]);
